@@ -31,11 +31,38 @@ interface KeywordLibrary {
   keywords: KeywordRecord[];
 }
 
+interface UpdateKeyword {
+  keyword: string;
+  categoryId: string;
+  category: string;
+  subcategory: string;
+  specialistReview: boolean;
+}
+
+interface UpdateRun {
+  id: string;
+  date: string;
+  summary: string;
+  keywordsAdded: number;
+  categoriesAdded: Array<{ id: string; name: string; description: string }>;
+  categoryCounts: Array<{ category: string; count: number }>;
+  keywords: UpdateKeyword[];
+}
+
+interface UpdateLog {
+  generatedAt: string;
+  runs: UpdateRun[];
+}
+
 const PAGE_SIZE = 120;
 const typeOrder = ["All", "Guide", "FAQ", "Comparison", "Roundup", "Review", "Shopping"];
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("en-US").format(value);
+}
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(new Date(`${value}T12:00:00`));
 }
 
 export default function App() {
@@ -45,17 +72,40 @@ export default function App() {
   const [activeType, setActiveType] = useState("All");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [copiedId, setCopiedId] = useState("");
+  const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
+  const [showUpdates, setShowUpdates] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/data/keyword-library.json")
-      .then((response) => {
+    Promise.all([
+      fetch("/data/keyword-library.json").then((response) => {
         if (!response.ok) throw new Error("Keyword library request failed");
-        return response.json();
+        return response.json() as Promise<KeywordLibrary>;
+      }),
+      fetch("/data/update-log.json")
+        .then((response) => response.ok ? response.json() as Promise<UpdateLog> : { generatedAt: "", runs: [] })
+        .catch(() => ({ generatedAt: "", runs: [] })),
+    ])
+      .then(([libraryData, updateData]) => {
+        setLibrary(libraryData);
+        setUpdates(updateData);
       })
-      .then((data: KeywordLibrary) => setLibrary(data))
       .catch(() => setError("The mattress keyword library could not be loaded."));
   }, []);
+
+  useEffect(() => {
+    if (!showUpdates) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setShowUpdates(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [showUpdates]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
@@ -124,6 +174,7 @@ export default function App() {
   const description = normalizedSearch
     ? `Mattress-specific matches across all ${library.categories.length} categories.`
     : selectedCategory?.description;
+  const latestUpdate = updates.runs[0];
 
   return (
     <div className="site-shell">
@@ -132,9 +183,15 @@ export default function App() {
           <span className="wordmark-icon">M</span>
           <span><strong>Mattress Keyword Library</strong><small>U.S. SEO research</small></span>
         </button>
-        <div className="header-context">
-          <span>Private workspace</span>
-          <a href="https://www.saatva.com/" target="_blank" rel="noreferrer">Saatva affiliate ↗</a>
+        <div className="header-actions">
+          <button className="updates-button" onClick={() => setShowUpdates(true)}>
+            <span>Updates</span>
+            {latestUpdate && <small>+{formatNumber(latestUpdate.keywordsAdded)}</small>}
+          </button>
+          <div className="header-context">
+            <span>Private workspace</span>
+            <a href="https://www.saatva.com/" target="_blank" rel="noreferrer">Saatva affiliate ↗</a>
+          </div>
         </div>
       </header>
 
@@ -148,7 +205,7 @@ export default function App() {
           <div className="hero-stats" aria-label="Library summary">
             <div><strong>{formatNumber(library.totalKeywords)}</strong><span>usable keywords</span></div>
             <div><strong>{library.categories.length}</strong><span>clear categories</span></div>
-            <div><strong>{library.categories.find((category) => category.id === "brands")?.subcategoryCount ?? 0}</strong><span>mattress brands</span></div>
+            <div><strong>{formatNumber(latestUpdate?.keywordsAdded ?? 0)}</strong><span>new in latest run</span></div>
           </div>
         </section>
 
@@ -251,8 +308,66 @@ export default function App() {
 
       <footer>
         <span>Mattress Keyword Library · U.S. English</span>
-        <span>Curated for SEO pages and FAQs · Saatva does not determine inclusion</span>
+        <span>Daily FAQ research · Brands frozen · Saatva does not determine inclusion</span>
       </footer>
+
+      {showUpdates && (
+        <div className="updates-scrim">
+          <section className="updates-drawer" role="dialog" aria-modal="true" aria-labelledby="updates-title">
+            <div className="updates-drawer-header">
+              <div>
+                <span className="eyebrow">Daily research log</span>
+                <h2 id="updates-title">What changed</h2>
+                <p>New mattress FAQs and shopper questions are listed here. Brand expansion is paused.</p>
+              </div>
+              <button className="updates-close" onClick={() => setShowUpdates(false)} aria-label="Close updates">×</button>
+            </div>
+
+            {updates.runs.length > 0 ? (
+              <div className="updates-runs">
+                {updates.runs.map((run, index) => (
+                  <details className="update-run" key={run.id} open={index === 0 ? true : undefined}>
+                    <summary>
+                      <div>
+                        <strong>{formatDate(run.date)}</strong>
+                        <span>{run.summary}</span>
+                      </div>
+                      <div className="update-total">
+                        <strong>+{formatNumber(run.keywordsAdded)}</strong>
+                        <span>{run.categoriesAdded.length > 0 ? `${run.categoriesAdded.length} new categories` : "existing categories"}</span>
+                      </div>
+                    </summary>
+                    <div className="update-run-body">
+                      <div className="update-counts">
+                        {run.categoryCounts.map((item) => <span key={item.category}>{item.category} <strong>+{item.count}</strong></span>)}
+                      </div>
+                      {run.categoriesAdded.length > 0 && (
+                        <div className="new-categories">
+                          <strong>New categories</strong>
+                          {run.categoriesAdded.map((category) => <span key={category.id}>{category.name}</span>)}
+                        </div>
+                      )}
+                      <div className="update-keywords">
+                        {run.keywords.map((record) => (
+                          <article key={`${run.id}-${record.keyword}`}>
+                            <div>
+                              <strong>{record.keyword}</strong>
+                              <span>{record.subcategory}{record.specialistReview ? " · specialist review" : ""}</span>
+                            </div>
+                            <button onClick={() => { chooseCategory(record.categoryId); setShowUpdates(false); }}>{record.category}</button>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            ) : (
+              <div className="updates-empty"><strong>No research runs yet</strong><p>The first daily expansion will appear here.</p></div>
+            )}
+          </section>
+        </div>
+      )}
     </div>
   );
 }

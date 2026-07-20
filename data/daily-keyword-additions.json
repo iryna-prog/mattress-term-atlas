@@ -1,0 +1,2982 @@
+{
+  "runs": [
+    {
+      "id": "2026-07-20-faq-expansion-01",
+      "date": "2026-07-20",
+      "summary": "First daily FAQ-focused expansion with 330 novel U.S.-English mattress-shopping keywords across 12 existing categories. No mattress brands were added or changed.",
+      "categoriesAdded": [],
+      "keywords": [
+    {
+      "keyword": "can you sleep on your side on a latex mattress",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness latex mattress is best for side sleepers",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on a latex mattress",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness latex mattress is best for back sleepers",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on a latex mattress",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness latex mattress is best for stomach sleepers",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is a latex mattress good for combination sleepers",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on a memory foam mattress",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness memory foam mattress is best for side sleepers",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on a memory foam mattress",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness memory foam mattress is best for back sleepers",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on a memory foam mattress",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness memory foam mattress is best for stomach sleepers",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is a memory foam mattress good for combination sleepers",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on a hybrid mattress",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness hybrid mattress is best for side sleepers",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on a hybrid mattress",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness hybrid mattress is best for back sleepers",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on a hybrid mattress",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness hybrid mattress is best for stomach sleepers",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is a hybrid mattress good for combination sleepers",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on an innerspring mattress",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness innerspring mattress is best for side sleepers",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on an innerspring mattress",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness innerspring mattress is best for back sleepers",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on an innerspring mattress",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness innerspring mattress is best for stomach sleepers",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is an innerspring mattress good for combination sleepers",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on a tight top mattress",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness tight top mattress is best for side sleepers",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on a tight top mattress",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness tight top mattress is best for back sleepers",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on a tight top mattress",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness tight top mattress is best for stomach sleepers",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is a tight top mattress good for combination sleepers",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on a pillow top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness pillow top mattress is best for side sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on a pillow top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness pillow top mattress is best for back sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on a pillow top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness pillow top mattress is best for stomach sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is a pillow top mattress good for combination sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your side on an euro top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness euro top mattress is best for side sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your back on an euro top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness euro top mattress is best for back sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "can you sleep on your stomach on an euro top mattress",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "what firmness euro top mattress is best for stomach sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "is an euro top mattress good for combination sleepers",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Natural sleep-position and mattress-type question with direct product-selection intent."
+    },
+    {
+      "keyword": "i sleep on my side what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress should i buy if i sleep on my side",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can side sleepers use a firm mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can side sleepers use a soft mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "is a medium firm mattress good for side sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "how soft should a mattress be for side sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do side sleepers need a pillow top mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do side sleepers need zoned support in a mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress keeps a side sleeper's spine aligned",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress keeps a side sleeper's hips from sinking too far",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "should side sleepers prioritize pressure relief or firmness in a mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress is best for side sleepers who toss and turn",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i sleep on my back what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress should i buy if i sleep on my back",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can back sleepers use a soft mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can back sleepers use a plush mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do back sleepers need a firm mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "is a medium firm mattress good for back sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "how firm should a mattress be for back sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do back sleepers need zoned lumbar support in a mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress keeps a back sleeper's hips from sinking",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can back sleepers use a pillow top mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress is best for back sleepers who toss and turn",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "should back sleepers prioritize support or pressure relief in a mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i sleep on my stomach what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress should i buy if i sleep on my stomach",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can stomach sleepers use a plush mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "can stomach sleepers use a pillow top mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "is a medium firm mattress good for stomach sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "how firm should a mattress be for stomach sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do stomach sleepers need a thinner mattress comfort layer",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress keeps a stomach sleeper's hips from sinking",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress supports a stomach sleeper's midsection",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "should stomach sleepers avoid soft mattresses",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress is best for stomach sleepers who toss and turn",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i change sleeping positions what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i switch between side and back sleeping what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i switch between side and stomach sleeping what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "i switch between back and stomach sleeping what mattress do i need",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress is easiest to move around on for combination sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "do combination sleepers need a responsive mattress",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "should combination sleepers choose foam latex or coils",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress firmness works for side and back combination sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress firmness works for side and stomach combination sleepers",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "what mattress is best for combination sleepers who feel stuck in foam",
+      "categoryId": "sleep-position",
+      "subcategory": "Natural-language sleep position FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Conversational mattress-selection question that mirrors how U.S. shoppers describe their primary or changing sleep position."
+    },
+    {
+      "keyword": "best mattress for a side sleeper and back sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "best mattress for a side sleeper and stomach sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "best mattress for a back sleeper and stomach sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "what mattress firmness works for a side sleeper and back sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "what mattress firmness works for a side sleeper and stomach sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "what mattress firmness works for a back sleeper and stomach sleeper couple",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "should couples with different sleep positions choose a split firmness mattress",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "what mattress works when one partner is a side sleeper and the other tosses and turns",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "what mattress works when partners have different sleep positions and body weights",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "can a medium firm mattress work for couples with different sleep positions",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "is zoned mattress support useful for couples with different sleep positions",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "should mixed-position couples choose a hybrid or foam mattress",
+      "categoryId": "couples",
+      "subcategory": "Couples with different sleep positions",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": false,
+      "rationale": "Credible couples-shopping FAQ that connects mixed sleep positions to firmness, construction, or split-comfort decisions."
+    },
+    {
+      "keyword": "i have back pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have lower back pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have upper back pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have mid back pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with mid back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have hip pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have shoulder pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have arm pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with arm pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have neck pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have joint pain what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "i have sciatica what mattress do i need",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "what mattress should i buy if i have sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "can the wrong mattress cause sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "how do i know if my mattress is causing sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too firm for sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is my mattress too soft for sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Natural-language pain and mattress FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "First-person pain-related mattress-shopping question with clear replacement or product-selection intent; requires evidence-safe specialist review."
+    },
+    {
+      "keyword": "is a latex mattress good for lower back pain",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a latex mattress good for hip pain",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a latex mattress good for shoulder pain",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a latex mattress good for joint pain",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a latex mattress good for sciatica",
+      "categoryId": "latex",
+      "subcategory": "Latex mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a memory foam mattress good for lower back pain",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a memory foam mattress good for hip pain",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a memory foam mattress good for shoulder pain",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a memory foam mattress good for joint pain",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a memory foam mattress good for sciatica",
+      "categoryId": "memory-foam",
+      "subcategory": "Memory foam pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a hybrid mattress good for lower back pain",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a hybrid mattress good for hip pain",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a hybrid mattress good for shoulder pain",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a hybrid mattress good for joint pain",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a hybrid mattress good for sciatica",
+      "categoryId": "hybrid",
+      "subcategory": "Hybrid mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an innerspring mattress good for lower back pain",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an innerspring mattress good for hip pain",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an innerspring mattress good for shoulder pain",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an innerspring mattress good for joint pain",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an innerspring mattress good for sciatica",
+      "categoryId": "innerspring",
+      "subcategory": "Innerspring mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a tight top mattress good for lower back pain",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a tight top mattress good for hip pain",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a tight top mattress good for shoulder pain",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a tight top mattress good for joint pain",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a tight top mattress good for sciatica",
+      "categoryId": "tight-top",
+      "subcategory": "Tight top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a pillow top mattress good for lower back pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a pillow top mattress good for hip pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a pillow top mattress good for shoulder pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a pillow top mattress good for joint pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is a pillow top mattress good for sciatica",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Pillow top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an euro top mattress good for lower back pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an euro top mattress good for hip pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an euro top mattress good for shoulder pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an euro top mattress good for joint pain",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "is an euro top mattress good for sciatica",
+      "categoryId": "pillow-euro-top",
+      "subcategory": "Euro top mattress pain FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Mattress-type and pain-fit question with commercial relevance; specialist review prevents unsupported medical claims."
+    },
+    {
+      "keyword": "best mattress for side sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for side sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for side sleepers with shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for side sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for side sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for side sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for side sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with upper back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for back sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for back sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for stomach sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for stomach sleepers with lower back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for stomach sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for stomach sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for stomach sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for stomach sleepers with neck pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for stomach sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for stomach sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for combination sleepers with back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for combination sleepers with back pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for combination sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for combination sleepers with hip pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for combination sleepers with shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for combination sleepers with shoulder pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for combination sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for combination sleepers with joint pain",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "best mattress for combination sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "Roundup",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "High-intent roundup combining a real pain concern with sleeping position; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for combination sleepers with sciatica",
+      "categoryId": "pain-health",
+      "subcategory": "Pain crossed with sleeping position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Specific firmness-selection FAQ combining pain and sleep posture; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is easiest to get out of with limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress height is easiest to get in and out of bed",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "does strong mattress edge support help with getting out of bed",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "is a soft mattress harder to get out of with limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "is memory foam hard to move around on with limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is easiest to roll over on",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is easiest for changing sleep positions",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for people who have trouble turning over in bed",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "should people with limited mobility choose a responsive mattress",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "should people with limited mobility avoid deep sinking memory foam",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness makes it easier to stand up from the bed",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress edge is best for sitting before standing up",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress works with a transfer aid or bed rail",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for older adults with limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for arthritis and limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress thickness works best for limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "is a low profile mattress better for limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "is a high profile mattress harder to get out of bed",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "what mattress offers pressure relief without making movement difficult",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "hybrid vs memory foam mattress for limited mobility",
+      "categoryId": "pain-health",
+      "subcategory": "Mobility and ease-of-movement FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Connects mobility limitations to edge support, responsiveness, mattress height, or ease of repositioning; specialist review is required."
+    },
+    {
+      "keyword": "why does my shoulder feel numb on my mattress",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "can my mattress make my arm fall asleep when i sleep on my side",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is my mattress too firm if my shoulder hurts at night",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is my mattress too firm if my hips hurt at night",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is my mattress too soft if my hips sink lower than my shoulders",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress relieves shoulder pressure for side sleepers",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress relieves hip pressure for side sleepers",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress cushions shoulders without letting hips sag",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress offers pressure relief without deep sinking",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for sensitive pressure points",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for bony shoulders and hips",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for broad shouldered side sleepers",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress is best for side sleepers with wider hips",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "does a thicker mattress comfort layer reduce shoulder pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "does zoned mattress support help with shoulder and hip pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is a pillow top mattress good for shoulder pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is a euro top mattress good for hip pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is latex too firm for shoulder pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "is memory foam good for numb arms while side sleeping",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "should side sleepers choose contouring or bounce in a mattress for pressure relief",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "how much should a side sleeper's shoulder sink into a mattress",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "how much should a side sleeper's hips sink into a mattress",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "what mattress supports the waist while cushioning shoulders and hips",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "can a worn mattress comfort layer cause new pressure points",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "can mattress body impressions cause hip or shoulder pressure",
+      "categoryId": "pain-health",
+      "subcategory": "Pressure-point and numbness FAQs",
+      "contentType": "Comparison",
+      "intent": "Commercial",
+      "specialistReview": true,
+      "rationale": "Direct mattress-pressure question that can lead to comfort-layer, firmness, and replacement guidance; specialist review is required."
+    },
+    {
+      "keyword": "can an old mattress cause morning back pain",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "can a sagging mattress cause lower back pain",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "can a sagging mattress cause hip pain",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "can an uneven mattress cause shoulder pain",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "should i replace my mattress if i wake up sore every day",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "should i replace my mattress if pain improves after getting out of bed",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how can i test whether my mattress is causing pain",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how long should i try a new mattress before judging back pain",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how long should i try a new mattress before judging hip pressure",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how long should a side sleeper test a mattress",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how long should a back sleeper test a mattress",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "how long should a stomach sleeper test a mattress",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "what should i track during a mattress sleep trial if i have back pain",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "what should i track during a mattress sleep trial if i have hip pain",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "should i exchange a mattress that makes my shoulder numb",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "should i return a mattress that makes my lower back hurt",
+      "categoryId": "delivery-policies",
+      "subcategory": "Testing comfort during a sleep trial",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "can a new mattress temporarily make back pain feel worse",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "can a new mattress temporarily cause hip soreness",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "is my mattress worn out if i sleep better in a hotel",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "is my mattress worn out if i sleep better in another bed",
+      "categoryId": "care",
+      "subcategory": "Pain-related mattress replacement triggers",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": true,
+      "rationale": "Pain-led ownership question with a credible path to mattress replacement, exchange, or trial-period decision; specialist review is required."
+    },
+    {
+      "keyword": "what mattress firmness is best for lightweight side sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for average weight side sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for heavy side sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for lightweight back sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for average weight back sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for heavy back sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for lightweight stomach sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for average weight stomach sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "what mattress firmness is best for heavy stomach sleepers",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "do lightweight side sleepers need a softer mattress",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "do heavy side sleepers need a thicker mattress comfort layer",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    },
+    {
+      "keyword": "do heavy stomach sleepers need a firmer mattress",
+      "categoryId": "body-weight",
+      "subcategory": "Body weight crossed with sleep position",
+      "contentType": "FAQ",
+      "intent": "Informational",
+      "specialistReview": false,
+      "rationale": "Useful mattress-fit FAQ combining body weight and sleep position without introducing a medical claim."
+    }
+      ]
+    }
+  ]
+}

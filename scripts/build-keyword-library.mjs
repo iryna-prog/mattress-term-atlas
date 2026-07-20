@@ -1,5 +1,16 @@
 import fs from "node:fs/promises";
 
+const dailyResearchPath = new URL("../data/daily-keyword-additions.json", import.meta.url);
+let dailyResearch = { runs: [] };
+
+try {
+  dailyResearch = JSON.parse(await fs.readFile(dailyResearchPath, "utf8"));
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
+}
+
+if (!Array.isArray(dailyResearch.runs)) throw new Error("Daily research must contain a runs array");
+
 const categoryDefinitions = [
   ["latex", "Latex Mattresses", "Natural, organic, Dunlop, Talalay, blended and latex-hybrid mattress topics."],
   ["memory-foam", "Memory Foam Mattresses", "Memory foam types, feel, density, cooling, durability and shopper-fit questions."],
@@ -32,6 +43,16 @@ const categoryDefinitions = [
   ["faqs", "General Mattress FAQs", "Foundational mattress questions that support guides, explainers and FAQ hubs."],
 ].map(([id, name, description], order) => ({ id, name, description, order }));
 
+for (const run of dailyResearch.runs) {
+  for (const category of run.categoriesAdded ?? []) {
+    if (!category?.id || !category?.name || !category?.description) throw new Error(`Invalid category in daily run ${run.id}`);
+    if (category.id === "brands") throw new Error("Daily research cannot modify the frozen brands category");
+    if (!categoryDefinitions.some((existing) => existing.id === category.id)) {
+      categoryDefinitions.push({ ...category, order: categoryDefinitions.length });
+    }
+  }
+}
+
 const categoryById = new Map(categoryDefinitions.map((category) => [category.id, category]));
 const records = [];
 const seen = new Set();
@@ -53,11 +74,11 @@ function inferType(keyword) {
   return ["Guide", "Informational"];
 }
 
-function add(keyword, categoryId, subcategory, source = "Curated expansion") {
+function add(keyword, categoryId, subcategory, source = "Curated expansion", metadata = {}) {
   const normalized = normalize(keyword);
   if (!categoryById.has(categoryId)) throw new Error(`Unknown category: ${categoryId}`);
-  if (!normalized || seen.has(normalized)) return;
-  if (/test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(normalized)) return;
+  if (!normalized || seen.has(normalized)) return false;
+  if (/test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(normalized)) return false;
   const [contentType, intent] = inferType(normalized);
   seen.add(normalized);
   records.push({
@@ -66,10 +87,14 @@ function add(keyword, categoryId, subcategory, source = "Curated expansion") {
     categoryId,
     category: categoryById.get(categoryId).name,
     subcategory,
-    contentType,
-    intent,
+    contentType: metadata.contentType ?? contentType,
+    intent: metadata.intent ?? intent,
     source,
+    dailyRunId: metadata.dailyRunId,
+    specialistReview: Boolean(metadata.specialistReview),
+    rationale: metadata.rationale,
   });
+  return true;
 }
 
 function addAll(categoryId, subcategory, keywords, source) {
@@ -840,6 +865,54 @@ addAll("faqs", "Owning a mattress", [
   "how to tell which side of a mattress is the top", "how to tell if a mattress contains fiberglass",
 ]);
 
+const dailyRunResults = [];
+const mattressContextPattern = /mattress|bed|box spring|foundation|adjustable base|pillow top|euro top|tight top|innerspring|memory foam|latex|hybrid/i;
+
+for (const run of dailyResearch.runs) {
+  if (!run?.id || !run?.date || !Array.isArray(run.keywords)) throw new Error("Every daily research run needs an id, date, and keywords array");
+  const addedKeywords = [];
+  const categoryCounts = new Map();
+
+  for (const entry of run.keywords) {
+    const normalizedKeyword = normalize(entry.keyword ?? "");
+    if (entry.categoryId === "brands") throw new Error(`Daily run ${run.id} attempted to add a brand keyword`);
+    if (!mattressContextPattern.test(normalizedKeyword)) throw new Error(`Daily keyword lacks mattress context: ${normalizedKeyword}`);
+    const accepted = add(
+      normalizedKeyword,
+      entry.categoryId,
+      entry.subcategory,
+      `Daily FAQ research · ${run.date}`,
+      {
+        dailyRunId: run.id,
+        specialistReview: Boolean(entry.specialistReview),
+        rationale: entry.rationale ?? "Mattress-specific FAQ or shopping topic.",
+        contentType: entry.contentType,
+        intent: entry.intent,
+      },
+    );
+    if (!accepted) continue;
+    const category = categoryById.get(entry.categoryId);
+    addedKeywords.push({
+      keyword: normalizedKeyword,
+      categoryId: entry.categoryId,
+      category: category.name,
+      subcategory: entry.subcategory,
+      specialistReview: Boolean(entry.specialistReview),
+    });
+    categoryCounts.set(category.name, (categoryCounts.get(category.name) ?? 0) + 1);
+  }
+
+  dailyRunResults.push({
+    id: run.id,
+    date: run.date,
+    summary: run.summary ?? "Expanded mattress FAQs and shopper questions.",
+    keywordsAdded: addedKeywords.length,
+    categoriesAdded: run.categoriesAdded ?? [],
+    categoryCounts: [...categoryCounts.entries()].map(([category, count]) => ({ category, count })),
+    keywords: addedKeywords,
+  });
+}
+
 records.sort((left, right) => {
   const categoryOrder = categoryById.get(left.categoryId).order - categoryById.get(right.categoryId).order;
   if (categoryOrder) return categoryOrder;
@@ -869,9 +942,20 @@ const output = {
 
 await fs.mkdir("public/data", { recursive: true });
 await fs.writeFile("public/data/keyword-library.json", JSON.stringify(output));
+await fs.writeFile("public/data/update-log.json", JSON.stringify({
+  generatedAt: output.generatedAt,
+  runs: dailyRunResults.sort((left, right) => right.date.localeCompare(left.date)),
+}));
 
 const invalid = records.filter((record) => /test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(record.keyword));
 if (invalid.length) throw new Error(`Invalid keywords escaped filtering: ${invalid.length}`);
 if (categories.some((category) => category.count === 0)) throw new Error("A category has no keywords");
 
-console.log(JSON.stringify({ totalKeywords: records.length, categories: categories.length, brands: brands.length, invalid: invalid.length }, null, 2));
+console.log(JSON.stringify({
+  totalKeywords: records.length,
+  categories: categories.length,
+  brands: brands.length,
+  dailyRuns: dailyRunResults.length,
+  dailyKeywords: dailyRunResults.reduce((total, run) => total + run.keywordsAdded, 0),
+  invalid: invalid.length,
+}, null, 2));
