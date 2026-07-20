@@ -17,15 +17,23 @@ const categoryDefinitions = [
   ["hybrid", "Hybrid Mattresses", "Foam-and-coil, latex-hybrid and specialty hybrid mattress searches."],
   ["innerspring", "Innerspring Mattresses", "Traditional spring systems, pocket coils, coil gauge, support and comparisons."],
   ["tight-top", "Tight Top Mattresses", "Tight top construction, feel, use cases and comparisons with pillow and Euro tops."],
-  ["pillow-euro-top", "Pillow Top & Euro Top Mattresses", "Pillow top, Euro top, plush top and cushioning-layer searches."],
+  ["pillow-top", "Pillow Top Mattresses", "Pillow top construction, feel, durability, shopper fit and comparison searches."],
+  ["euro-top", "Euro Top Mattresses", "Euro top construction, edge support, feel, durability and shopper-fit searches."],
   ["organic-natural", "Organic & Natural Mattresses", "Organic materials, natural construction, vegan options and certifications."],
   ["other-types", "Other Mattress Types", "Airbeds, futons, folding, floor, flippable and other real mattress formats."],
   ["adjustable-smart", "Adjustable & Smart Beds", "Adjustable bases, adjustable air mattresses, smart beds and sleep technology."],
   ["sizes", "Mattress Sizes", "U.S. mattress dimensions, uncommon sizes, room fit and size comparisons."],
   ["firmness-feel", "Firmness & Feel", "Soft through extra-firm mattresses, comfort language and firmness selection."],
-  ["sleep-position", "Sleeping Position", "Mattress searches for side, back, stomach and combination sleepers."],
+  ["side-sleepers", "Mattresses for Side Sleepers", "Mattress firmness, pressure relief, materials and FAQs for side sleepers."],
+  ["back-sleepers", "Mattresses for Back Sleepers", "Mattress support, firmness, materials and FAQs for back sleepers."],
+  ["stomach-sleepers", "Mattresses for Stomach Sleepers", "Mattress support, firmness, materials and FAQs for stomach sleepers."],
+  ["combination-sleepers", "Mattresses for Combination Sleepers", "Mattress responsiveness, firmness and FAQs for people who change positions."],
+  ["sleep-position-other", "Other Sleep Positions", "Lower-confidence or less common sleep-position phrases retained for review."],
   ["body-weight", "Body Type & Weight", "Mattress support for lightweight, average, heavy, tall and plus-size sleepers."],
-  ["pain-health", "Pain & Health Needs", "Mattress-shopping questions connected to pain, pressure, mobility and sleep needs."],
+  ["back-pain", "Mattresses for Back Pain", "Mattress-shopping questions for lower, upper, middle and general back pain."],
+  ["hip-shoulder-pain", "Hip, Shoulder & Joint Pressure", "Mattress firmness and pressure-relief questions for hips, shoulders and joints."],
+  ["sciatica-numbness", "Sciatica, Numbness & Nerve Pressure", "Mattress-shopping questions involving sciatica, numbness and radiating discomfort."],
+  ["health-accessibility", "Health, Mobility & Accessibility", "Mattress-shopping questions for mobility, reflux, apnea, allergies and accessibility."],
   ["cooling", "Cooling & Hot Sleepers", "Cooling mattresses, airflow, night sweats and temperature-related shopping."],
   ["couples", "Couples & Motion Isolation", "Motion isolation, edge support, split firmness and partner compatibility."],
   ["kids-crib", "Kids, Teens & Crib Mattresses", "Crib, toddler, bunk, teen and child mattress selection and safety."],
@@ -38,10 +46,46 @@ const categoryDefinitions = [
   ["price", "Price, Sales & Financing", "Mattress cost, budgets, sale timing, coupons, financing and value questions."],
   ["delivery-policies", "Delivery, Trials, Returns & Warranties", "Purchase policies, setup logistics, sleep trials and warranty questions."],
   ["care", "Mattress Care, Problems & Replacement", "Cleaning, rotation, sagging, odors, damage, disposal and replacement triggers."],
-  ["safety", "Mattress Safety & Certifications", "Fiberglass, fire barriers, emissions, chemicals, regulations and mattress certifications."],
+  ["fiberglass", "Fiberglass in Mattresses", "Detection, labels, exposure, cleanup, alternatives and fiberglass-free mattress shopping."],
+  ["safety", "Mattress Safety & Certifications", "Fire barriers, emissions, chemicals, regulations and mattress certifications."],
   ["comparisons", "Mattress Comparisons", "Direct type, material, size, brand and construction comparisons."],
   ["faqs", "General Mattress FAQs", "Foundational mattress questions that support guides, explainers and FAQ hubs."],
 ].map(([id, name, description], order) => ({ id, name, description, order }));
+
+const categoryPriorityMap = {
+  latex: 1,
+  "memory-foam": 1,
+  hybrid: 1,
+  innerspring: 1,
+  "tight-top": 1,
+  "pillow-top": 1,
+  "euro-top": 1,
+  fiberglass: 1,
+  "side-sleepers": 1,
+  "back-pain": 1,
+  "organic-natural": 2,
+  "firmness-feel": 2,
+  "back-sleepers": 2,
+  "stomach-sleepers": 2,
+  "combination-sleepers": 2,
+  "hip-shoulder-pain": 2,
+  "sciatica-numbness": 2,
+  cooling: 2,
+  couples: 2,
+  safety: 2,
+  brands: 4,
+  retailers: 4,
+  "rv-specialty": 4,
+  "sleep-position-other": 5,
+};
+
+const categoryPriorityReasons = {
+  1: "Highest-priority content cluster: strong mattress-shopping connection, broad FAQ depth, and clear internal-link potential.",
+  2: "High-priority supporting cluster with credible shopper demand and strong conversion paths.",
+  3: "Useful supporting cluster; publish after the core mattress-type and problem-led hubs.",
+  4: "Lower-priority or paused cluster with higher competition, narrower demand, or a separate future strategy.",
+  5: "Lowest-confidence cluster retained for review rather than deletion.",
+};
 
 for (const run of dailyResearch.runs) {
   for (const category of run.categoriesAdded ?? []) {
@@ -61,6 +105,7 @@ function normalize(value) {
   return value
     .toLowerCase()
     .replace(/[–—]/g, "-")
+    .replace(/\ban euro\b/g, "a euro")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -102,6 +147,7 @@ function addAll(categoryId, subcategory, keywords, source) {
 }
 
 function articleFor(base) {
+  if (/^euro\b/.test(base)) return `a ${base}`;
   return /^[aeiou]|^rv\b/.test(base) ? `an ${base}` : `a ${base}`;
 }
 
@@ -403,25 +449,34 @@ addAll("tight-top", "Tight top mattress FAQs", [
   "how to soften a tight top mattress",
 ]);
 
-addProductFamily("pillow-euro-top", "Pillow and Euro top guides", [
+addProductFamily("pillow-top", "Pillow top mattress guides", [
   "pillow top mattress",
-  "euro top mattress",
   "plush top mattress",
   "double pillow top mattress",
 ], ["tight top mattress", "hybrid mattress"]);
-addAll("pillow-euro-top", "Top construction FAQs", [
+addAll("pillow-top", "Pillow top mattress FAQs", [
   "what is a pillow top mattress",
-  "what is a euro top mattress",
   "pillow top vs euro top mattress",
   "pillow top vs tight top mattress",
-  "euro top vs tight top mattress",
   "do pillow top mattresses sag",
   "can you flip a pillow top mattress",
   "can you rotate a pillow top mattress",
   "how long does a pillow top mattress last",
-  "how long does a euro top mattress last",
   "pillow top mattress for side sleepers",
   "pillow top mattress for back pain",
+]);
+addProductFamily("euro-top", "Euro top mattress guides", [
+  "euro top mattress",
+  "plush euro top mattress",
+], ["tight top mattress", "pillow top mattress", "hybrid mattress"]);
+addAll("euro-top", "Euro top mattress FAQs", [
+  "what is a euro top mattress",
+  "euro top vs tight top mattress",
+  "euro top vs pillow top mattress",
+  "do euro top mattresses sag",
+  "can you flip a euro top mattress",
+  "can you rotate a euro top mattress",
+  "how long does a euro top mattress last",
   "euro top mattress for heavy people",
 ]);
 
@@ -559,7 +614,16 @@ addAll("firmness-feel", "Firmness FAQs", [
 
 const positions = ["side sleepers", "back sleepers", "stomach sleepers", "combination sleepers", "fetal position sleepers", "starfish sleepers"];
 for (const position of positions) {
-  addAll("sleep-position", position, [
+  const positionCategoryId = position === "side sleepers"
+    ? "side-sleepers"
+    : position === "back sleepers"
+      ? "back-sleepers"
+      : position === "stomach sleepers"
+        ? "stomach-sleepers"
+        : position === "combination sleepers"
+          ? "combination-sleepers"
+          : "sleep-position-other";
+  addAll(positionCategoryId, position, [
     `mattress for ${position}`,
     `best mattress for ${position}`,
     `mattress firmness for ${position}`,
@@ -592,7 +656,14 @@ const healthNeeds = [
   "pressure sores", "limited mobility", "acid reflux", "sleep apnea", "allergies",
 ];
 for (const need of healthNeeds) {
-  addAll("pain-health", need, [
+  const healthCategoryId = /back pain/.test(need)
+    ? "back-pain"
+    : /hip pain|shoulder pain|joint pain|arthritis|fibromyalgia|pressure sores/.test(need)
+      ? "hip-shoulder-pain"
+      : /sciatica|neck pain/.test(need)
+        ? "sciatica-numbness"
+        : "health-accessibility";
+  addAll(healthCategoryId, need, [
     `mattress for ${need}`,
     `best mattress for ${need}`,
     `mattress firmness for ${need}`,
@@ -810,11 +881,14 @@ addAll("care", "Mattress problems and replacement", [
   "can an old mattress cause back pain", "mattress lifespan by type", "how to break in a new mattress",
 ]);
 
-addAll("safety", "Fiberglass and fire barriers", [
+addAll("fiberglass", "Fiberglass detection and alternatives", [
   "fiberglass in mattresses", "why do mattresses contain fiberglass", "how to tell if a mattress has fiberglass",
   "mattress fiberglass warning label", "mattress fiberglass contamination", "what to do if mattress fiberglass escapes",
   "mattress without fiberglass", "best mattress without fiberglass", "fiberglass-free memory foam mattress",
-  "fiberglass-free hybrid mattress", "natural mattress fire barrier", "wool mattress fire barrier",
+  "fiberglass-free hybrid mattress",
+]);
+addAll("safety", "Fire barriers and flammability", [
+  "natural mattress fire barrier", "wool mattress fire barrier",
   "rayon mattress fire barrier", "silica mattress fire barrier", "chemical flame retardants in mattresses",
   "mattress flammability standard", "16 cfr 1632 mattress standard", "16 cfr 1633 mattress standard",
 ]);
@@ -865,8 +939,308 @@ addAll("faqs", "Owning a mattress", [
   "how to tell which side of a mattress is the top", "how to tell if a mattress contains fiberglass",
 ]);
 
+const fixedExpansionRun = {
+  id: "2026-07-20-deep-category-expansion-02",
+  date: "2026-07-20",
+  summary: "Split high-value topics into standalone categories and added a much deeper FAQ expansion using mattress-specific search patterns.",
+  categoryIdsAdded: [
+    "pillow-top", "euro-top", "fiberglass", "side-sleepers", "back-sleepers",
+    "stomach-sleepers", "combination-sleepers", "sleep-position-other", "back-pain",
+    "hip-shoulder-pain", "sciatica-numbness", "health-accessibility",
+  ],
+};
+
+function addExpansionKeyword(keyword, categoryId, subcategory, specialistReview = false, rationale = "High-utility mattress FAQ with a credible shopping or replacement path.") {
+  return add(keyword, categoryId, subcategory, `Deep FAQ expansion · ${fixedExpansionRun.date}`, {
+    dailyRunId: fixedExpansionRun.id,
+    specialistReview,
+    rationale,
+  });
+}
+
+function addExpansionAll(categoryId, subcategory, keywords, specialistReview = false, rationale) {
+  keywords.forEach((keyword) => addExpansionKeyword(keyword, categoryId, subcategory, specialistReview, rationale));
+}
+
+function addDeepProductFaqs(categoryId, label, base) {
+  const article = articleFor(base);
+  addExpansionAll(categoryId, `${label} deep FAQs`, [
+    `what does ${article} feel like`,
+    `is ${article} soft or firm`,
+    `is ${article} supportive`,
+    `is ${article} comfortable`,
+    `who is ${article} best for`,
+    `who should avoid ${article}`,
+    `is ${article} good for side sleepers`,
+    `is ${article} good for back sleepers`,
+    `is ${article} good for stomach sleepers`,
+    `is ${article} good for combination sleepers`,
+    `is ${article} good for lightweight sleepers`,
+    `is ${article} good for average weight sleepers`,
+    `is ${article} good for heavy sleepers`,
+    `is ${article} good for tall people`,
+    `is ${article} good for seniors`,
+    `is ${article} good for couples`,
+    `is ${article} good for sex`,
+    `does ${article} isolate motion`,
+    `does ${article} have good edge support`,
+    `does ${article} relieve pressure`,
+    `does ${article} feel bouncy`,
+    `does ${article} feel like you are sinking`,
+    `does ${article} sleep hot`,
+    `is ${article} breathable`,
+    `is ${article} good for night sweats`,
+    `is ${article} good for allergies`,
+    `does ${article} off-gas`,
+    `how long does ${article} smell`,
+    `does ${article} sag`,
+    `does ${article} develop body impressions`,
+    `how long does ${article} take to break in`,
+    `does ${article} get softer over time`,
+    `how thick should ${article} be`,
+    `what firmness ${base} should i choose`,
+    `what is the best firmness for ${article}`,
+    `what is inside ${article}`,
+    `how is ${article} constructed`,
+    `how much does ${article} weigh`,
+    `what is the weight limit for ${article}`,
+    `can ${article} go on a platform bed`,
+    `can ${article} go on slats`,
+    `can ${article} go on a box spring`,
+    `can ${article} go on an adjustable base`,
+    `can ${article} go directly on the floor`,
+    `does ${article} need a foundation`,
+    `can you flip ${article}`,
+    `how often should you rotate ${article}`,
+    `can you bend ${article} for moving`,
+    `how to move ${article} without damage`,
+    `how to store ${article}`,
+    `does ${article} need a mattress protector`,
+    `can you put a topper on ${article}`,
+    `what sheets fit ${article}`,
+    `how long should you try ${article}`,
+    `what warranty should ${article} have`,
+    `what is a fair price for ${article}`,
+    `is a cheap ${base} worth it`,
+    `is an expensive ${base} worth it`,
+    `${base} for a guest room`,
+    `${base} for everyday use`,
+    `${base} for an adjustable bed`,
+    `${base} for a platform bed`,
+    `${base} for a small bedroom`,
+    `${base} for two people`,
+    `how to tell if ${article} is worn out`,
+    `when should you replace ${article}`,
+    `why does my ${base} hurt my back`,
+    `why does my ${base} hurt my hips`,
+    `why does my ${base} feel too firm`,
+    `why does my ${base} feel too soft`,
+  ]);
+}
+
+[
+  ["latex", "Latex mattress", "latex mattress"],
+  ["memory-foam", "Memory foam mattress", "memory foam mattress"],
+  ["hybrid", "Hybrid mattress", "hybrid mattress"],
+  ["innerspring", "Innerspring mattress", "innerspring mattress"],
+  ["tight-top", "Tight top mattress", "tight top mattress"],
+  ["pillow-top", "Pillow top mattress", "pillow top mattress"],
+  ["euro-top", "Euro top mattress", "euro top mattress"],
+  ["organic-natural", "Organic mattress", "organic mattress"],
+].forEach(([categoryId, label, base]) => addDeepProductFaqs(categoryId, label, base));
+
+function addPositionExpansion(categoryId, label, plural) {
+  const keywords = [
+    `what mattress is best for ${plural}`,
+    `what mattress type is best for ${plural}`,
+    `what mattress firmness is best for ${plural}`,
+    `how soft should a mattress be for ${plural}`,
+    `how firm should a mattress be for ${plural}`,
+    `how thick should a mattress be for ${plural}`,
+    `do ${plural} need a soft mattress`,
+    `do ${plural} need a firm mattress`,
+    `is memory foam or latex better for ${plural}`,
+    `is a hybrid or innerspring mattress better for ${plural}`,
+    `is a pillow top mattress good for ${plural}`,
+    `is a euro top mattress good for ${plural}`,
+    `is a tight top mattress good for ${plural}`,
+    `is a latex mattress good for ${plural}`,
+    `is a memory foam mattress good for ${plural}`,
+    `is a hybrid mattress good for ${plural}`,
+    `is an innerspring mattress good for ${plural}`,
+    `are pocket coils good for ${plural}`,
+    `is zoned mattress support good for ${plural}`,
+    `how much pressure relief do ${plural} need from a mattress`,
+    `how much contouring do ${plural} need from a mattress`,
+    `how much edge support do ${plural} need from a mattress`,
+    `what mattress is best for lightweight ${plural}`,
+    `what mattress is best for average weight ${plural}`,
+    `what mattress is best for heavy ${plural}`,
+    `what mattress is best for hot ${plural}`,
+    `what mattress is best for ${plural} with back pain`,
+    `what mattress is best for ${plural} with hip pain`,
+    `what mattress is best for ${plural} with shoulder pain`,
+    `what mattress is best for ${plural} with joint pain`,
+    `what mattress is best for couples who are ${plural}`,
+    `what mattress works for ${plural} who share a bed with a back sleeper`,
+    `what mattress works for ${plural} who share a bed with a side sleeper`,
+    `what mattress works for ${plural} who share a bed with a stomach sleeper`,
+    `can ${plural} use an adjustable bed`,
+    `what adjustable bed position is best for ${plural}`,
+    `why does my mattress feel wrong for a ${label.toLowerCase()}`,
+    `how to tell if a mattress is too firm for ${plural}`,
+    `how to tell if a mattress is too soft for ${plural}`,
+    `can a mattress cause numbness for ${plural}`,
+    `can a worn mattress cause pain for ${plural}`,
+    `when should ${plural} replace their mattress`,
+    `how should ${plural} test a mattress in a store`,
+    `what should ${plural} look for in a mattress trial`,
+  ];
+  keywords
+    .filter((keyword) => !keyword.endsWith(`who share a bed with a ${label.toLowerCase()}`))
+    .forEach((keyword) => addExpansionKeyword(
+    keyword,
+    categoryId,
+    `${label} deep FAQs`,
+    /pain|numb|hurt/.test(keyword),
+    "Mattress-fit FAQ connecting sleep position to firmness, pressure relief, construction, or replacement decisions.",
+  ));
+}
+
+addPositionExpansion("side-sleepers", "Side sleeper", "side sleepers");
+addPositionExpansion("back-sleepers", "Back sleeper", "back sleepers");
+addPositionExpansion("stomach-sleepers", "Stomach sleeper", "stomach sleepers");
+addPositionExpansion("combination-sleepers", "Combination sleeper", "combination sleepers");
+
+const painTopics = [
+  ["back-pain", "back pain"], ["back-pain", "lower back pain"], ["back-pain", "upper back pain"],
+  ["back-pain", "middle back pain"], ["hip-shoulder-pain", "hip pain"], ["hip-shoulder-pain", "shoulder pain"],
+  ["hip-shoulder-pain", "joint pain"], ["hip-shoulder-pain", "arthritis"], ["sciatica-numbness", "sciatica"],
+  ["sciatica-numbness", "arm numbness"], ["sciatica-numbness", "leg numbness"], ["sciatica-numbness", "pins and needles"],
+];
+
+for (const [categoryId, pain] of painTopics) {
+  addExpansionAll(categoryId, `${pain} mattress FAQs`, [
+    `what mattress should i choose for ${pain}`,
+    `what mattress type is best for ${pain}`,
+    `what mattress firmness is best for ${pain}`,
+    `is a soft or firm mattress better for ${pain}`,
+    `is memory foam or latex better for ${pain}`,
+    `is a hybrid mattress good for ${pain}`,
+    `is an innerspring mattress good for ${pain}`,
+    `is a pillow top mattress good for ${pain}`,
+    `is a euro top mattress good for ${pain}`,
+    `can a mattress topper help if my mattress causes ${pain}`,
+    `can a sagging mattress contribute to ${pain}`,
+    `can a mattress that is too firm contribute to ${pain}`,
+    `can a mattress that is too soft contribute to ${pain}`,
+    `why do i wake up with ${pain} on a new mattress`,
+    `how long should i try a new mattress if i have ${pain}`,
+    `should i replace my mattress if i have ${pain}`,
+    `how to test a mattress in a store when you have ${pain}`,
+    `what mattress features matter most for ${pain}`,
+    `what mattress pressure relief is best for ${pain}`,
+    `what mattress support is best for ${pain}`,
+  ], true, "Health-adjacent mattress-shopping FAQ requiring neutral wording and specialist review.");
+}
+
+addExpansionAll("fiberglass", "Fiberglass mattress FAQs", [
+  "what is fiberglass in a mattress", "why is fiberglass used in mattresses", "where is fiberglass located in a mattress",
+  "is fiberglass in the mattress cover or fire sock", "how to read a mattress label for fiberglass",
+  "what words on a mattress label mean fiberglass", "does glass fiber on a mattress label mean fiberglass",
+  "does glass wool in a mattress mean fiberglass", "does silica fiber in a mattress mean fiberglass",
+  "how to check a mattress law tag for fiberglass", "how to tell if a mattress fire sock contains fiberglass",
+  "how to tell if mattress fiberglass is leaking", "what does mattress fiberglass look like",
+  "does mattress fiberglass sparkle", "why is there shiny dust under my mattress", "fiberglass under mattress cover",
+  "fiberglass coming through mattress cover", "fiberglass leaking from bottom of mattress",
+  "fiberglass on clothes from mattress", "fiberglass in bedroom from mattress", "fiberglass in carpet from mattress",
+  "fiberglass in air conditioner from mattress", "fiberglass in washing machine from mattress",
+  "fiberglass in dryer from mattress", "fiberglass on bedding from mattress", "fiberglass on mattress protector",
+  "what to do if mattress fiberglass escapes", "what to do after removing a mattress cover with fiberglass",
+  "how to contain fiberglass from a mattress", "how to clean fiberglass from a mattress",
+  "how to clean mattress fiberglass from a bedroom", "how to clean mattress fiberglass from carpet",
+  "how to clean mattress fiberglass from clothes", "can you vacuum fiberglass from a mattress",
+  "what vacuum is safe for mattress fiberglass cleanup", "should i hire a professional for mattress fiberglass cleanup",
+  "how much does mattress fiberglass cleanup cost", "can mattress fiberglass contaminate an apartment",
+  "can mattress fiberglass spread to other rooms", "should i throw away a mattress with leaking fiberglass",
+  "how to dispose of a mattress with fiberglass", "can a mattress with fiberglass be recycled",
+  "can you return a mattress because of fiberglass", "does mattress warranty cover fiberglass leakage",
+  "what evidence is needed for a mattress fiberglass claim", "how to report a mattress fiberglass problem",
+  "fiberglass mattress complaint process", "mattress fiberglass class action explained",
+  "are mattresses required to disclose fiberglass", "mattress fiberglass labeling requirements",
+  "is fiberglass required in mattresses", "do all memory foam mattresses have fiberglass",
+  "do all bed in a box mattresses have fiberglass", "do cheap mattresses contain fiberglass",
+  "do expensive mattresses contain fiberglass", "do latex mattresses contain fiberglass",
+  "do hybrid mattresses contain fiberglass", "do innerspring mattresses contain fiberglass",
+  "do pillow top mattresses contain fiberglass", "do euro top mattresses contain fiberglass",
+  "do crib mattresses contain fiberglass", "do rv mattresses contain fiberglass",
+  "do adjustable air mattresses contain fiberglass", "fiberglass-free latex mattress",
+  "fiberglass-free innerspring mattress", "fiberglass-free pillow top mattress",
+  "fiberglass-free euro top mattress", "fiberglass-free organic mattress",
+  "fiberglass-free crib mattress", "fiberglass-free rv mattress", "best fiberglass-free mattress",
+  "affordable mattress without fiberglass", "mattress in a box without fiberglass",
+  "memory foam mattress without fiberglass", "hybrid mattress without fiberglass",
+  "natural alternatives to fiberglass in mattresses", "wool fire barrier vs fiberglass mattress",
+  "rayon fire barrier vs fiberglass mattress", "silica fire barrier vs fiberglass mattress",
+  "fiberglass-free mattress certifications", "how to verify a mattress is fiberglass free",
+  "can a mattress company say fiberglass free", "what does no added fiberglass mean on a mattress",
+  "fiberglass free vs glass fiber free mattress", "is a removable mattress cover safe if there is fiberglass",
+  "can you use a mattress protector over fiberglass", "can a mattress encasement contain leaking fiberglass",
+  "can fiberglass leak from an intact mattress", "can old mattresses release fiberglass",
+  "can moving a mattress release fiberglass", "can bending a mattress release fiberglass",
+  "can a torn mattress release fiberglass", "can a pet damage expose mattress fiberglass",
+  "mattress fiberglass skin irritation", "mattress fiberglass eye irritation",
+  "mattress fiberglass breathing concerns", "mattress fiberglass exposure symptoms",
+  "when to seek help after mattress fiberglass exposure", "is it safe to sleep on a mattress with fiberglass",
+  "is it safe to keep a mattress with intact fiberglass", "should you remove a mattress cover that says do not remove",
+  "how long does mattress fiberglass stay airborne", "will an air purifier remove mattress fiberglass",
+  "does a hepa filter capture mattress fiberglass", "can mattress fiberglass get into hvac vents",
+  "how to clean mattress fiberglass from an air vent", "how to clean mattress fiberglass from a couch",
+  "how to clean mattress fiberglass from hardwood floors", "how to clean mattress fiberglass from a car",
+  "how to wash bedding exposed to mattress fiberglass", "can mattress fiberglass be washed out of clothes",
+  "should clothes exposed to mattress fiberglass be discarded", "can mattress fiberglass ruin a washing machine",
+  "can mattress fiberglass ruin a dryer", "how to prevent mattress fiberglass from spreading while cleaning",
+  "what ppe is used for mattress fiberglass cleanup", "can you clean mattress fiberglass yourself",
+  "how long does mattress fiberglass cleanup take", "how to document mattress fiberglass contamination",
+  "can renters insurance cover mattress fiberglass cleanup", "is a landlord responsible for mattress fiberglass cleanup",
+  "mattress fiberglass in a rental apartment", "mattress fiberglass hotel complaint",
+  "can you sell a used mattress that contains fiberglass", "how to move a mattress that contains fiberglass",
+  "how to wrap a fiberglass mattress for disposal", "where to dispose of a fiberglass mattress",
+  "can mattress pickup services take a fiberglass mattress", "mattress fiberglass disposal rules",
+  "can an intact mattress encasement prevent fiberglass exposure", "best mattress encasement for containing fiberglass",
+  "zippered mattress cover and fiberglass risk", "removable mattress cover with fiberglass warning",
+  "why does a mattress cover say do not remove", "what happens if you unzip a mattress with fiberglass",
+  "can fiberglass come through a mattress zipper", "can fiberglass come through mattress seams",
+  "can fiberglass come through the bottom of a mattress", "can fiberglass escape through a mattress hole",
+  "does a mattress protector stop fiberglass", "does a waterproof mattress protector stop fiberglass",
+  "how often should you inspect a mattress for fiberglass leaks", "signs a fiberglass mattress should be replaced",
+  "how old are mattresses when fiberglass starts leaking", "can mattress fiberglass leak without removing the cover",
+  "which mattress materials replace fiberglass fire barriers", "mattress fire sock without fiberglass",
+  "fiberglass-free mattress fire barrier materials", "how do fiberglass-free mattresses pass fire standards",
+  "is wool a safer mattress fire barrier than fiberglass", "mattress fiberglass vs chemical flame retardants",
+], true, "Safety-focused fiberglass query requiring specialist review and careful, non-alarmist guidance.");
+
 const dailyRunResults = [];
 const mattressContextPattern = /mattress|bed|box spring|foundation|adjustable base|pillow top|euro top|tight top|innerspring|memory foam|latex|hybrid/i;
+
+function resolveLegacyCategory(categoryId, keyword) {
+  if (categoryId === "pillow-euro-top") return /euro top/.test(keyword) && !/pillow top/.test(keyword) ? "euro-top" : "pillow-top";
+  if (categoryId === "sleep-position") {
+    if (/combination sleeper|different sleep positions|change sleeping positions|switch between/.test(keyword)) return "combination-sleepers";
+    if (/side sleeper|sleep on (?:my|your) side/.test(keyword)) return "side-sleepers";
+    if (/back sleeper|sleep on (?:my|your) back/.test(keyword)) return "back-sleepers";
+    if (/stomach sleeper|sleep on (?:my|your) stomach/.test(keyword)) return "stomach-sleepers";
+    return "sleep-position-other";
+  }
+  if (categoryId === "pain-health") {
+    if (/back pain/.test(keyword)) return "back-pain";
+    if (/hip pain|shoulder pain|joint pain|arthritis|pressure/.test(keyword)) return "hip-shoulder-pain";
+    if (/sciatica|numb|pins and needles|nerve/.test(keyword)) return "sciatica-numbness";
+    return "health-accessibility";
+  }
+  if (categoryId === "safety" && /fiberglass/.test(keyword)) return "fiberglass";
+  return categoryId;
+}
 
 for (const run of dailyResearch.runs) {
   if (!run?.id || !run?.date || !Array.isArray(run.keywords)) throw new Error("Every daily research run needs an id, date, and keywords array");
@@ -875,11 +1249,12 @@ for (const run of dailyResearch.runs) {
 
   for (const entry of run.keywords) {
     const normalizedKeyword = normalize(entry.keyword ?? "");
-    if (entry.categoryId === "brands") throw new Error(`Daily run ${run.id} attempted to add a brand keyword`);
+    const resolvedCategoryId = resolveLegacyCategory(entry.categoryId, normalizedKeyword);
+    if (resolvedCategoryId === "brands") throw new Error(`Daily run ${run.id} attempted to add a brand keyword`);
     if (!mattressContextPattern.test(normalizedKeyword)) throw new Error(`Daily keyword lacks mattress context: ${normalizedKeyword}`);
     const accepted = add(
       normalizedKeyword,
-      entry.categoryId,
+      resolvedCategoryId,
       entry.subcategory,
       `Daily FAQ research · ${run.date}`,
       {
@@ -891,10 +1266,10 @@ for (const run of dailyResearch.runs) {
       },
     );
     if (!accepted) continue;
-    const category = categoryById.get(entry.categoryId);
+    const category = categoryById.get(resolvedCategoryId);
     addedKeywords.push({
       keyword: normalizedKeyword,
-      categoryId: entry.categoryId,
+      categoryId: resolvedCategoryId,
       category: category.name,
       subcategory: entry.subcategory,
       specialistReview: Boolean(entry.specialistReview),
@@ -905,6 +1280,7 @@ for (const run of dailyResearch.runs) {
   dailyRunResults.push({
     id: run.id,
     date: run.date,
+    sequence: run.sequence ?? 1,
     summary: run.summary ?? "Expanded mattress FAQs and shopper questions.",
     keywordsAdded: addedKeywords.length,
     categoriesAdded: run.categoriesAdded ?? [],
@@ -913,9 +1289,91 @@ for (const run of dailyResearch.runs) {
   });
 }
 
+for (const record of records) {
+  if (record.categoryId !== "brands" && /fiberglass/.test(record.keyword)) {
+    record.categoryId = "fiberglass";
+    record.category = categoryById.get("fiberglass").name;
+  }
+}
+
+const fixedExpansionRecords = records.filter((record) => record.dailyRunId === fixedExpansionRun.id);
+const fixedCategoryCounts = new Map();
+for (const record of fixedExpansionRecords) {
+  fixedCategoryCounts.set(record.category, (fixedCategoryCounts.get(record.category) ?? 0) + 1);
+}
+dailyRunResults.push({
+  id: fixedExpansionRun.id,
+  date: fixedExpansionRun.date,
+  sequence: 2,
+  summary: fixedExpansionRun.summary,
+  keywordsAdded: fixedExpansionRecords.length,
+  categoriesAdded: fixedExpansionRun.categoryIdsAdded.map((categoryId) => {
+    const category = categoryById.get(categoryId);
+    return { id: category.id, name: category.name, description: category.description };
+  }),
+  categoryCounts: [...fixedCategoryCounts.entries()].map(([category, count]) => ({ category, count })),
+  keywords: fixedExpansionRecords.map((record) => ({
+    keyword: record.keyword,
+    categoryId: record.categoryId,
+    category: record.category,
+    subcategory: record.subcategory,
+    specialistReview: record.specialistReview,
+  })),
+});
+
+function rankKeyword(record) {
+  const categoryPriority = categoryPriorityMap[record.categoryId] ?? 3;
+  const wordCount = record.keyword.split(" ").length;
+  const obscure = /starfish|fetal position|shikibuton|waterbed|horsehair|wyoming king|texas king|alaskan king/.test(record.keyword);
+  const highlyCompetitive = record.contentType === "Roundup"
+    || record.contentType === "Review"
+    || record.contentType === "Shopping"
+    || wordCount <= 3
+    || /^best mattress$|^best .* mattress$/.test(record.keyword);
+  const longTailFaq = record.contentType === "FAQ" && wordCount >= 6;
+  const paused = record.categoryId === "brands" || record.categoryId === "retailers";
+
+  let opportunityScore = 3;
+  if (categoryPriority === 1) opportunityScore += 1;
+  if (longTailFaq) opportunityScore += 1;
+  if (highlyCompetitive) opportunityScore -= 1;
+  if (paused) opportunityScore -= 1;
+  if (obscure || categoryPriority === 5) opportunityScore = Math.min(opportunityScore, 2);
+  opportunityScore = Math.max(1, Math.min(5, opportunityScore));
+
+  const demandEstimate = obscure ? "Low" : categoryPriority <= 2 ? "High" : "Medium";
+  const difficultyEstimate = highlyCompetitive ? "High" : longTailFaq ? "Low" : "Medium";
+  const priorityTier = opportunityScore >= 4 ? "green" : opportunityScore === 3 ? "yellow" : "red";
+  const priorityReason = priorityTier === "green"
+    ? "Specific, useful mattress topic with strong intent and a clearer long-tail ranking path."
+    : priorityTier === "yellow"
+      ? "Relevant supporting topic, but demand or ranking difficulty is less favorable than the green set."
+      : "Retained for completeness, but likely low demand, highly competitive, paused, or weakly evidenced.";
+
+  Object.assign(record, { categoryPriority, opportunityScore, priorityTier, demandEstimate, difficultyEstimate, priorityReason });
+}
+
+records.forEach(rankKeyword);
+
+const rankedRecordByKeyword = new Map(records.map((record) => [record.keyword, record]));
+for (const run of dailyRunResults) {
+  run.keywords = run.keywords.map((keyword) => {
+    const ranked = rankedRecordByKeyword.get(keyword.keyword);
+    return {
+      ...keyword,
+      opportunityScore: ranked?.opportunityScore ?? 1,
+      priorityTier: ranked?.priorityTier ?? "red",
+      demandEstimate: ranked?.demandEstimate ?? "Low",
+      difficultyEstimate: ranked?.difficultyEstimate ?? "High",
+    };
+  });
+}
+
 records.sort((left, right) => {
   const categoryOrder = categoryById.get(left.categoryId).order - categoryById.get(right.categoryId).order;
   if (categoryOrder) return categoryOrder;
+  const scoreOrder = right.opportunityScore - left.opportunityScore;
+  if (scoreOrder) return scoreOrder;
   const subcategoryOrder = left.subcategory.localeCompare(right.subcategory);
   if (subcategoryOrder) return subcategoryOrder;
   return left.keyword.localeCompare(right.keyword);
@@ -927,14 +1385,20 @@ records.forEach((record, index) => {
 
 const categories = categoryDefinitions.map((category) => ({
   ...category,
+  priority: categoryPriorityMap[category.id] ?? 3,
+  priorityReason: categoryPriorityReasons[categoryPriorityMap[category.id] ?? 3],
   count: records.filter((record) => record.categoryId === category.id).length,
   subcategoryCount: new Set(records.filter((record) => record.categoryId === category.id).map((record) => record.subcategory)).size,
-}));
+  greenCount: records.filter((record) => record.categoryId === category.id && record.priorityTier === "green").length,
+  yellowCount: records.filter((record) => record.categoryId === category.id && record.priorityTier === "yellow").length,
+  redCount: records.filter((record) => record.categoryId === category.id && record.priorityTier === "red").length,
+})).sort((left, right) => left.priority - right.priority || left.order - right.order);
 
 const output = {
   generatedAt: new Date().toISOString(),
   market: "United States · English",
   criteria: "Every term must be usable as a mattress page, comparison, roundup, brand page, or FAQ. Ambiguous technical vocabulary is qualified with mattress context; irrelevant test-method and generic material terms are excluded.",
+  rankingMethod: "Directional opportunity tiers combine current search-result evidence, mattress-shopping intent, specificity, estimated competition, category value, and content usefulness. They are not paid-tool search-volume figures.",
   totalKeywords: records.length,
   categories,
   keywords: records,
@@ -944,7 +1408,7 @@ await fs.mkdir("public/data", { recursive: true });
 await fs.writeFile("public/data/keyword-library.json", JSON.stringify(output));
 await fs.writeFile("public/data/update-log.json", JSON.stringify({
   generatedAt: output.generatedAt,
-  runs: dailyRunResults.sort((left, right) => right.date.localeCompare(left.date)),
+  runs: dailyRunResults.sort((left, right) => right.date.localeCompare(left.date) || (right.sequence ?? 0) - (left.sequence ?? 0)),
 }));
 
 const invalid = records.filter((record) => /test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(record.keyword));

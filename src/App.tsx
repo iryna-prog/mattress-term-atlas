@@ -9,6 +9,11 @@ interface KeywordCategory {
   order: number;
   count: number;
   subcategoryCount: number;
+  priority: number;
+  priorityReason: string;
+  greenCount: number;
+  yellowCount: number;
+  redCount: number;
 }
 
 interface KeywordRecord {
@@ -20,12 +25,19 @@ interface KeywordRecord {
   contentType: string;
   intent: string;
   source: string;
+  categoryPriority: number;
+  opportunityScore: number;
+  priorityTier: "green" | "yellow" | "red";
+  demandEstimate: "High" | "Medium" | "Low";
+  difficultyEstimate: "High" | "Medium" | "Low";
+  priorityReason: string;
 }
 
 interface KeywordLibrary {
   generatedAt: string;
   market: string;
   criteria: string;
+  rankingMethod: string;
   totalKeywords: number;
   categories: KeywordCategory[];
   keywords: KeywordRecord[];
@@ -37,6 +49,10 @@ interface UpdateKeyword {
   category: string;
   subcategory: string;
   specialistReview: boolean;
+  opportunityScore: number;
+  priorityTier: "green" | "yellow" | "red";
+  demandEstimate: "High" | "Medium" | "Low";
+  difficultyEstimate: "High" | "Medium" | "Low";
 }
 
 interface UpdateRun {
@@ -56,6 +72,12 @@ interface UpdateLog {
 
 const PAGE_SIZE = 120;
 const typeOrder = ["All", "Guide", "FAQ", "Comparison", "Roundup", "Review", "Shopping"];
+const priorityFilters = [
+  { id: "All", label: "All opportunities" },
+  { id: "green", label: "Green · target first" },
+  { id: "yellow", label: "Yellow · supporting" },
+  { id: "red", label: "Red · keep, low priority" },
+];
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("en-US").format(value);
@@ -70,6 +92,7 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState("latex");
   const [search, setSearch] = useState("");
   const [activeType, setActiveType] = useState("All");
+  const [activePriority, setActivePriority] = useState("All");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [copiedId, setCopiedId] = useState("");
   const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
@@ -109,7 +132,7 @@ export default function App() {
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [activeCategory, activeType, search]);
+  }, [activeCategory, activePriority, activeType, search]);
 
   const selectedCategory = library?.categories.find((category) => category.id === activeCategory) ?? null;
   const normalizedSearch = search.trim().toLowerCase();
@@ -120,9 +143,10 @@ export default function App() {
       if (!normalizedSearch && record.categoryId !== activeCategory) return false;
       if (normalizedSearch && !`${record.keyword} ${record.category} ${record.subcategory}`.includes(normalizedSearch)) return false;
       if (activeType !== "All" && record.contentType !== activeType) return false;
+      if (activePriority !== "All" && record.priorityTier !== activePriority) return false;
       return true;
     });
-  }, [activeCategory, activeType, library, normalizedSearch]);
+  }, [activeCategory, activePriority, activeType, library, normalizedSearch]);
 
   const visibleKeywords = filteredKeywords.slice(0, visibleCount);
   const groupedKeywords = useMemo(() => {
@@ -159,6 +183,7 @@ export default function App() {
     setActiveCategory(categoryId);
     setSearch("");
     setActiveType("All");
+    setActivePriority("All");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -175,6 +200,8 @@ export default function App() {
     ? `Mattress-specific matches across all ${library.categories.length} categories.`
     : selectedCategory?.description;
   const latestUpdate = updates.runs[0];
+  const greenKeywordCount = library.keywords.filter((record) => record.priorityTier === "green").length;
+  const priorityOneCategoryCount = library.categories.filter((category) => category.priority === 1).length;
 
   return (
     <div className="site-shell">
@@ -204,8 +231,8 @@ export default function App() {
           </div>
           <div className="hero-stats" aria-label="Library summary">
             <div><strong>{formatNumber(library.totalKeywords)}</strong><span>usable keywords</span></div>
-            <div><strong>{library.categories.length}</strong><span>clear categories</span></div>
-            <div><strong>{formatNumber(latestUpdate?.keywordsAdded ?? 0)}</strong><span>new in latest run</span></div>
+            <div><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
+            <div><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
           </div>
         </section>
 
@@ -220,9 +247,15 @@ export default function App() {
           {search && <button onClick={() => setSearch("")} aria-label="Clear search">Clear</button>}
         </section>
 
-        <div className="quality-note">
-          <span>Quality rule</span>
-          <p><strong>“3D spacer fabric test method” is excluded.</strong> The qualified topic <strong>“3D spacer fabric in mattress covers”</strong> is included because a mattress shopper can understand and use it.</p>
+        <div className="research-notes">
+          <div className="quality-note">
+            <span>Quality rule</span>
+            <p><strong>“3D spacer fabric test method” is excluded.</strong> The qualified topic <strong>“3D spacer fabric in mattress covers”</strong> is included because a mattress shopper can understand and use it.</p>
+          </div>
+          <div className="ranking-note">
+            <div className="ranking-legend"><span className="green">Green</span><span className="yellow">Yellow</span><span className="red">Red</span></div>
+            <p><strong>Green means target first.</strong> Yellow supports the cluster. Red stays in the library but is likely low-demand, highly competitive, paused, or weakly evidenced. Scores are directional—not fabricated paid-tool volume.</p>
+          </div>
         </div>
 
         <div className="mobile-category-select">
@@ -242,7 +275,7 @@ export default function App() {
                   className={activeCategory === category.id && !normalizedSearch ? "active" : ""}
                   onClick={() => chooseCategory(category.id)}
                 >
-                  <span>{category.name}</span>
+                  <span className="category-name">{category.name}<em>P{category.priority}</em></span>
                   <small>{formatNumber(category.count)}</small>
                 </button>
               ))}
@@ -252,7 +285,10 @@ export default function App() {
           <section className="keyword-panel">
             <div className="keyword-panel-heading">
               <div>
-                <span className="eyebrow">{normalizedSearch ? "Search results" : "Selected category"}</span>
+                <div className="heading-meta">
+                  <span className="eyebrow">{normalizedSearch ? "Search results" : "Selected category"}</span>
+                  {!normalizedSearch && selectedCategory && <span className={`category-priority p${selectedCategory.priority}`}>Priority {selectedCategory.priority}</span>}
+                </div>
                 <h2>{heading}</h2>
                 <p>{description}</p>
               </div>
@@ -262,6 +298,14 @@ export default function App() {
             <div className="type-filters" aria-label="Filter by page type">
               {availableTypes.map((type) => (
                 <button key={type} className={activeType === type ? "active" : ""} onClick={() => setActiveType(type)}>{type}</button>
+              ))}
+            </div>
+
+            <div className="priority-filters" aria-label="Filter by SEO opportunity">
+              {priorityFilters.map((filter) => (
+                <button key={filter.id} className={`${filter.id.toLowerCase()} ${activePriority === filter.id ? "active" : ""}`} onClick={() => setActivePriority(filter.id)}>
+                  {filter.id !== "All" && <i />}{filter.label}
+                </button>
               ))}
             </div>
 
@@ -278,9 +322,10 @@ export default function App() {
                         <article className="keyword-row" key={record.id}>
                           <div className="keyword-text">
                             <strong>{record.keyword}</strong>
-                            {normalizedSearch && <span>{record.subcategory}</span>}
+                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}</span>
                           </div>
                           <div className="keyword-actions">
+                            <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
                             <span className={`type-badge ${record.contentType.toLowerCase()}`}>{record.contentType}</span>
                             <button onClick={() => copyKeyword(record)} aria-label={`Copy ${record.keyword}`}>
                               {copiedId === record.id ? "Copied" : "Copy"}
@@ -293,7 +338,7 @@ export default function App() {
                 ))}
               </div>
             ) : (
-              <div className="empty-state"><span>⌕</span><h3>No mattress keywords found</h3><p>Try a broader mattress phrase or select another page type.</p><button onClick={() => { setSearch(""); setActiveType("All"); }}>Reset filters</button></div>
+              <div className="empty-state"><span>⌕</span><h3>No mattress keywords found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
             )}
 
             {visibleCount < filteredKeywords.length && (
@@ -352,9 +397,12 @@ export default function App() {
                           <article key={`${run.id}-${record.keyword}`}>
                             <div>
                               <strong>{record.keyword}</strong>
-                              <span>{record.subcategory}{record.specialistReview ? " · specialist review" : ""}</span>
+                              <span>{record.subcategory} · Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.specialistReview ? " · specialist review" : ""}</span>
                             </div>
-                            <button onClick={() => { chooseCategory(record.categoryId); setShowUpdates(false); }}>{record.category}</button>
+                            <div className="update-keyword-actions">
+                              <span className={`priority-badge ${record.priorityTier}`}><i />{record.opportunityScore}/5</span>
+                              <button onClick={() => { chooseCategory(record.categoryId); setShowUpdates(false); }}>{record.category}</button>
+                            </div>
                           </article>
                         ))}
                       </div>
