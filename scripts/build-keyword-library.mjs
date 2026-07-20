@@ -99,7 +99,7 @@ for (const run of dailyResearch.runs) {
 
 const categoryById = new Map(categoryDefinitions.map((category) => [category.id, category]));
 const records = [];
-const seen = new Set();
+const seen = new Map();
 
 function normalize(value) {
   return value
@@ -108,6 +108,56 @@ function normalize(value) {
     .replace(/\ban euro\b/g, "a euro")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function withArticle(base) {
+  if (/^(a|an|the)\s/.test(base)) return base;
+  if (/^euro\b/.test(base)) return `a ${base}`;
+  return /^[aeiou]|^rv\b/.test(base) ? `an ${base}` : `a ${base}`;
+}
+
+function canonicalizePageTopic(value) {
+  if (/^how much does .+ cost$/.test(value)) return value;
+
+  const pluralGoodFor = value.match(/^are (.+?) mattresses (good for .+)$/);
+  if (pluralGoodFor) return `is ${withArticle(`${pluralGoodFor[1]} mattress`)} ${pluralGoodFor[2]}`;
+
+  const pluralQuestion = value.match(/^do (.+?) mattresses (sag|sleep hot)$/);
+  if (pluralQuestion) return `does ${withArticle(`${pluralQuestion[1]} mattress`)} ${pluralQuestion[2]}`;
+
+  const definition = value.match(/^what is (?:a|an) (.+? mattress)$/);
+  if (definition) return definition[1];
+
+  const weightLimit = value.match(/^what is the weight limit for (?:a|an) (.+)$/);
+  if (weightLimit) return `${weightLimit[1]} weight limit`;
+
+  const bestQuestion = value.match(/^what mattress is best for (.+)$/);
+  if (bestQuestion) return `best mattress for ${bestQuestion[1]}`;
+
+  const pluralBest = value.match(/^best mattresses (.+)$/);
+  if (pluralBest) return `best mattress ${pluralBest[1]}`;
+
+  if (value === "what is fiberglass in a mattress") return "fiberglass in mattresses";
+  if (value === "is a tight top mattress firm") return "firm tight top mattress";
+
+  const comparison = value.match(/^(.+?) vs (.+)$/);
+  if (comparison) return [comparison[1], comparison[2]].sort().join(" vs ");
+
+  const rules = [
+    [/^(.+?) (?:price|cost|pricing)$/, (match) => `how much does ${withArticle(match[1])} cost`],
+    [/^(.+?) (?:lifespan|longevity|durability)$/, (match) => `how long does ${withArticle(match[1])} last`],
+    [/^(.+?) (?:benefits|advantages|disadvantages|pros and cons)$/, (match) => `${match[1]} pros and cons`],
+    [/^(?:benefits|advantages|disadvantages|pros and cons) of (.+)$/, (match) => `${match[1]} pros and cons`],
+    [/^(.+?) buying guide$/, (match) => `how to choose ${withArticle(match[1])}`],
+    [/^(.+?) (?:dimensions|size guide)$/, (match) => `${match[1]} size and dimensions guide`],
+    [/^(.+?) review$/, (match) => `${match[1]} reviews`],
+  ];
+
+  for (const [pattern, replace] of rules) {
+    const match = value.match(pattern);
+    if (match) return replace(match);
+  }
+  return value;
 }
 
 function inferType(keyword) {
@@ -120,15 +170,43 @@ function inferType(keyword) {
 }
 
 function add(keyword, categoryId, subcategory, source = "Curated expansion", metadata = {}) {
-  const normalized = normalize(keyword);
+  const original = normalize(keyword);
+  const normalized = canonicalizePageTopic(original);
+  let proposedAliases = [...new Set((metadata.aliases ?? []).map((alias) => normalize(alias)).filter(Boolean))];
   if (!categoryById.has(categoryId)) throw new Error(`Unknown category: ${categoryId}`);
-  if (!normalized || seen.has(normalized)) return false;
+  if (!normalized) return false;
   if (/test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(normalized)) return false;
+  const existingRecord = seen.get(normalized);
+
+  if (metadata.rankingOverride) {
+    const aliasRecords = [...new Set(proposedAliases
+      .map((alias) => seen.get(canonicalizePageTopic(alias)))
+      .filter((record) => record && record.categoryId === categoryId && record !== existingRecord))];
+    for (const aliasRecord of aliasRecords) {
+      proposedAliases.push(aliasRecord.keyword, ...aliasRecord.aliases);
+      seen.delete(aliasRecord.keyword);
+      const recordIndex = records.indexOf(aliasRecord);
+      if (recordIndex >= 0) records.splice(recordIndex, 1);
+    }
+    proposedAliases = [...new Set(proposedAliases)];
+  }
+
+  if (existingRecord) {
+    for (const alias of [original, ...proposedAliases]) {
+      if (alias !== normalized && !existingRecord.aliases.includes(alias)) existingRecord.aliases.push(alias);
+    }
+    if (metadata.rankingOverride) {
+      existingRecord.sourceUrls = [...new Set([...(existingRecord.sourceUrls ?? []), ...(metadata.sourceUrls ?? [])])];
+      existingRecord.rationale = metadata.rationale ?? existingRecord.rationale;
+      existingRecord.rankingOverride = metadata.rankingOverride;
+    }
+    return false;
+  }
   const [contentType, intent] = inferType(normalized);
-  seen.add(normalized);
-  records.push({
+  const record = {
     id: `keyword-${String(records.length + 1).padStart(5, "0")}`,
     keyword: normalized,
+    aliases: [...new Set([...(original === normalized ? [] : [original]), ...proposedAliases.filter((alias) => alias !== normalized)])],
     categoryId,
     category: categoryById.get(categoryId).name,
     subcategory,
@@ -138,7 +216,11 @@ function add(keyword, categoryId, subcategory, source = "Curated expansion", met
     dailyRunId: metadata.dailyRunId,
     specialistReview: Boolean(metadata.specialistReview),
     rationale: metadata.rationale,
-  });
+    sourceUrls: metadata.sourceUrls ?? [],
+    rankingOverride: metadata.rankingOverride,
+  };
+  seen.set(normalized, record);
+  records.push(record);
   return true;
 }
 
@@ -1263,6 +1345,9 @@ for (const run of dailyResearch.runs) {
         rationale: entry.rationale ?? "Mattress-specific FAQ or shopping topic.",
         contentType: entry.contentType,
         intent: entry.intent,
+        aliases: entry.aliases,
+        sourceUrls: entry.sourceUrls,
+        rankingOverride: entry.rankingOverride,
       },
     );
     if (!accepted) continue;
@@ -1296,6 +1381,43 @@ for (const record of records) {
   }
 }
 
+function pageTopicTokens(value) {
+  return new Set(value
+    .replace(/\bmattresses\b/g, "mattress")
+    .replace(/\b(a|an|the|do|does|is|are|what|why|how|and|or|for|in|of|to|with)\b/g, " ")
+    .replace(/[^a-z0-9 ]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean));
+}
+
+function topicSimilarity(left, right) {
+  const leftTokens = pageTopicTokens(left);
+  const rightTokens = pageTopicTokens(right);
+  const intersection = [...leftTokens].filter((token) => rightTokens.has(token)).length;
+  const union = new Set([...leftTokens, ...rightTokens]).size;
+  return union ? intersection / union : 0;
+}
+
+const canonicalRecordMap = new Map(records.map((record) => [`${record.categoryId}|${record.keyword}`, record]));
+const cannibalizedRecords = new Set();
+for (const record of records) {
+  record.aliases = record.aliases.filter((alias) => {
+    const aliasRecord = canonicalRecordMap.get(`${record.categoryId}|${canonicalizePageTopic(alias)}`);
+    if (!aliasRecord || aliasRecord === record) return true;
+    if (topicSimilarity(record.keyword, aliasRecord.keyword) >= 0.5) {
+      record.aliases.push(aliasRecord.keyword, ...aliasRecord.aliases);
+      cannibalizedRecords.add(aliasRecord);
+    }
+    return false;
+  });
+  record.aliases = [...new Set(record.aliases.filter((alias) => alias !== record.keyword))];
+}
+for (let index = records.length - 1; index >= 0; index -= 1) {
+  if (cannibalizedRecords.has(records[index])) records.splice(index, 1);
+}
+
 const fixedExpansionRecords = records.filter((record) => record.dailyRunId === fixedExpansionRun.id);
 const fixedCategoryCounts = new Map();
 for (const record of fixedExpansionRecords) {
@@ -1322,6 +1444,18 @@ dailyRunResults.push({
 });
 
 function rankKeyword(record) {
+  if (record.rankingOverride) {
+    Object.assign(record, {
+      categoryPriority: categoryPriorityMap[record.categoryId] ?? 3,
+      opportunityScore: record.rankingOverride.opportunityScore,
+      priorityTier: record.rankingOverride.priorityTier,
+      demandEstimate: record.rankingOverride.demandEstimate,
+      difficultyEstimate: record.rankingOverride.difficultyEstimate,
+      priorityReason: record.rankingOverride.priorityReason,
+    });
+    delete record.rankingOverride;
+    return;
+  }
   const categoryPriority = categoryPriorityMap[record.categoryId] ?? 3;
   const wordCount = record.keyword.split(" ").length;
   const obscure = /starfish|fetal position|shikibuton|waterbed|horsehair|wyoming king|texas king|alaskan king/.test(record.keyword);
@@ -1357,7 +1491,7 @@ records.forEach(rankKeyword);
 
 const rankedRecordByKeyword = new Map(records.map((record) => [record.keyword, record]));
 for (const run of dailyRunResults) {
-  run.keywords = run.keywords.map((keyword) => {
+  run.keywords = run.keywords.filter((keyword) => rankedRecordByKeyword.has(keyword.keyword)).map((keyword) => {
     const ranked = rankedRecordByKeyword.get(keyword.keyword);
     return {
       ...keyword,

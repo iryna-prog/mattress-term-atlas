@@ -31,6 +31,7 @@ interface KeywordRecord {
   demandEstimate: "High" | "Medium" | "Low";
   difficultyEstimate: "High" | "Medium" | "Low";
   priorityReason: string;
+  aliases?: string[];
 }
 
 interface KeywordLibrary {
@@ -93,6 +94,7 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [activeType, setActiveType] = useState("All");
   const [activePriority, setActivePriority] = useState("All");
+  const [categorySort, setCategorySort] = useState<"priority" | "name" | "count">("priority");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [copiedId, setCopiedId] = useState("");
   const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
@@ -136,6 +138,14 @@ export default function App() {
 
   const selectedCategory = library?.categories.find((category) => category.id === activeCategory) ?? null;
   const normalizedSearch = search.trim().toLowerCase();
+  const sortedCategories = useMemo(() => {
+    if (!library) return [];
+    return [...library.categories].sort((left, right) => {
+      if (categorySort === "name") return left.name.localeCompare(right.name);
+      if (categorySort === "count") return right.count - left.count || left.name.localeCompare(right.name);
+      return left.priority - right.priority || left.name.localeCompare(right.name);
+    });
+  }, [categorySort, library]);
 
   const filteredKeywords = useMemo(() => {
     if (!library) return [];
@@ -230,7 +240,7 @@ export default function App() {
             <p>No bare materials, unrelated test methods, or vague technical phrases. Every entry is written as a mattress page, comparison, brand page, roundup, or FAQ.</p>
           </div>
           <div className="hero-stats" aria-label="Library summary">
-            <div><strong>{formatNumber(library.totalKeywords)}</strong><span>usable keywords</span></div>
+            <div><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct page opportunities</span></div>
             <div><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
             <div><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
           </div>
@@ -259,17 +269,37 @@ export default function App() {
         </div>
 
         <div className="mobile-category-select">
-          <label htmlFor="category-select">Category</label>
-          <select id="category-select" value={activeCategory} onChange={(event) => chooseCategory(event.target.value)}>
-            {library.categories.map((category) => <option key={category.id} value={category.id}>{category.name} ({formatNumber(category.count)})</option>)}
-          </select>
+          <div>
+            <label htmlFor="category-select">Category</label>
+            <select id="category-select" value={activeCategory} onChange={(event) => chooseCategory(event.target.value)}>
+              {sortedCategories.map((category) => <option key={category.id} value={category.id}>P{category.priority} · {category.name} ({formatNumber(category.count)})</option>)}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="mobile-category-sort">Sort</label>
+            <select id="mobile-category-sort" value={categorySort} onChange={(event) => setCategorySort(event.target.value as "priority" | "name" | "count")}>
+              <option value="priority">Priority</option>
+              <option value="name">Name</option>
+              <option value="count">Most pages</option>
+            </select>
+          </div>
         </div>
 
         <div className="library-layout">
           <aside className="category-panel" aria-label="Mattress keyword categories">
-            <div className="category-panel-heading"><span>Categories</span><small>{library.categories.length}</small></div>
+            <div className="category-panel-heading">
+              <span>Categories <small>{library.categories.length}</small></span>
+              <label>
+                <span className="sr-only">Sort categories</span>
+                <select value={categorySort} onChange={(event) => setCategorySort(event.target.value as "priority" | "name" | "count")} aria-label="Sort categories">
+                  <option value="priority">Priority</option>
+                  <option value="name">Name</option>
+                  <option value="count">Most pages</option>
+                </select>
+              </label>
+            </div>
             <div className="category-list">
-              {library.categories.map((category) => (
+              {sortedCategories.map((category) => (
                 <button
                   key={category.id}
                   className={activeCategory === category.id && !normalizedSearch ? "active" : ""}
@@ -292,7 +322,7 @@ export default function App() {
                 <h2>{heading}</h2>
                 <p>{description}</p>
               </div>
-              <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>keywords</span></div>
+              <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct pages</span></div>
             </div>
 
             <div className="type-filters" aria-label="Filter by page type">
@@ -315,14 +345,14 @@ export default function App() {
                   <section className="keyword-group" key={group}>
                     <div className="keyword-group-heading">
                       <h3>{group}</h3>
-                      <span>{formatNumber(keywords.length)} shown</span>
+                      <span>{formatNumber(keywords.length)} pages shown</span>
                     </div>
                     <div className="keyword-list">
                       {keywords.map((record) => (
                         <article className="keyword-row" key={record.id}>
                           <div className="keyword-text">
                             <strong>{record.keyword}</strong>
-                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}</span>
+                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged query variants` : ""}</span>
                           </div>
                           <div className="keyword-actions">
                             <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
@@ -338,12 +368,12 @@ export default function App() {
                 ))}
               </div>
             ) : (
-              <div className="empty-state"><span>⌕</span><h3>No mattress keywords found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
+              <div className="empty-state"><span>⌕</span><h3>No mattress page topics found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
             )}
 
             {visibleCount < filteredKeywords.length && (
               <button className="load-more" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
-                Show 120 more keywords
+                Show 120 more pages
                 <span>{formatNumber(filteredKeywords.length - visibleCount)} remaining</span>
               </button>
             )}
