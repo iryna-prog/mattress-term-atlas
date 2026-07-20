@@ -9801,6 +9801,105 @@
           }
         }
       ]
+    },
+    {
+      "id": "2026-07-20-p1-saturation-audit-04",
+      "date": "2026-07-20",
+      "sequence": 4,
+      "summary": "Final bounded P1 saturation audit found three defensible standalone page gaps. Five other suggestions were rejected as cannibalizing, repetitive, or better handled as sections, and one coil-selection phrase was merged into an existing page. The P1 set is practically saturated under current evidence, not permanently complete.",
+      "categoriesAdded": [],
+      "keywords": [
+        {
+          "keyword": "innerspring mattress vs box spring",
+          "categoryId": "innerspring",
+          "subcategory": "P1 saturation audit",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct pre-purchase clarification that can prevent a shopper from buying the wrong support system; aliases should remain on one page.",
+          "aliases": [
+            "spring mattress vs box spring",
+            "do you need a box spring for an innerspring mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping",
+            "https://www.sleepfoundation.org/mattress-information/foam-versus-spring-mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct pre-purchase clarification that can prevent a shopper from buying the wrong support system; aliases should remain on one page."
+          }
+        },
+        {
+          "keyword": "tempered steel mattress coils explained",
+          "categoryId": "innerspring",
+          "subcategory": "P1 saturation audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Technically specific and potentially useful for a construction glossary, but lower consumer demand means it should follow core buying pages.",
+          "aliases": [
+            "what are tempered steel mattress springs",
+            "tempered steel coils in mattresses"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-coil-types",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Technically specific and potentially useful for a construction glossary, but lower consumer demand means it should follow core buying pages."
+          }
+        },
+        {
+          "keyword": "can you replace a pillow top mattress layer",
+          "categoryId": "pillow-top",
+          "subcategory": "P1 saturation audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "A distinct repair-or-replace decision for owners with a failed comfort layer; it can naturally lead to replacement guidance.",
+          "aliases": [
+            "can a pillow top be removed and replaced",
+            "replace the pillow top on a mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-pillow-top-mattress",
+            "https://www.goodbed.com/mattress-questions/724/repairing-a-broken-down-mattress/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A distinct repair-or-replace decision for owners with a failed comfort layer; it can naturally lead to replacement guidance."
+          }
+        },
+        {
+          "keyword": "types of mattress coils",
+          "categoryId": "innerspring",
+          "subcategory": "Coil and spring FAQs",
+          "contentType": "Guide",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Existing coil-type pillar expanded with decision-language aliases rather than creating a competing page.",
+          "aliases": [
+            "how to choose the right innerspring coil type",
+            "which mattress coil type is best",
+            "how to choose bonnell pocket offset or continuous coils"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-coil-types",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core"
+          ]
+        }
+      ]
     }
   ]
 }
