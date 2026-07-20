@@ -3,6 +3,7 @@ node_modules/
 dist/
 .next/
 .pnpm-store/
+.wrangler/
 work/
 outputs/
 *.tsbuildinfo
