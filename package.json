@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config ./vite.config.ts --host 0.0.0.0",
-    "build": "tsc -b && vite build --config ./vite.config.ts",
+    "build": "tsc -b && vite build --config ./vite.config.ts && mkdir -p dist/.openai && cp .openai/hosting.json dist/.openai/hosting.json",
     "preview": "vinext start --host 0.0.0.0"
   },
   "dependencies": {
