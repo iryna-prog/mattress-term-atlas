@@ -1,0 +1,25 @@
+{
+  "name": "mattress-term-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config ./vite.config.ts --host 0.0.0.0",
+    "build": "tsc -b && vite build --config ./vite.config.ts",
+    "preview": "vinext start --host 0.0.0.0"
+  },
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-rsc": "latest",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "react-server-dom-webpack": "^19.2.6",
+    "typescript": "^5.9.3",
+    "vinext": "latest",
+    "vite": "^8.0.9"
+  }
+}
