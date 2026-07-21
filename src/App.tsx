@@ -166,23 +166,28 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
       <header className="site-header code-header">
         <button className="wordmark" onClick={() => { setActiveCodeCategory(codeCategories[0].id); setCodeSearch(""); }}>
           <span className="wordmark-icon code-cat-mark" />
-          <span><strong>Code Keyword Library</strong><small>AI coding SEO lab</small></span>
+          <span><strong>Code Keyword Library</strong><small>Живчиха’s AI coding lab</small></span>
         </button>
         <LibrarySwitch active="code" onChange={onSwitch} />
-        <div className="header-actions"><div className="code-status"><i />Category foundation ready</div></div>
+        <div className="header-actions"><div className="code-status"><i />Живчиха is supervising</div></div>
       </header>
 
       <main>
         <section className="code-hero">
           <div className="code-hero-copy">
-            <span className="eyebrow"><i /> AI coding search intelligence</span>
+            <span className="eyebrow"><i /> Бібліотека Живчихи</span>
             <h1>Map the queries.<br /><span>Build the future.</span></h1>
             <p>A category-first SEO foundation for a website that helps people create real software with AI. Keyword research intentionally begins after you approve this structure.</p>
             <div className="code-hero-pills"><span>AI coding</span><span>Developer tools</span><span>FAQs</span><span>Commercial intent</span></div>
           </div>
-          <div className="code-cat-visual" aria-label="Your cat supervising a futuristic coding workspace">
-            <div className="cat-scan"><i /><span>CAT.OS</span><strong>SEO supervisor online</strong></div>
-            <div className="cat-walk-track"><i /><i /><i /><i /><span className="cat-runner" /></div>
+          <div className="code-cat-presence" aria-label="Живчиха supervising the futuristic coding workspace">
+            <div className="cat-library-stamp"><i /><span>ЖИВЧИХА.OS</span><strong>Her library. Her rules.</strong></div>
+            <div className="cat-command-deck" aria-hidden="true">
+              <div className="cat-command active"><i />Deploy</div>
+              <div className="cat-command"><i />Research</div>
+              <span className="cat-animated-paw"><i /><i /><i /></span>
+              <span className="tap-ripple" />
+            </div>
           </div>
           <div className="code-hero-stats">
             <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
@@ -219,7 +224,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
           </section>
         </div>
       </main>
-      <footer><span>Code Keyword Library · U.S. English</span><span>Category architecture only · Keyword discovery paused</span></footer>
+      <footer><span>Бібліотека Живчихи · Code Keyword Library</span><span>Category architecture only · Keyword discovery paused</span></footer>
     </div>
   );
 }
