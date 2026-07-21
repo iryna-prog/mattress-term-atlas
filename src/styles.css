@@ -1819,20 +1819,6 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
     linear-gradient(180deg, #070617, #100a24 48%, #09071b);
 }
 
-.code-shell::before {
-  position: fixed;
-  z-index: 0;
-  inset: 0;
-  background-image: url('/assets/code-cat-hero.jpg');
-  background-position: 62% center;
-  background-size: cover;
-  opacity: .84;
-  filter: saturate(1.08) contrast(1.04);
-  content: "";
-  pointer-events: none;
-  animation: full-cat-breathe 12s ease-in-out infinite alternate;
-}
-
 .code-shell::after {
   position: fixed;
   z-index: 0;
@@ -1885,6 +1871,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .code-hero-pills span { padding: 7px 10px; border: 1px solid rgba(174,113,255,.22); border-radius: 999px; color: #d7c8ec; background: rgba(119,61,189,.1); font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
 
 .code-cat-presence { position: relative; z-index: 2; min-height: 315px; }
+.code-cat-presence::before { position: absolute; z-index: -1; inset: -8px -18px -20px -22px; background: url('/assets/code-cat-hero.jpg') center bottom / contain no-repeat; filter: saturate(1.08) contrast(1.04); mask-image: radial-gradient(ellipse 78% 94% at 54% 52%, #000 48%, rgba(0,0,0,.96) 67%, transparent 94%); content: ""; pointer-events: none; animation: cat-scene-breathe 10s ease-in-out infinite alternate; }
 .code-cat-presence::after { position: absolute; z-index: -1; inset: 4% -7% -10% 10%; border-radius: 50%; background: radial-gradient(ellipse, rgba(83,220,255,.13), transparent 68%); filter: blur(24px); content: ""; }
 .cat-library-stamp { position: absolute; top: 18px; right: 10%; display: grid; gap: 2px; padding: 10px 34px 10px 12px; border: 1px solid rgba(69,232,255,.28); border-radius: 12px; color: #6cecff; background: rgba(5,6,22,.58); box-shadow: 0 12px 34px rgba(0,0,0,.22); backdrop-filter: blur(12px); }
 .cat-library-stamp i { position: absolute; top: 11px; right: 12px; width: 7px; height: 7px; border-radius: 50%; background: #57ffc7; box-shadow: 0 0 13px #57ffc7; animation: beacon 1.8s ease-in-out infinite; }
@@ -1936,7 +1923,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 @keyframes cat-walk { 0%,8% { left: 3px; transform: rotate(-4deg); } 48% { transform: rotate(4deg) translateY(-2px); } 92%,100% { left: calc(100% - 31px); transform: rotate(-4deg); } }
 @keyframes lane-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes cursor-blink { 50% { opacity: .25; } }
-@keyframes full-cat-breathe { from { transform: scale(1.01); background-position: 49% center; } to { transform: scale(1.035); background-position: 52% center; } }
+@keyframes cat-scene-breathe { from { transform: translateY(1px) scale(.985); } to { transform: translateY(-3px) scale(1); } }
 
 @media (max-width: 1080px) {
   .site-header { grid-template-columns: minmax(220px,1fr) auto minmax(150px,1fr); }
