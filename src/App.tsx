@@ -32,6 +32,7 @@ interface KeywordRecord {
   difficultyEstimate: "High" | "Medium" | "Low";
   priorityReason: string;
   aliases?: string[];
+  sourceUrls?: string[];
 }
 
 interface KeywordLibrary {
@@ -86,6 +87,10 @@ function formatNumber(value: number) {
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(new Date(`${value}T12:00:00`));
+}
+
+function csvCell(value: string | number) {
+  return `"${String(value).replaceAll('"', '""')}"`;
 }
 
 export default function App() {
@@ -187,6 +192,35 @@ export default function App() {
     } catch {
       setCopiedId("");
     }
+  };
+
+  const exportCategoryCsv = () => {
+    if (!library || !selectedCategory) return;
+    const records = library.keywords.filter((record) => record.categoryId === selectedCategory.id);
+    const rows = [
+      ["Page topic", "Merged query variants", "Category", "Subcategory", "Page type", "Intent", "Opportunity score", "Priority tier", "Demand estimate", "Difficulty estimate", "Ranking rationale", "Sources"],
+      ...records.map((record) => [
+        record.keyword,
+        (record.aliases ?? []).join(" | "),
+        record.category,
+        record.subcategory,
+        record.contentType,
+        record.intent,
+        record.opportunityScore,
+        record.priorityTier,
+        record.demandEstimate,
+        record.difficultyEstimate,
+        record.priorityReason,
+        (record.sourceUrls ?? []).join(" | "),
+      ]),
+    ];
+    const csv = rows.map((row) => row.map(csvCell).join(",")).join("\n");
+    const url = URL.createObjectURL(new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${selectedCategory.id}-mattress-page-topics.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   const chooseCategory = (categoryId: string) => {
@@ -322,7 +356,10 @@ export default function App() {
                 <h2>{heading}</h2>
                 <p>{description}</p>
               </div>
-              <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct pages</span></div>
+              <div className="keyword-heading-actions">
+                {!normalizedSearch && selectedCategory && <button className="export-button" onClick={exportCategoryCsv}>Export this category CSV</button>}
+                <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct pages</span></div>
+              </div>
             </div>
 
             <div className="type-filters" aria-label="Filter by page type">

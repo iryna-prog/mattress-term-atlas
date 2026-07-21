@@ -507,6 +507,29 @@ main {
   padding: 8px 4px 25px;
 }
 
+.keyword-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.export-button {
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid rgba(0, 102, 204, 0.2);
+  border-radius: 999px;
+  color: #0066cc;
+  background: #eef7ff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.export-button:hover {
+  border-color: #78afe1;
+  background: #e3f2ff;
+}
+
 .keyword-panel-heading h2 {
   margin: 0;
   font-size: clamp(32px, 4vw, 54px);
@@ -1245,6 +1268,11 @@ footer {
 
   .keyword-panel-heading {
     align-items: flex-start;
+  }
+
+  .keyword-heading-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .keyword-panel-heading h2 {

@@ -28,7 +28,7 @@ if (priorityOne.length !== 10) errors.push(`Expected 10 P1 categories, found ${p
 if (priorityOne.some((category) => category.count === 0)) errors.push("A P1 category is empty");
 if (library.categories.find((category) => category.id === "brands")?.count !== 1068) errors.push("Frozen brand inventory changed");
 if (library.keywords.some((record) => /how much does a how much|test method|\bacetate\b/.test(record.keyword))) errors.push("A forbidden or malformed page topic remains");
-if (library.keywords.some((record) => /\b(price|pricing|cost)$/.test(record.keyword) && !/^how much does/.test(record.keyword))) errors.push("Raw price/cost variants remain unclustered");
+if (library.keywords.some((record) => /\b(price|pricing|cost)$/.test(record.keyword) && !/^how much does/.test(record.keyword) && !record.keyword.includes(" vs "))) errors.push("Raw price/cost variants remain unclustered");
 if (!updates.runs.every((run) => run.keywords.every((record) => record.opportunityScore && record.priorityTier))) errors.push("An update topic lacks ranking data");
 
 if (errors.length) throw new Error(errors.join("\n"));

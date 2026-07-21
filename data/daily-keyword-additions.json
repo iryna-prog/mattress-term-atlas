@@ -10695,6 +10695,2362 @@
           }
         }
       ]
+    },
+    {
+      "id": "2026-07-21-p2-p5-independent-audit-02",
+      "date": "2026-07-21",
+      "sequence": 2,
+      "summary": "Four independent bounded audits reviewed P2–P5 categories and approved 103 new canonical pages after merging 4 proposals into existing pages and rejecting or consolidating 57 repetitive, covered, or section-level ideas. Cooling was handled separately; brands and retailers remained frozen.",
+      "categoriesAdded": [],
+      "keywords": [
+        {
+          "keyword": "organic mattress vs natural mattress",
+          "categoryId": "organic-natural",
+          "subcategory": "Organic mattress FAQs",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct label-and-buying decision not represented by the existing certification explainer; directly helps shoppers interpret organic versus natural claims.",
+          "aliases": [
+            "organic vs natural mattress",
+            "difference between organic and natural mattress",
+            "is natural the same as organic mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-organic-mattresses",
+            "https://www.healthline.com/health/healthy-sleep/how-to-choose-a-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct label-and-buying decision not represented by the existing certification explainer; directly helps shoppers interpret organic versus natural claims."
+          }
+        },
+        {
+          "keyword": "organic mattress allergy and hypoallergenic claims",
+          "categoryId": "organic-natural",
+          "subcategory": "Organic mattress FAQs",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Allergy suitability is a purchase decision with a different evidence and claims angle from general organic-mattress benefits.",
+          "aliases": [
+            "are organic mattresses hypoallergenic",
+            "best organic mattress for allergies",
+            "organic mattress dust mite allergies"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-organic-mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Allergy suitability is a purchase decision with a different evidence and claims angle from general organic-mattress benefits."
+          }
+        },
+        {
+          "keyword": "organic mattress flame retardants and fire barriers",
+          "categoryId": "organic-natural",
+          "subcategory": "Safety and certifications",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "A standalone trust page can explain how certifications and fire-safety construction interact without duplicating the general certification page.",
+          "aliases": [
+            "how organic mattresses meet fire standards",
+            "organic mattress fire barrier materials",
+            "are organic mattresses flame retardant free"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-organic-mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "A standalone trust page can explain how certifications and fire-safety construction interact without duplicating the general certification page."
+          }
+        },
+        {
+          "keyword": "wool vs cotton mattress materials",
+          "categoryId": "organic-natural",
+          "subcategory": "Organic mattress materials",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Material-selection comparison is narrower than the existing generic cotton and wool pages and can support a real product decision.",
+          "aliases": [
+            "wool or cotton mattress",
+            "cotton vs wool mattress cover",
+            "which is better wool or cotton in a mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-organic-mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Material-selection comparison is narrower than the existing generic cotton and wool pages and can support a real product decision."
+          }
+        },
+        {
+          "keyword": "how to compare mattress firmness ratings between brands",
+          "categoryId": "firmness-feel",
+          "subcategory": "Firmness FAQs",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "The source evidence explicitly notes that manufacturers use different scales; this is a distinct cross-brand shopping problem.",
+          "aliases": [
+            "mattress firmness ratings not standardized",
+            "compare mattress firmness scales",
+            "why mattress firmness ratings differ by brand"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-firmness",
+            "https://www.sleepfoundation.org/mattress-information/firm-vs-soft-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "The source evidence explicitly notes that manufacturers use different scales; this is a distinct cross-brand shopping problem."
+          }
+        },
+        {
+          "keyword": "mattress firmness by body weight",
+          "categoryId": "firmness-feel",
+          "subcategory": "Firmness FAQs",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Weight changes perceived firmness and sinkage; a consolidated chart is more useful than separate generic firmness pages.",
+          "aliases": [
+            "what mattress firmness for my weight",
+            "mattress firmness chart by weight",
+            "does body weight change mattress firmness"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/firm-vs-soft-mattress",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-firmness"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Weight changes perceived firmness and sinkage; a consolidated chart is more useful than separate generic firmness pages."
+          }
+        },
+        {
+          "keyword": "mattress firmness for couples with different preferences",
+          "categoryId": "firmness-feel",
+          "subcategory": "Firmness FAQs",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "This is a distinct couple-shopping problem requiring split firmness, compromise, or adjustable solutions.",
+          "aliases": [
+            "one partner likes firm mattress one likes soft",
+            "mattress for couples who disagree on firmness",
+            "different firmness preferences mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/firm-vs-soft-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "This is a distinct couple-shopping problem requiring split firmness, compromise, or adjustable solutions."
+          }
+        },
+        {
+          "keyword": "best mattress for back sleepers with sleep apnea or snoring",
+          "categoryId": "back-sleepers",
+          "subcategory": "Back sleeper health considerations",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "The current guide identifies worsened snoring and sleep-apnea symptoms for some back sleepers; the mattress-shopping angle is distinct but requires medical caveats.",
+          "aliases": [
+            "mattress for back sleepers who snore",
+            "best bed for back sleepers with sleep apnea",
+            "back sleeper mattress for breathing problems"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-back-sleepers"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "The current guide identifies worsened snoring and sleep-apnea symptoms for some back sleepers; the mattress-shopping angle is distinct but requires medical caveats."
+          }
+        },
+        {
+          "keyword": "best mattress for back sleepers with acid reflux or gerd",
+          "categoryId": "back-sleepers",
+          "subcategory": "Back sleeper health considerations",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "The source identifies reflux as a back-sleeping concern; this is a separate condition-led buying page and needs specialist review.",
+          "aliases": [
+            "mattress for back sleepers with reflux",
+            "best bed for gerd back sleepers",
+            "back sleeping mattress for acid reflux"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-back-sleepers"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "The source identifies reflux as a back-sleeping concern; this is a separate condition-led buying page and needs specialist review."
+          }
+        },
+        {
+          "keyword": "best mattress for stomach sleepers with neck pain",
+          "categoryId": "stomach-sleepers",
+          "subcategory": "Stomach sleeper health considerations",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Neck pain is not one of the existing stomach-sleeper pain pages; the source supports a distinct alignment question with medical caveats.",
+          "aliases": [
+            "mattress for stomach sleepers neck pain",
+            "best bed for stomach sleeping and neck pain",
+            "stomach sleeper mattress for neck support"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-stomach-sleepers",
+            "https://www.sleepfoundation.org/sleeping-positions/sleeping-on-stomach"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "Neck pain is not one of the existing stomach-sleeper pain pages; the source supports a distinct alignment question with medical caveats."
+          }
+        },
+        {
+          "keyword": "mattress topper for stomach sleepers",
+          "categoryId": "stomach-sleepers",
+          "subcategory": "Stomach sleeper setup",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Topper selection is a distinct remedial purchase path, not another mattress-type or firmness variant.",
+          "aliases": [
+            "best topper for stomach sleepers",
+            "can stomach sleepers use a mattress topper",
+            "stomach sleeper mattress pad"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/sleeping-positions/sleeping-on-stomach",
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-stomach-sleepers"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Topper selection is a distinct remedial purchase path, not another mattress-type or firmness variant."
+          }
+        },
+        {
+          "keyword": "mattress for couples with different sleep positions",
+          "categoryId": "combination-sleepers",
+          "subcategory": "Combination sleeper couples",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Existing pages cover couples who are both combination sleepers, but not partners with conflicting primary positions and different support needs.",
+          "aliases": [
+            "mattress for side sleeper and back sleeper couple",
+            "bed for couples with different sleeping positions",
+            "mattress for mixed position sleepers"
+          ],
+          "sourceUrls": [
+            "https://www.healthline.com/health/healthy-sleep/how-to-choose-a-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Existing pages cover couples who are both combination sleepers, but not partners with conflicting primary positions and different support needs."
+          }
+        },
+        {
+          "keyword": "mattress for hip and shoulder pain combination",
+          "categoryId": "hip-shoulder-pain",
+          "subcategory": "Multiple pressure areas",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "A single decision page for shoppers managing two pressure areas; distinct from single-joint pages and useful for comparing cushioning, support, and sleep position without making a medical promise.",
+          "aliases": [
+            "best mattress for hip and shoulder pain",
+            "mattress for both hip and shoulder pain"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-shoulder-pain",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A single decision page for shoppers managing two pressure areas; distinct from single-joint pages and useful for comparing cushioning, support, and sleep position without making a medical promise."
+          }
+        },
+        {
+          "keyword": "mattress after hip replacement",
+          "categoryId": "hip-shoulder-pain",
+          "subcategory": "Recovery and replacement questions",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "A distinct post-surgery mattress-shopping question with clear specialist-review requirements; content should stay within comfort and product-selection guidance and defer medical advice to clinicians.",
+          "aliases": [
+            "best mattress after hip replacement surgery"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A distinct post-surgery mattress-shopping question with clear specialist-review requirements; content should stay within comfort and product-selection guidance and defer medical advice to clinicians."
+          }
+        },
+        {
+          "keyword": "best mattress topper for sciatica",
+          "categoryId": "sciatica-numbness",
+          "subcategory": "Topper and temporary solutions",
+          "contentType": "Roundup",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "A product-level alternative for readers not ready to replace a mattress; separate page intent from choosing a mattress type or firmness, with medical claims reviewed by a specialist.",
+          "aliases": [
+            "best mattress topper for sciatic nerve pain",
+            "can a mattress topper help sciatica"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-sciatica",
+            "https://www.sleepfoundation.org/physical-health/sciatic-nerve-pain-relief-at-night"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A product-level alternative for readers not ready to replace a mattress; separate page intent from choosing a mattress type or firmness, with medical claims reviewed by a specialist."
+          }
+        },
+        {
+          "keyword": "mattress for sciatica and hip pain",
+          "categoryId": "sciatica-numbness",
+          "subcategory": "Overlapping discomfort",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Combines two commonly co-mentioned shopping concerns into one page rather than creating separate repetitive symptom pages; requires careful non-diagnostic language.",
+          "aliases": [
+            "best mattress for sciatica and hip pain"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-sciatica",
+            "https://www.sleepfoundation.org/mattress-information/mattress-glossary"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Combines two commonly co-mentioned shopping concerns into one page rather than creating separate repetitive symptom pages; requires careful non-diagnostic language."
+          }
+        },
+        {
+          "keyword": "mattress for couples with different body temperatures",
+          "categoryId": "couples",
+          "subcategory": "Temperature differences",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct couple-level compatibility problem not covered by general cooling or motion-isolation pages; supports split comfort, breathable materials, and bedding tradeoff discussion.",
+          "aliases": [
+            "best mattress for couples who sleep at different temperatures",
+            "mattress for a hot sleeper and cold sleeper couple"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-couples"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct couple-level compatibility problem not covered by general cooling or motion-isolation pages; supports split comfort, breathable materials, and bedding tradeoff discussion."
+          }
+        },
+        {
+          "keyword": "split king vs dual comfort mattress for couples",
+          "categoryId": "couples",
+          "subcategory": "Split and dual comfort",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "A decision comparison between two materially different solutions for partners with different preferences; not a duplicate of generic split-firmness or split-king pages.",
+          "aliases": [
+            "split king or dual firmness mattress for couples",
+            "split king versus dual comfort mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-couples",
+            "https://www.sleepfoundation.org/research-methodology/motion-isolation"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A decision comparison between two materially different solutions for partners with different preferences; not a duplicate of generic split-firmness or split-king pages."
+          }
+        },
+        {
+          "keyword": "mattress certification vs safety standard",
+          "categoryId": "safety",
+          "subcategory": "Certifications and regulations",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "A distinct explainer that helps shoppers interpret voluntary certifications alongside mandatory flammability rules; it can link existing certification pages without duplicating them.",
+          "aliases": [
+            "difference between mattress certification and safety standard",
+            "are mattress certifications required"
+          ],
+          "sourceUrls": [
+            "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A distinct explainer that helps shoppers interpret voluntary certifications alongside mandatory flammability rules; it can link existing certification pages without duplicating them."
+          }
+        },
+        {
+          "keyword": "how long does mattress off-gassing last",
+          "categoryId": "safety",
+          "subcategory": "Emissions and odor",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "A time-and-action FAQ distinct from the general off-gassing definition; should distinguish odor from measured emissions and avoid unsupported safety guarantees.",
+          "aliases": [
+            "how long does a new mattress smell last",
+            "when does mattress off gassing stop"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A time-and-action FAQ distinct from the general off-gassing definition; should distinguish odor from measured emissions and avoid unsupported safety guarantees."
+          }
+        },
+        {
+          "keyword": "adjustable bed mattress weight limit",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "can any mattress go on an adjustable bed",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-mattress-for-adjustable-beds"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "adjustable bed mattress keeps sliding",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "how to keep sheets on an adjustable bed",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "split king adjustable bed gap",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "adjustable bed zero gravity mattress position",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "smart mattress sleep tracking accuracy",
+          "categoryId": "adjustable-smart",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-smart-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress buying checklist",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "how to buy a mattress online without trying it",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress showroom pressure tactics",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress return policy questions to ask before buying",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "how to compare mattress reviews",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.goodhousekeeping.com/about/institute/a70642708/how-we-test-mattresses/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress testing methods explained",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.goodhousekeeping.com/about/institute/a70642708/how-we-test-mattresses/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress review red flags",
+          "categoryId": "shopping",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.goodhousekeeping.com/about/institute/a70642708/how-we-test-mattresses/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress discount code vs sale price",
+          "categoryId": "price",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress financing interest free vs deferred interest",
+          "categoryId": "price",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress financing credit requirements",
+          "categoryId": "price",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress sale price history",
+          "categoryId": "price",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress bundle discount worth it",
+          "categoryId": "price",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "what happens to a returned mattress",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress return pickup vs donation",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "can you return a mattress bought from a retailer",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress trial after opening",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress trial after sleeping on it",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress must be unboxed by deadline",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress delivery to apartment",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress white glove delivery vs standard delivery",
+          "categoryId": "delivery-policies",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress sagging warranty threshold",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress warranty claim documentation",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress foundation void warranty",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress has permanent body impression",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress develops mold in storage",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-disposal-guide"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress recycling pickup",
+          "categoryId": "care",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-disposal-guide"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress in a box vs white glove delivery",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-online-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "adjustable bed base vs adjustable mattress",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-adjustable-bed"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "smart mattress vs regular mattress",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-smart-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress firmness vs support",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-firmness"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress comfort vs support",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-firmness"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress warranty vs sleep trial",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress return policy vs exchange policy",
+          "categoryId": "comparisons",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Comparison",
+          "intent": "Comparison",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "what makes a mattress high quality",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "what mattress measurements matter",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "does mattress quality affect sleep",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "how should a mattress feel when you first lie on it",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "why do mattresses have trial periods",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-trial-periods"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "mattress firmness changes with temperature",
+          "categoryId": "faqs",
+          "subcategory": "Independent P2–P5 audit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant.",
+          "aliases": [],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-firmness"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct standalone mattress-shopping or ownership page intent supported by current U.S. source coverage; not a cost/lifespan/synonym variant."
+          }
+        },
+        {
+          "keyword": "best mattress for people over 300 pounds",
+          "categoryId": "body-weight",
+          "subcategory": "Weight and support",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "High-intent fit question with a concrete weight threshold and direct mattress-shopping connection.",
+          "aliases": [
+            "best mattress for 300 pound person",
+            "mattress for 300 lb person"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/research-methodology/body-weight",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "High",
+            "priorityReason": "High-intent fit question with a concrete weight threshold and direct mattress-shopping connection."
+          }
+        },
+        {
+          "keyword": "best mattress for people under 130 pounds",
+          "categoryId": "body-weight",
+          "subcategory": "Weight and support",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Useful fit page that can consolidate lightweight firmness, pressure relief, and support questions.",
+          "aliases": [
+            "best mattress for lightweight people",
+            "mattress for a 120 pound person"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/research-methodology/body-weight",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Useful fit page that can consolidate lightweight firmness, pressure relief, and support questions."
+          }
+        },
+        {
+          "keyword": "how thick should a mattress be for a heavy person",
+          "categoryId": "body-weight",
+          "subcategory": "Weight and support",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct construction decision for shoppers whose weight changes compression and support needs.",
+          "aliases": [
+            "mattress thickness for heavy people",
+            "how many inches should a mattress be for a heavier person"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/research-methodology/body-weight",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct construction decision for shoppers whose weight changes compression and support needs."
+          }
+        },
+        {
+          "keyword": "do heavier people need a firmer mattress",
+          "categoryId": "body-weight",
+          "subcategory": "Weight and support",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "A single FAQ can answer the question without splitting by every weight-position combination.",
+          "aliases": [
+            "firmness for heavy sleepers",
+            "should a heavy person get a firm mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/research-methodology/body-weight",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A single FAQ can answer the question without splitting by every weight-position combination."
+          }
+        },
+        {
+          "keyword": "best mattress height for getting in and out of bed",
+          "categoryId": "health-accessibility",
+          "subcategory": "Mobility and access",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "High-intent accessibility page; medical and mobility claims require careful review.",
+          "aliases": [
+            "ideal bed height for seniors",
+            "mattress height for easy transfers"
+          ],
+          "sourceUrls": [
+            "https://health.clevelandclinic.org/how-to-choose-a-mattress",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "High-intent accessibility page; medical and mobility claims require careful review."
+          }
+        },
+        {
+          "keyword": "best mattress for wheelchair users",
+          "categoryId": "health-accessibility",
+          "subcategory": "Mobility and access",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct accessibility need, but recommendations must avoid unsupported medical claims.",
+          "aliases": [
+            "mattress for wheelchair users",
+            "bed and mattress for wheelchair transfer"
+          ],
+          "sourceUrls": [
+            "https://health.clevelandclinic.org/how-to-choose-a-mattress",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "Distinct accessibility need, but recommendations must avoid unsupported medical claims."
+          }
+        },
+        {
+          "keyword": "best mattress for pressure relief for bedridden adults",
+          "categoryId": "health-accessibility",
+          "subcategory": "Mobility and access",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Potentially valuable lead topic with specialist-review and clinician disclaimer requirements.",
+          "aliases": [
+            "mattress for someone bedridden",
+            "pressure relief mattress for home care"
+          ],
+          "sourceUrls": [
+            "https://health.clevelandclinic.org/how-to-choose-a-mattress",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "Potentially valuable lead topic with specialist-review and clinician disclaimer requirements."
+          }
+        },
+        {
+          "keyword": "best mattress for arthritis pain",
+          "categoryId": "health-accessibility",
+          "subcategory": "Health conditions",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Strong mattress-shopping connection, handled as comfort/support guidance rather than treatment.",
+          "aliases": [
+            "mattress for arthritis",
+            "what mattress is best for arthritis"
+          ],
+          "sourceUrls": [
+            "https://health.clevelandclinic.org/how-to-choose-a-mattress",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "High",
+            "priorityReason": "Strong mattress-shopping connection, handled as comfort/support guidance rather than treatment."
+          }
+        },
+        {
+          "keyword": "how firm should a crib mattress be",
+          "categoryId": "kids-crib",
+          "subcategory": "Crib safety",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Direct safety FAQ supported by pediatric and federal guidance.",
+          "aliases": [
+            "crib mattress firmness test",
+            "are soft crib mattresses safe"
+          ],
+          "sourceUrls": [
+            "https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Choosing-a-Crib.aspx?form=HealthyChildren",
+            "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx?fs=e",
+            "https://www.cpsc.gov/FAQ/Crib-Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Direct safety FAQ supported by pediatric and federal guidance."
+          }
+        },
+        {
+          "keyword": "how tight should a crib mattress fit",
+          "categoryId": "kids-crib",
+          "subcategory": "Crib safety",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Directly answers a parent’s pre-purchase and setup concern; specialist review required.",
+          "aliases": [
+            "crib mattress gap safety",
+            "how to check crib mattress fit"
+          ],
+          "sourceUrls": [
+            "https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Choosing-a-Crib.aspx?form=HealthyChildren",
+            "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx?fs=e",
+            "https://www.cpsc.gov/FAQ/Crib-Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Directly answers a parent’s pre-purchase and setup concern; specialist review required."
+          }
+        },
+        {
+          "keyword": "can you use a mattress topper in a crib",
+          "categoryId": "kids-crib",
+          "subcategory": "Crib safety",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct safety question; answer should clearly follow pediatric guidance.",
+          "aliases": [
+            "crib mattress pad safety",
+            "is a crib mattress topper safe"
+          ],
+          "sourceUrls": [
+            "https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Choosing-a-Crib.aspx?form=HealthyChildren",
+            "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx?fs=e",
+            "https://www.cpsc.gov/FAQ/Crib-Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct safety question; answer should clearly follow pediatric guidance."
+          }
+        },
+        {
+          "keyword": "when should a child switch from a crib mattress to a twin mattress",
+          "categoryId": "kids-crib",
+          "subcategory": "Child transitions",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Natural parent shopping journey with one canonical transition page.",
+          "aliases": [
+            "when to move toddler to twin bed",
+            "crib to twin mattress transition"
+          ],
+          "sourceUrls": [
+            "https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Choosing-a-Crib.aspx?form=HealthyChildren",
+            "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx?fs=e",
+            "https://www.cpsc.gov/FAQ/Crib-Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Natural parent shopping journey with one canonical transition page."
+          }
+        },
+        {
+          "keyword": "what mattress thickness is safe for a bunk bed",
+          "categoryId": "kids-crib",
+          "subcategory": "Bunk and loft beds",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Safety-sensitive purchase question with strong product-fit intent.",
+          "aliases": [
+            "bunk bed mattress thickness limit",
+            "how thick can a bunk bed mattress be"
+          ],
+          "sourceUrls": [
+            "https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Choosing-a-Crib.aspx?form=HealthyChildren",
+            "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx?fs=e",
+            "https://www.cpsc.gov/FAQ/Crib-Mattresses"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Safety-sensitive purchase question with strong product-fit intent."
+          }
+        },
+        {
+          "keyword": "what is a mattress transition layer",
+          "categoryId": "materials",
+          "subcategory": "Foam specifications",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct technical construction topic with direct product-comparison usefulness.",
+          "aliases": [
+            "mattress transition foam layer",
+            "what does the transition layer do in a mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-comfort-layers",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct technical construction topic with direct product-comparison usefulness."
+          }
+        },
+        {
+          "keyword": "what is a mattress quilted cover",
+          "categoryId": "materials",
+          "subcategory": "Mattress covers",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Narrow but valid construction explainer; lower priority than support-core topics.",
+          "aliases": [
+            "quilted mattress cover layers",
+            "mattress cover quilting explained"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-comfort-layers",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Narrow but valid construction explainer; lower priority than support-core topics."
+          }
+        },
+        {
+          "keyword": "wool mattress layer benefits and drawbacks",
+          "categoryId": "materials",
+          "subcategory": "Natural fibers",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Material-specific page with sustainability and fire-barrier claims requiring careful sourcing.",
+          "aliases": [
+            "wool batting in mattresses",
+            "is wool good in a mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-comfort-layers",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Material-specific page with sustainability and fire-barrier claims requiring careful sourcing."
+          }
+        },
+        {
+          "keyword": "mattress edge support foam encasement vs coils",
+          "categoryId": "materials",
+          "subcategory": "Construction",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Combines overlapping construction variants into one non-repetitive decision page.",
+          "aliases": [
+            "foam encased mattress edge support vs reinforced coils",
+            "best mattress edge support construction"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-construction/mattress-support-core",
+            "https://www.sleepfoundation.org/mattress-construction/mattress-comfort-layers",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Combines overlapping construction variants into one non-repetitive decision page."
+          }
+        },
+        {
+          "keyword": "can a mattress go on a platform bed without slats",
+          "categoryId": "bases",
+          "subcategory": "Foundations",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "High-intent compatibility question that can prevent foundation mistakes.",
+          "aliases": [
+            "platform bed no slats mattress",
+            "does a platform bed need slats for a mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-bed-frames/box-spring-vs-slats",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "High-intent compatibility question that can prevent foundation mistakes."
+          }
+        },
+        {
+          "keyword": "can you put a mattress on plywood",
+          "categoryId": "bases",
+          "subcategory": "Foundations",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct setup question with practical airflow, moisture, and warranty considerations.",
+          "aliases": [
+            "plywood under mattress",
+            "is plywood a good mattress foundation"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-bed-frames/box-spring-vs-slats",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct setup question with practical airflow, moisture, and warranty considerations."
+          }
+        },
+        {
+          "keyword": "how much weight can a bed frame and mattress support",
+          "categoryId": "bases",
+          "subcategory": "Bed frames",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Important safety and fit page for couples and heavier sleepers.",
+          "aliases": [
+            "bed frame weight capacity with mattress",
+            "mattress foundation weight limit"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-bed-frames/box-spring-vs-slats",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Important safety and fit page for couples and heavier sleepers."
+          }
+        },
+        {
+          "keyword": "will an adjustable bed base damage a mattress",
+          "categoryId": "bases",
+          "subcategory": "Adjustable bases",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Strong product-fit intent and natural affiliate comparison opportunity.",
+          "aliases": [
+            "mattress compatibility with adjustable base",
+            "can any mattress go on an adjustable base"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-bed-frames/box-spring-vs-slats",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong product-fit intent and natural affiliate comparison opportunity."
+          }
+        },
+        {
+          "keyword": "how to stop a mattress from sliding on a bed frame",
+          "categoryId": "bases",
+          "subcategory": "Bed frames",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful troubleshooting page, but lower commercial priority.",
+          "aliases": [
+            "mattress slides on platform bed",
+            "keep mattress from moving on bed frame"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-bed-frames/box-spring-vs-slats",
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Useful troubleshooting page, but lower commercial priority."
+          }
+        },
+        {
+          "keyword": "what mattress size fits a 10 by 10 bedroom",
+          "categoryId": "sizes",
+          "subcategory": "Size fit",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "High-intent size selection page grounded in room fit rather than duplicate dimensions.",
+          "aliases": [
+            "best mattress size for a 10x10 room",
+            "mattress size for small bedroom"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping",
+            "https://www.sleepfoundation.org/mattress-information"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "High-intent size selection page grounded in room fit rather than duplicate dimensions."
+          }
+        },
+        {
+          "keyword": "what mattress size is best for a guest room",
+          "categoryId": "sizes",
+          "subcategory": "Size fit",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct use-case page with clear shopping intent.",
+          "aliases": [
+            "guest bedroom mattress size",
+            "best bed size for guest room"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping",
+            "https://www.sleepfoundation.org/mattress-information"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct use-case page with clear shopping intent."
+          }
+        },
+        {
+          "keyword": "what is a short queen mattress",
+          "categoryId": "sizes",
+          "subcategory": "Nonstandard sizes",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct size term with direct purchase and compatibility intent.",
+          "aliases": [
+            "short queen mattress dimensions",
+            "rv queen vs short queen mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping",
+            "https://www.sleepfoundation.org/mattress-information"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct size term with direct purchase and compatibility intent."
+          }
+        },
+        {
+          "keyword": "how much bigger is a king mattress than a queen",
+          "categoryId": "sizes",
+          "subcategory": "Size fit",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Combines comparison wording into one canonical decision page.",
+          "aliases": [
+            "queen vs king size difference",
+            "king mattress width compared with queen"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping",
+            "https://www.sleepfoundation.org/mattress-information"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Combines comparison wording into one canonical decision page."
+          }
+        },
+        {
+          "keyword": "are adjustable air mattresses good for back pain",
+          "categoryId": "other-types",
+          "subcategory": "Airbeds",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Strong shopping intent but should not promise treatment.",
+          "aliases": [
+            "air mattress for back pain",
+            "adjustable airbed for back support"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-types",
+            "https://www.consumerreports.org/home-garden/mattresses/buying-guide/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "yellow",
+            "demandEstimate": "High",
+            "difficultyEstimate": "High",
+            "priorityReason": "Strong shopping intent but should not promise treatment."
+          }
+        },
+        {
+          "keyword": "are waterbeds good for your back",
+          "categoryId": "other-types",
+          "subcategory": "Waterbeds",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct legacy product question, medically sensitive and lower priority.",
+          "aliases": [
+            "waterbed for back pain",
+            "does a water mattress support your back"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-types",
+            "https://www.consumerreports.org/home-garden/mattresses/buying-guide/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "High",
+            "priorityReason": "Distinct legacy product question, medically sensitive and lower priority."
+          }
+        },
+        {
+          "keyword": "is a futon mattress good for everyday sleeping",
+          "categoryId": "other-types",
+          "subcategory": "Futons and floor beds",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Clear replacement and comparison intent without splitting by futon subtype.",
+          "aliases": [
+            "can you sleep on a futon every night",
+            "futon mattress for daily use"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-types",
+            "https://www.consumerreports.org/home-garden/mattresses/buying-guide/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Clear replacement and comparison intent without splitting by futon subtype."
+          }
+        },
+        {
+          "keyword": "is a folding mattress good for everyday use",
+          "categoryId": "other-types",
+          "subcategory": "Folding mattresses",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "One canonical page consolidates everyday-use variants.",
+          "aliases": [
+            "can you sleep on a folding mattress every night",
+            "folding mattress for permanent bed"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-types",
+            "https://www.consumerreports.org/home-garden/mattresses/buying-guide/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "One canonical page consolidates everyday-use variants."
+          }
+        },
+        {
+          "keyword": "how to measure an rv mattress for replacement",
+          "categoryId": "rv-specialty",
+          "subcategory": "RV fit",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "High-intent specialty purchase page supported by current RV sizing evidence.",
+          "aliases": [
+            "measure rv mattress platform",
+            "how to measure for a custom rv mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "High-intent specialty purchase page supported by current RV sizing evidence."
+          }
+        },
+        {
+          "keyword": "can you use a regular mattress in an rv",
+          "categoryId": "rv-specialty",
+          "subcategory": "RV fit",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Strong pre-purchase compatibility question.",
+          "aliases": [
+            "home mattress in an rv",
+            "will a standard queen fit in an rv"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong pre-purchase compatibility question."
+          }
+        },
+        {
+          "keyword": "what is an rv short queen mattress",
+          "categoryId": "rv-specialty",
+          "subcategory": "RV fit",
+          "contentType": "Guide",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Named specialty size with strong replacement intent.",
+          "aliases": [
+            "rv short queen dimensions",
+            "short queen camper mattress size"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "High",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Named specialty size with strong replacement intent."
+          }
+        },
+        {
+          "keyword": "best mattress for a murphy bed",
+          "categoryId": "rv-specialty",
+          "subcategory": "Specialty environments",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct thickness, weight, and flex requirements create a standalone page.",
+          "aliases": [
+            "mattress for murphy bed",
+            "what mattress works on a murphy bed"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information",
+            "https://www.sleepfoundation.org/mattress-information/mattress-types"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct thickness, weight, and flex requirements create a standalone page."
+          }
+        },
+        {
+          "keyword": "best mattress for restless sleepers who change positions",
+          "categoryId": "sleep-position-other",
+          "subcategory": "Evidence-based positions",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Uses consumer language without unsupported animal-shape sleep jargon.",
+          "aliases": [
+            "mattress for restless sleeper",
+            "best mattress for moving around in sleep"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Uses consumer language without unsupported animal-shape sleep jargon."
+          }
+        },
+        {
+          "keyword": "best mattress for sleepers who sleep on their side and stomach",
+          "categoryId": "sleep-position-other",
+          "subcategory": "Evidence-based positions",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "A single page prevents repetitive position-by-material variants.",
+          "aliases": [
+            "mattress for side and stomach sleepers",
+            "side stomach combination sleeper mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "A single page prevents repetitive position-by-material variants."
+          }
+        },
+        {
+          "keyword": "best mattress for sleepers who sleep on their back and side",
+          "categoryId": "sleep-position-other",
+          "subcategory": "Evidence-based positions",
+          "contentType": "FAQ",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct combination intent with direct mattress-shopping connection.",
+          "aliases": [
+            "mattress for back and side sleepers",
+            "back side combination sleeper mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct combination intent with direct mattress-shopping connection."
+          }
+        },
+        {
+          "keyword": "mattress edge collapse",
+          "categoryId": "care",
+          "subcategory": "Mattress problems and replacement",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Retained for completeness, but likely low demand, highly competitive, paused, or weakly evidenced.",
+          "aliases": [],
+          "sourceUrls": []
+        },
+        {
+          "keyword": "best mattress for tall people",
+          "categoryId": "body-weight",
+          "subcategory": "tall people",
+          "contentType": "Roundup",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Retained for completeness, but likely low demand, highly competitive, paused, or weakly evidenced.",
+          "aliases": [
+            "how to choose a mattress for a tall person",
+            "mattress for tall sleepers"
+          ],
+          "sourceUrls": []
+        },
+        {
+          "keyword": "mattress foam density explained",
+          "categoryId": "materials",
+          "subcategory": "Mattress foams",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Relevant supporting topic, but demand or ranking difficulty is less favorable than the green set.",
+          "aliases": [
+            "what is mattress foam density and why does it matter",
+            "foam density vs firmness mattress"
+          ],
+          "sourceUrls": []
+        },
+        {
+          "keyword": "olympic queen mattress size and dimensions guide",
+          "categoryId": "sizes",
+          "subcategory": "olympic queen",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Relevant supporting topic, but demand or ranking difficulty is less favorable than the green set.",
+          "aliases": [
+            "what is an olympic queen mattress",
+            "olympic queen mattress dimensions",
+            "olympic queen vs queen mattress"
+          ],
+          "sourceUrls": []
+        }
+      ]
     }
   ]
 }
