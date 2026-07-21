@@ -174,6 +174,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
 
       <main>
         <section className="code-hero">
+          <span className="cat-paw-overlay" aria-hidden="true" />
           <div className="code-hero-copy">
             <span className="eyebrow"><i /> Бібліотека Живчихи</span>
             <h1>Map the queries.<br /><span>Build the future.</span></h1>
