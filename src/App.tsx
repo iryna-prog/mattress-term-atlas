@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 
 interface KeywordCategory {
   id: string;
@@ -72,6 +72,14 @@ interface UpdateLog {
   runs: UpdateRun[];
 }
 
+interface CodeCategory {
+  id: string;
+  name: string;
+  description: string;
+  priority: number;
+  subcategories: string[];
+}
+
 const PAGE_SIZE = 120;
 const typeOrder = ["All", "Guide", "FAQ", "Comparison", "Roundup", "Review", "Shopping"];
 const priorityFilters = [
@@ -79,6 +87,35 @@ const priorityFilters = [
   { id: "green", label: "Green · target first" },
   { id: "yellow", label: "Yellow · supporting" },
   { id: "red", label: "Red · keep, low priority" },
+];
+
+const codeCategories: CodeCategory[] = [
+  { id: "ai-coding-tools", name: "AI Coding Tools", priority: 1, description: "AI code assistants, copilots, editors, builders, model capabilities, pricing, reviews, and comparisons.", subcategories: ["AI coding assistants", "AI IDEs and editors", "App builders", "Tool comparisons", "Pricing and plans", "Reviews and alternatives"] },
+  { id: "vibe-coding", name: "Vibe Coding", priority: 1, description: "Natural-language software creation, workflows, limitations, best practices, and real-world projects.", subcategories: ["Vibe coding basics", "Workflows", "Project ideas", "Best tools", "Safety and limitations", "Production readiness"] },
+  { id: "prompting-code", name: "Prompting for Code", priority: 1, description: "Prompts and context strategies that help AI generate, explain, refactor, test, and repair code.", subcategories: ["Code generation prompts", "Debugging prompts", "Refactoring prompts", "Testing prompts", "Context engineering", "Prompt patterns"] },
+  { id: "code-generation", name: "AI Code Generation", priority: 1, description: "Generating applications, features, functions, scripts, components, APIs, and infrastructure with AI.", subcategories: ["Generate apps", "Generate functions", "Generate APIs", "Generate UI", "Generate scripts", "Generate infrastructure"] },
+  { id: "debugging-errors", name: "Debugging & Error Fixes", priority: 1, description: "Search-led solutions for programming errors, stack traces, broken builds, runtime failures, and AI debugging.", subcategories: ["Error messages", "Runtime errors", "Build errors", "Dependency errors", "Browser errors", "AI-assisted debugging"] },
+  { id: "agents-automation", name: "Coding Agents & Automation", priority: 1, description: "Autonomous coding agents, task planning, tool use, repositories, guardrails, and multi-agent workflows.", subcategories: ["Coding agents", "Agent workflows", "Multi-agent coding", "Tool use", "Repository agents", "Guardrails and approvals"] },
+  { id: "frontend", name: "Frontend Development", priority: 2, description: "Web interfaces, components, styling, accessibility, browser behavior, and AI-assisted frontend work.", subcategories: ["HTML and CSS", "JavaScript UI", "Components", "Responsive design", "Accessibility", "Browser APIs"] },
+  { id: "backend-apis", name: "Backend & APIs", priority: 2, description: "Servers, REST, GraphQL, authentication, background jobs, architecture, and AI-generated backend code.", subcategories: ["REST APIs", "GraphQL", "Authentication", "Server architecture", "Background jobs", "Webhooks"] },
+  { id: "languages", name: "Programming Languages", priority: 2, description: "Language-specific coding, migration, syntax, tooling, AI workflows, and comparisons.", subcategories: ["Python", "JavaScript and TypeScript", "Java and Kotlin", "C and C++", "C# and .NET", "Go, Rust, Ruby and PHP"] },
+  { id: "frameworks", name: "Frameworks & Libraries", priority: 2, description: "Framework tutorials, implementation questions, migrations, comparisons, and AI-assisted development.", subcategories: ["React and Next.js", "Vue and Nuxt", "Angular", "Node frameworks", "Python frameworks", "Mobile frameworks"] },
+  { id: "testing", name: "Testing & QA", priority: 2, description: "Unit, integration, end-to-end, visual, performance, and AI-generated software testing.", subcategories: ["Unit testing", "Integration testing", "E2E testing", "Test generation", "Mocking", "QA automation"] },
+  { id: "code-review", name: "Code Review & Refactoring", priority: 2, description: "Code quality, maintainability, technical debt, review automation, and safe refactoring.", subcategories: ["AI code review", "Refactoring", "Code smells", "Technical debt", "Clean code", "Pull request review"] },
+  { id: "databases", name: "Databases & Data Modeling", priority: 2, description: "SQL, NoSQL, schemas, queries, migrations, ORMs, vector databases, and database debugging.", subcategories: ["SQL", "NoSQL", "Data modeling", "ORMs", "Migrations", "Vector databases"] },
+  { id: "devops", name: "DevOps & CI/CD", priority: 2, description: "Build pipelines, containers, automation, observability, releases, and infrastructure workflows.", subcategories: ["CI/CD", "Docker", "Kubernetes", "Infrastructure as code", "Monitoring", "Release automation"] },
+  { id: "git", name: "Git, GitHub & Collaboration", priority: 2, description: "Version control, repositories, branching, pull requests, merge conflicts, and AI collaboration.", subcategories: ["Git commands", "GitHub workflows", "Branches", "Merge conflicts", "Pull requests", "Repository setup"] },
+  { id: "deployment", name: "Deployment & Hosting", priority: 2, description: "Deploying websites, applications, APIs, databases, containers, and AI-generated projects.", subcategories: ["Frontend deployment", "Server deployment", "Serverless", "Domains and DNS", "Environment variables", "Deployment errors"] },
+  { id: "security", name: "Application Security", priority: 3, description: "Secure coding, vulnerability prevention, authentication, secrets, dependencies, and AI code safety.", subcategories: ["Secure coding", "OWASP", "Authentication security", "Secrets management", "Dependency security", "AI security review"] },
+  { id: "performance", name: "Performance & Optimization", priority: 3, description: "Speed, memory, bundles, databases, networks, profiling, and AI-assisted optimization.", subcategories: ["Web performance", "Backend performance", "Database performance", "Profiling", "Bundle optimization", "Caching"] },
+  { id: "cloud", name: "Cloud Development", priority: 3, description: "Building and deploying software across major cloud platforms and managed services.", subcategories: ["AWS", "Google Cloud", "Azure", "Cloud functions", "Cloud databases", "Cloud architecture"] },
+  { id: "mobile", name: "Mobile App Development", priority: 3, description: "iOS, Android, cross-platform apps, mobile UI, APIs, deployment, and AI app builders.", subcategories: ["iOS", "Android", "React Native", "Flutter", "Mobile UI", "App store deployment"] },
+  { id: "data-ai", name: "Data, ML & AI Development", priority: 3, description: "Data pipelines, machine learning, LLM applications, RAG, embeddings, and AI APIs.", subcategories: ["Data engineering", "Machine learning", "LLM apps", "RAG", "Embeddings", "AI APIs"] },
+  { id: "ide-tooling", name: "IDEs, Editors & Developer Tools", priority: 3, description: "Editors, extensions, terminals, package managers, linters, formatters, and local environments.", subcategories: ["Code editors", "IDE extensions", "Terminals", "Package managers", "Linters and formatters", "Local setup"] },
+  { id: "architecture", name: "Software Architecture", priority: 3, description: "System design, patterns, monoliths, microservices, scalability, and AI architecture planning.", subcategories: ["System design", "Design patterns", "Microservices", "Monoliths", "Scalability", "Architecture diagrams"] },
+  { id: "learning", name: "Learn to Code with AI", priority: 3, description: "Beginner journeys, project-based learning, explanations, tutoring, and career-oriented coding paths.", subcategories: ["Coding for beginners", "AI coding tutor", "Project learning", "Language roadmaps", "Interview preparation", "Career paths"] },
+  { id: "projects", name: "Coding Projects & Templates", priority: 3, description: "Buildable project ideas, starter templates, clones, portfolios, SaaS, automations, and utilities.", subcategories: ["Beginner projects", "Portfolio projects", "SaaS projects", "App clones", "Automation projects", "Starter templates"] },
+  { id: "low-code", name: "Low-Code, No-Code & AI Builders", priority: 3, description: "Visual builders, AI app platforms, integrations, limitations, migrations, and comparisons.", subcategories: ["AI app builders", "No-code platforms", "Low-code tools", "Automations", "Platform comparisons", "Move to custom code"] },
 ];
 
 function formatNumber(value: number) {
@@ -105,7 +142,90 @@ function Penguin({ className = "" }: { className?: string }) {
   );
 }
 
+function LibrarySwitch({ active, onChange }: { active: "mattress" | "code"; onChange: (library: "mattress" | "code") => void }) {
+  return (
+    <nav className="library-switch" aria-label="Keyword libraries">
+      <button className={active === "mattress" ? "active mattress" : "mattress"} onClick={() => onChange("mattress")}><i>🐧</i><span>Mattress Keyword Library</span></button>
+      <button className={active === "code" ? "active code" : "code"} onClick={() => onChange("code")}><i>⌘</i><span>Code Keyword Library</span></button>
+    </nav>
+  );
+}
+
+function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") => void }) {
+  const [activeCodeCategory, setActiveCodeCategory] = useState(codeCategories[0].id);
+  const [codeSearch, setCodeSearch] = useState("");
+  const [codeSort, setCodeSort] = useState<"priority" | "name">("priority");
+  const selectedCodeCategory = codeCategories.find((category) => category.id === activeCodeCategory) ?? codeCategories[0];
+  const visibleCodeCategories = [...codeCategories]
+    .filter((category) => `${category.name} ${category.description} ${category.subcategories.join(" ")}`.toLowerCase().includes(codeSearch.trim().toLowerCase()))
+    .sort((left, right) => codeSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
+
+  return (
+    <div className="site-shell code-shell">
+      <div className="code-atmosphere" aria-hidden="true"><i /><i /><i /><div className="code-rain">01001010 · function() · &lt;/&gt; · AI · 101101 · npm run build · {"{}"}</div></div>
+      <header className="site-header code-header">
+        <button className="wordmark" onClick={() => { setActiveCodeCategory(codeCategories[0].id); setCodeSearch(""); }}>
+          <span className="wordmark-icon code-cat-mark" />
+          <span><strong>Code Keyword Library</strong><small>AI coding SEO lab</small></span>
+        </button>
+        <LibrarySwitch active="code" onChange={onSwitch} />
+        <div className="header-actions"><div className="code-status"><i />Category foundation ready</div></div>
+      </header>
+
+      <main>
+        <section className="code-hero">
+          <div className="code-hero-copy">
+            <span className="eyebrow"><i /> AI coding search intelligence</span>
+            <h1>Map the queries.<br /><span>Build the future.</span></h1>
+            <p>A category-first SEO foundation for a website that helps people create real software with AI. Keyword research intentionally begins after you approve this structure.</p>
+            <div className="code-hero-pills"><span>AI coding</span><span>Developer tools</span><span>FAQs</span><span>Commercial intent</span></div>
+          </div>
+          <div className="code-cat-visual" aria-label="Your cat supervising a futuristic coding workspace">
+            <div className="cat-scan"><i /><span>CAT.OS</span><strong>SEO supervisor online</strong></div>
+            <div className="cat-walk-track"><i /><i /><i /><i /><span className="cat-runner" /></div>
+          </div>
+          <div className="code-hero-stats">
+            <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
+            <div><strong>{codeCategories.filter((category) => category.priority === 1).length}</strong><span>priority-one foundations</span></div>
+            <div><strong>0</strong><span>keywords added by design</span></div>
+          </div>
+        </section>
+
+        <section className="search-section code-search" aria-label="Search code categories">
+          <span className="search-icon">⌕<i /></span>
+          <input value={codeSearch} onChange={(event) => setCodeSearch(event.target.value)} placeholder="Search AI coding tools, debugging, Python, deployment, agents…" aria-label="Search code categories" />
+          {codeSearch && <button onClick={() => setCodeSearch("")} aria-label="Clear code category search">Clear</button>}
+        </section>
+
+        <div className="code-foundation-note"><span>Foundation mode</span><p><strong>Categories and research lanes only.</strong> No code keywords have been generated yet, so you can approve the architecture before the full SEO expansion begins.</p></div>
+
+        <div className="library-layout code-layout">
+          <aside className="category-panel code-category-panel" aria-label="Code keyword categories">
+            <div className="category-panel-heading"><span>Code categories <small>{visibleCodeCategories.length}</small></span><label><span className="sr-only">Sort code categories</span><select value={codeSort} onChange={(event) => setCodeSort(event.target.value as "priority" | "name")}><option value="priority">Priority</option><option value="name">Name</option></select></label></div>
+            <div className="category-list">
+              {visibleCodeCategories.map((category) => <button key={category.id} className={category.id === activeCodeCategory ? "active" : ""} onClick={() => { setActiveCodeCategory(category.id); setCodeSearch(""); window.scrollTo({ top: 0, behavior: "smooth" }); }}><span className="category-name">{category.name}<em>P{category.priority}</em></span><small>{category.subcategories.length}</small></button>)}
+            </div>
+          </aside>
+
+          <section className="keyword-panel code-panel">
+            <div className="keyword-panel-heading">
+              <div><div className="heading-meta"><span className="eyebrow">Selected code category</span><span className={`category-priority p${selectedCodeCategory.priority}`}>Priority {selectedCodeCategory.priority}</span></div><h2>{selectedCodeCategory.name}</h2><p>{selectedCodeCategory.description}</p></div>
+              <div className="result-count"><strong>{selectedCodeCategory.subcategories.length}</strong><span>research lanes</span></div>
+            </div>
+            <div className="code-lane-grid">
+              {selectedCodeCategory.subcategories.map((subcategory, index) => <article key={subcategory} style={{ "--lane-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{subcategory}</strong><small>Keyword research not started</small></div><i>→</i></article>)}
+            </div>
+            <div className="code-empty-state"><span className="code-prompt">_</span><div><strong>Ready for category approval</strong><p>Once this structure feels right, each lane can expand into distinct FAQ, comparison, tool, tutorial, and commercial keyword opportunities.</p></div></div>
+          </section>
+        </div>
+      </main>
+      <footer><span>Code Keyword Library · U.S. English</span><span>Category architecture only · Keyword discovery paused</span></footer>
+    </div>
+  );
+}
+
 export default function App() {
+  const [activeLibrary, setActiveLibrary] = useState<"mattress" | "code">("mattress");
   const [library, setLibrary] = useState<KeywordLibrary | null>(null);
   const [activeCategory, setActiveCategory] = useState("latex");
   const [search, setSearch] = useState("");
@@ -234,6 +354,8 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  if (activeLibrary === "code") return <CodeLibrary onSwitch={setActiveLibrary} />;
+
   if (error) {
     return <main className="state-screen"><div><strong>Unable to open the library</strong><p>{error}</p></div></main>;
   }
@@ -261,6 +383,7 @@ export default function App() {
           <span className="wordmark-icon"><i /><b /></span>
           <span><strong>Mattress Keyword Library</strong><small>Antarctic research station</small></span>
         </button>
+        <LibrarySwitch active="mattress" onChange={setActiveLibrary} />
         <div className="header-actions">
           <button className="updates-button" onClick={() => setShowUpdates(true)}>
             <span>Updates</span>

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "../src/styles.css";
 
-const title = "Mattress Keyword Library";
-const description = "A focused library of mattress-specific SEO keywords and FAQ ideas.";
+const title = "SEO Keyword Libraries";
+const description = "Private SEO research libraries for mattress and AI coding content.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const incomingHeaders = await headers();
@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
-      images: [{ url: imageUrl, width: 1728, height: 907, alt: "Mattress Keyword Library" }],
+      images: [{ url: imageUrl, width: 1728, height: 907, alt: "SEO Keyword Libraries" }],
     },
     twitter: {
       card: "summary_large_image",
