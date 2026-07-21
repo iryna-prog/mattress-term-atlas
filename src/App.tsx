@@ -93,6 +93,18 @@ function csvCell(value: string | number) {
   return `"${String(value).replaceAll('"', '""')}"`;
 }
 
+function Penguin({ className = "" }: { className?: string }) {
+  return (
+    <span className={`penguin ${className}`} aria-hidden="true">
+      <i className="penguin-wing left" />
+      <i className="penguin-wing right" />
+      <i className="penguin-body"><b className="penguin-face"><em /><em /></b><b className="penguin-belly" /><b className="penguin-beak" /></i>
+      <i className="penguin-foot left" />
+      <i className="penguin-foot right" />
+    </span>
+  );
+}
+
 export default function App() {
   const [library, setLibrary] = useState<KeywordLibrary | null>(null);
   const [activeCategory, setActiveCategory] = useState("latex");
@@ -240,10 +252,14 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <div className="polar-atmosphere" aria-hidden="true">
+        <i className="aurora aurora-one" /><i className="aurora aurora-two" /><i className="aurora aurora-three" />
+        <div className="snowfall">{Array.from({ length: 24 }, (_, index) => <i key={index} />)}</div>
+      </div>
       <header className="site-header">
         <button className="wordmark" onClick={() => chooseCategory("latex")}>
-          <span className="wordmark-icon">M</span>
-          <span><strong>Mattress Keyword Library</strong><small>U.S. SEO research</small></span>
+          <span className="wordmark-icon"><i /><b /></span>
+          <span><strong>Mattress Keyword Library</strong><small>Antarctic research station</small></span>
         </button>
         <div className="header-actions">
           <button className="updates-button" onClick={() => setShowUpdates(true)}>
@@ -260,19 +276,27 @@ export default function App() {
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <span className="eyebrow">One library · mattress terms only</span>
-            <h1>Choose a category.<br />Use the keywords.</h1>
+            <span className="eyebrow"><i /> Antarctic keyword intelligence</span>
+            <h1>Explore the<br /><span>keyword ice shelf.</span></h1>
             <p>No bare materials, unrelated test methods, or vague technical phrases. Every entry is written as a mattress page, comparison, brand page, roundup, or FAQ.</p>
           </div>
+          <div className="polar-scene" aria-hidden="true">
+            <i className="polar-moon" />
+            <div className="mountain mountain-one" /><div className="mountain mountain-two" /><div className="mountain mountain-three" />
+            <i className="ice-shine shine-one" /><i className="ice-shine shine-two" />
+            <Penguin className="penguin-captain" />
+            <Penguin className="penguin-scout" />
+            <div className="penguin-message"><span>Research station online</span><strong>{formatNumber(library.totalKeywords)} ideas mapped</strong></div>
+          </div>
           <div className="hero-stats" aria-label="Library summary">
-            <div><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct keywords</span></div>
-            <div><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
-            <div><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
+            <div><i>❄</i><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct keywords</span></div>
+            <div><i>◈</i><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
+            <div><i>✦</i><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
           </div>
         </section>
 
         <section className="search-section" aria-label="Search mattress keywords">
-          <span className="search-icon">⌕</span>
+          <span className="search-icon">⌕<i /></span>
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
