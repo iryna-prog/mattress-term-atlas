@@ -182,11 +182,6 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
           </div>
           <div className="code-cat-presence" aria-label="Живчиха supervising the futuristic coding workspace">
             <div className="cat-library-stamp"><i /><span>ЖИВЧИХА.OS</span><strong>Her library. Her rules.</strong></div>
-            <div className="cat-command-deck" aria-hidden="true">
-              <div className="cat-command active"><i />Deploy</div>
-              <div className="cat-command"><i />Research</div>
-              <span className="tap-ripple" />
-            </div>
           </div>
           <div className="code-hero-stats">
             <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
