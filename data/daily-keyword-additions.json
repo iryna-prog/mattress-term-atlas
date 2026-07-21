@@ -9900,6 +9900,801 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-07-21-cooling-saturation-audit-01",
+      "date": "2026-07-21",
+      "sequence": 1,
+      "summary": "Bounded Cooling & Hot Sleepers audit reviewed five current U.S. sources and added 29 distinct canonical pages. Wording variants were retained as aliases, medical-adjacent topics were flagged, and brands and retailers remained frozen. The category is substantially deeper but not yet declared saturated.",
+      "categoriesAdded": [],
+      "keywords": [
+        {
+          "keyword": "how do cooling mattresses work",
+          "categoryId": "cooling",
+          "subcategory": "Cooling technology",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "how does a cooling mattress work",
+            "cooling mattress technology explained"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "are cooling mattresses worth it",
+          "categoryId": "cooling",
+          "subcategory": "Cooling shopping decisions",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "is a cooling mattress worth the money",
+            "do cooling mattresses really work"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "cooling mattress materials compared",
+          "categoryId": "cooling",
+          "subcategory": "Cooling materials",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "best cooling materials in a mattress",
+            "mattress cooling technologies compared"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "active vs passive cooling mattress technology",
+          "categoryId": "cooling",
+          "subcategory": "Cooling technology",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "active cooling mattress vs passive cooling",
+            "powered vs material-based mattress cooling"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "cooling mattress vs temperature-controlled smart bed",
+          "categoryId": "cooling",
+          "subcategory": "Cooling comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling mattress or smart temperature control bed",
+            "passive cooling mattress vs active smart bed"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "cool-to-touch mattress cover vs all-night cooling",
+          "categoryId": "cooling",
+          "subcategory": "Cooling claims",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "cool to touch vs stays cool mattress",
+            "does a cooling cover stay cool all night"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "how are cooling mattresses tested",
+          "categoryId": "cooling",
+          "subcategory": "Cooling testing",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "mattress temperature regulation test",
+            "thermal imaging test for cooling mattresses"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "how to verify cooling mattress claims",
+          "categoryId": "cooling",
+          "subcategory": "Cooling claims",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "are cooling mattress claims real",
+            "how to compare mattress cooling claims"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "how long does a cooling mattress stay cool",
+          "categoryId": "cooling",
+          "subcategory": "Cooling ownership FAQs",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "does a cooling mattress work all night",
+            "how long does mattress cooling technology last each night"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "best cooling mattress by sleep position",
+          "categoryId": "cooling",
+          "subcategory": "Cooling shopper fit",
+          "contentType": "Roundup",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "cooling mattress for side sleepers",
+            "cooling mattress for back sleepers",
+            "cooling mattress for stomach sleepers"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "best cooling mattress by body weight",
+          "categoryId": "cooling",
+          "subcategory": "Cooling shopper fit",
+          "contentType": "Roundup",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "cooling mattress for heavy sleepers",
+            "cooling mattress for lightweight sleepers",
+            "cooling mattress for average weight sleepers"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "cooling mattress for couples with different temperature preferences",
+          "categoryId": "cooling",
+          "subcategory": "Cooling shopper fit",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "mattress for one hot sleeper and one cold sleeper",
+            "dual-temperature mattress for couples"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "cooling mattress for hot flashes and menopause",
+          "categoryId": "cooling",
+          "subcategory": "Cooling health-adjacent FAQs",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "mattress for menopausal hot flashes",
+            "cooling bed for menopause night sweats"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "cooling mattress for hot bedrooms and humid climates",
+          "categoryId": "cooling",
+          "subcategory": "Cooling environments",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling mattress for a room without air conditioning",
+            "mattress for humid weather",
+            "cooling mattress for hot climate"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "should you use a cooling mattress year round",
+          "categoryId": "cooling",
+          "subcategory": "Cooling ownership FAQs",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Relevant lower-demand supporting page retained as a distinct editorial opportunity.",
+          "aliases": [
+            "cooling mattress in winter",
+            "is a cooling mattress only for summer"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Relevant lower-demand supporting page retained as a distinct editorial opportunity."
+          }
+        },
+        {
+          "keyword": "cooling mattress vs cooling mattress topper",
+          "categoryId": "cooling",
+          "subcategory": "Cooling comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "buy a cooling mattress or topper",
+            "cooling topper vs new cooling mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "cooling mattress vs cooling mattress pad",
+          "categoryId": "cooling",
+          "subcategory": "Cooling comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling mattress pad or cooling mattress",
+            "cooling pad vs temperature-regulating mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "can a mattress protector block cooling technology",
+          "categoryId": "cooling",
+          "subcategory": "Cooling troubleshooting",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "does a mattress protector make a cooling mattress hotter",
+            "best protector for a cooling mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "do sheets affect cooling mattress performance",
+          "categoryId": "cooling",
+          "subcategory": "Cooling troubleshooting",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "can hot sheets cancel mattress cooling",
+            "best sheets for a cooling mattress"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "does a bed frame affect mattress airflow and cooling",
+          "categoryId": "cooling",
+          "subcategory": "Cooling foundations",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "foundation airflow for a cooling mattress",
+            "can a platform bed make a mattress sleep hot"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "why did my cooling mattress stop feeling cool",
+          "categoryId": "cooling",
+          "subcategory": "Cooling troubleshooting",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage.",
+          "aliases": [
+            "cooling mattress no longer works",
+            "why does my cooling mattress sleep hot now"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct high-value mattress decision or troubleshooting page supported by current cooling-mattress coverage."
+          }
+        },
+        {
+          "keyword": "how to clean a cooling mattress after night sweats",
+          "categoryId": "cooling",
+          "subcategory": "Cooling care",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Relevant lower-demand supporting page retained as a distinct editorial opportunity.",
+          "aliases": [
+            "clean sweat from a cooling mattress",
+            "protect cooling mattress from night sweat stains"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Relevant lower-demand supporting page retained as a distinct editorial opportunity."
+          }
+        },
+        {
+          "keyword": "how long should you test a cooling mattress",
+          "categoryId": "cooling",
+          "subcategory": "Cooling trials",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling mattress trial period for hot sleepers",
+            "how many nights to test mattress temperature regulation"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "should you return a cooling mattress if you still sleep hot",
+          "categoryId": "cooling",
+          "subcategory": "Cooling trials",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling mattress return because it sleeps hot",
+            "exchange mattress that traps heat"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "does mattress firmness affect cooling",
+          "categoryId": "cooling",
+          "subcategory": "Cooling construction",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "soft vs firm mattress for hot sleepers",
+            "does a softer mattress trap more heat"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "does mattress thickness affect heat retention",
+          "categoryId": "cooling",
+          "subcategory": "Cooling construction",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Relevant lower-demand supporting page retained as a distinct editorial opportunity.",
+          "aliases": [
+            "thick vs thin mattress for hot sleepers",
+            "does mattress height affect cooling"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Relevant lower-demand supporting page retained as a distinct editorial opportunity."
+          }
+        },
+        {
+          "keyword": "budget vs premium cooling mattress technology",
+          "categoryId": "cooling",
+          "subcategory": "Cooling shopping decisions",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cheap vs expensive cooling mattress",
+            "is premium mattress cooling worth it"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "gel foam vs phase change material mattress cooling",
+          "categoryId": "cooling",
+          "subcategory": "Cooling materials",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "cooling gel vs pcm mattress",
+            "phase change cover vs gel memory foam"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        },
+        {
+          "keyword": "hybrid vs innerspring mattress for hot sleepers",
+          "categoryId": "cooling",
+          "subcategory": "Cooling comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial",
+          "specialistReview": false,
+          "rationale": "Useful standalone cooling-mattress page with clear shopper or ownership intent.",
+          "aliases": [
+            "is hybrid or innerspring cooler",
+            "best spring mattress type for hot sleepers"
+          ],
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/best-mattress/best-cooling-mattress",
+            "https://www.tomsguide.com/wellness/sleep/how-does-a-cooling-mattress-work",
+            "https://www.tomsguide.com/wellness/mattresses/temperature-regulation",
+            "https://www.tomsguide.com/wellness/mattresses/gel-foam-mattresses",
+            "https://www.tomsguide.com/wellness/mattresses/5-signs-that-you-need-a-cooling-mattress"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful standalone cooling-mattress page with clear shopper or ownership intent."
+          }
+        }
+      ]
     }
   ]
 }
