@@ -185,7 +185,6 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
             <div className="cat-command-deck" aria-hidden="true">
               <div className="cat-command active"><i />Deploy</div>
               <div className="cat-command"><i />Research</div>
-              <span className="cat-animated-paw"><i /><i /><i /></span>
               <span className="tap-ripple" />
             </div>
           </div>
