@@ -118,15 +118,13 @@ function withArticle(base) {
 
 function canonicalizePageTopic(value) {
   if (/^how much does .+ cost$/.test(value)) return value;
+  if (value.includes(" vs ")) return value;
 
   const pluralGoodFor = value.match(/^are (.+?) mattresses (good for .+)$/);
   if (pluralGoodFor) return `is ${withArticle(`${pluralGoodFor[1]} mattress`)} ${pluralGoodFor[2]}`;
 
   const pluralQuestion = value.match(/^do (.+?) mattresses (sag|sleep hot)$/);
   if (pluralQuestion) return `does ${withArticle(`${pluralQuestion[1]} mattress`)} ${pluralQuestion[2]}`;
-
-  const definition = value.match(/^what is (?:a|an) (.+? mattress)$/);
-  if (definition) return definition[1];
 
   const weightLimit = value.match(/^what is the weight limit for (?:a|an) (.+)$/);
   if (weightLimit) return `${weightLimit[1]} weight limit`;
@@ -137,19 +135,9 @@ function canonicalizePageTopic(value) {
   const pluralBest = value.match(/^best mattresses (.+)$/);
   if (pluralBest) return `best mattress ${pluralBest[1]}`;
 
-  if (value === "what is fiberglass in a mattress") return "fiberglass in mattresses";
-  if (value === "is a tight top mattress firm") return "firm tight top mattress";
-
-  const comparison = value.match(/^(.+?) vs (.+)$/);
-  if (comparison) return [comparison[1], comparison[2]].sort().join(" vs ");
-
   const rules = [
     [/^(.+?) (?:price|cost|pricing)$/, (match) => `how much does ${withArticle(match[1])} cost`],
-    [/^(.+?) (?:lifespan|longevity|durability)$/, (match) => `how long does ${withArticle(match[1])} last`],
-    [/^(.+?) (?:benefits|advantages|disadvantages|pros and cons)$/, (match) => `${match[1]} pros and cons`],
-    [/^(?:benefits|advantages|disadvantages|pros and cons) of (.+)$/, (match) => `${match[1]} pros and cons`],
-    [/^(.+?) buying guide$/, (match) => `how to choose ${withArticle(match[1])}`],
-    [/^(.+?) (?:dimensions|size guide)$/, (match) => `${match[1]} size and dimensions guide`],
+    [/^(.+?) (?:lifespan|longevity)$/, (match) => `how long does ${withArticle(match[1])} last`],
     [/^(.+?) review$/, (match) => `${match[1]} reviews`],
   ];
 
@@ -158,6 +146,13 @@ function canonicalizePageTopic(value) {
     if (match) return replace(match);
   }
   return value;
+}
+
+function exactEquivalentKey(value) {
+  const canonical = canonicalizePageTopic(normalize(value));
+  const comparison = canonical.match(/^(.+?) vs (.+)$/);
+  if (!comparison) return canonical;
+  return comparison.slice(1).map((side) => side.trim()).sort().join(" vs ");
 }
 
 function inferType(keyword) {
@@ -172,24 +167,12 @@ function inferType(keyword) {
 function add(keyword, categoryId, subcategory, source = "Curated expansion", metadata = {}) {
   const original = normalize(keyword);
   const normalized = canonicalizePageTopic(original);
+  const equivalenceKey = exactEquivalentKey(normalized);
   let proposedAliases = [...new Set((metadata.aliases ?? []).map((alias) => normalize(alias)).filter(Boolean))];
   if (!categoryById.has(categoryId)) throw new Error(`Unknown category: ${categoryId}`);
   if (!normalized) return false;
   if (/test method|how is .* measured|vs alternatives|near me near me|mattress mattress|\bacetate\b/.test(normalized)) return false;
-  const existingRecord = seen.get(normalized);
-
-  if (metadata.rankingOverride) {
-    const aliasRecords = [...new Set(proposedAliases
-      .map((alias) => seen.get(canonicalizePageTopic(alias)))
-      .filter((record) => record && record.categoryId === categoryId && record !== existingRecord))];
-    for (const aliasRecord of aliasRecords) {
-      proposedAliases.push(aliasRecord.keyword, ...aliasRecord.aliases);
-      seen.delete(aliasRecord.keyword);
-      const recordIndex = records.indexOf(aliasRecord);
-      if (recordIndex >= 0) records.splice(recordIndex, 1);
-    }
-    proposedAliases = [...new Set(proposedAliases)];
-  }
+  const existingRecord = seen.get(equivalenceKey);
 
   if (existingRecord) {
     for (const alias of [original, ...proposedAliases]) {
@@ -219,7 +202,7 @@ function add(keyword, categoryId, subcategory, source = "Curated expansion", met
     sourceUrls: metadata.sourceUrls ?? [],
     rankingOverride: metadata.rankingOverride,
   };
-  seen.set(normalized, record);
+  seen.set(equivalenceKey, record);
   records.push(record);
   return true;
 }
@@ -1381,41 +1364,36 @@ for (const record of records) {
   }
 }
 
-function pageTopicTokens(value) {
-  return new Set(value
-    .replace(/\bmattresses\b/g, "mattress")
-    .replace(/\b(a|an|the|do|does|is|are|what|why|how|and|or|for|in|of|to|with)\b/g, " ")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .split(" ")
-    .filter(Boolean));
-}
+const recordsWithAliases = [...records];
+for (const record of recordsWithAliases) {
+  const recordKey = exactEquivalentKey(record.keyword);
+  const exactAliases = [];
+  const distinctKeywords = [];
 
-function topicSimilarity(left, right) {
-  const leftTokens = pageTopicTokens(left);
-  const rightTokens = pageTopicTokens(right);
-  const intersection = [...leftTokens].filter((token) => rightTokens.has(token)).length;
-  const union = new Set([...leftTokens, ...rightTokens]).size;
-  return union ? intersection / union : 0;
-}
+  for (const alias of record.aliases) {
+    if (exactEquivalentKey(alias) === recordKey) exactAliases.push(alias);
+    else distinctKeywords.push(alias);
+  }
 
-const canonicalRecordMap = new Map(records.map((record) => [`${record.categoryId}|${record.keyword}`, record]));
-const cannibalizedRecords = new Set();
-for (const record of records) {
-  record.aliases = record.aliases.filter((alias) => {
-    const aliasRecord = canonicalRecordMap.get(`${record.categoryId}|${canonicalizePageTopic(alias)}`);
-    if (!aliasRecord || aliasRecord === record) return true;
-    if (topicSimilarity(record.keyword, aliasRecord.keyword) >= 0.5) {
-      record.aliases.push(aliasRecord.keyword, ...aliasRecord.aliases);
-      cannibalizedRecords.add(aliasRecord);
+  const distinctKeywordReason = "Distinct mattress keyword with its own editorial angle and search intent.";
+  if (distinctKeywords.length > 0) {
+    record.rationale = distinctKeywordReason;
+    if (record.rankingOverride) {
+      record.rankingOverride = { ...record.rankingOverride, priorityReason: distinctKeywordReason };
     }
-    return false;
-  });
-  record.aliases = [...new Set(record.aliases.filter((alias) => alias !== record.keyword))];
-}
-for (let index = records.length - 1; index >= 0; index -= 1) {
-  if (cannibalizedRecords.has(records[index])) records.splice(index, 1);
+  }
+  record.aliases = [...new Set(exactAliases.filter((alias) => normalize(alias) !== record.keyword))];
+  for (const keyword of distinctKeywords) {
+    add(keyword, record.categoryId, record.subcategory, record.source, {
+      dailyRunId: record.dailyRunId,
+      specialistReview: record.specialistReview,
+      rationale: distinctKeywordReason,
+      contentType: inferType(normalize(keyword))[0],
+      intent: inferType(normalize(keyword))[1],
+      sourceUrls: record.sourceUrls,
+      rankingOverride: record.rankingOverride ? { ...record.rankingOverride, priorityReason: distinctKeywordReason } : undefined,
+    });
+  }
 }
 
 const fixedExpansionRecords = records.filter((record) => record.dailyRunId === fixedExpansionRun.id);
@@ -1442,6 +1420,23 @@ dailyRunResults.push({
     specialistReview: record.specialistReview,
   })),
 });
+
+for (const run of dailyRunResults) {
+  const runRecords = records.filter((record) => record.dailyRunId === run.id);
+  const categoryCounts = new Map();
+  for (const record of runRecords) {
+    categoryCounts.set(record.category, (categoryCounts.get(record.category) ?? 0) + 1);
+  }
+  run.keywordsAdded = runRecords.length;
+  run.categoryCounts = [...categoryCounts.entries()].map(([category, count]) => ({ category, count }));
+  run.keywords = runRecords.map((record) => ({
+    keyword: record.keyword,
+    categoryId: record.categoryId,
+    category: record.category,
+    subcategory: record.subcategory,
+    specialistReview: record.specialistReview,
+  }));
+}
 
 function rankKeyword(record) {
   if (record.rankingOverride) {

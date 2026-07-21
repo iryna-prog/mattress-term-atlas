@@ -198,27 +198,18 @@ export default function App() {
     if (!library || !selectedCategory) return;
     const records = library.keywords.filter((record) => record.categoryId === selectedCategory.id);
     const rows = [
-      ["Page topic", "Merged query variants", "Category", "Subcategory", "Page type", "Intent", "Opportunity score", "Priority tier", "Demand estimate", "Difficulty estimate", "Ranking rationale", "Sources"],
+      ["Keyword", "Category", "Merged exact variants"],
       ...records.map((record) => [
         record.keyword,
-        (record.aliases ?? []).join(" | "),
         record.category,
-        record.subcategory,
-        record.contentType,
-        record.intent,
-        record.opportunityScore,
-        record.priorityTier,
-        record.demandEstimate,
-        record.difficultyEstimate,
-        record.priorityReason,
-        (record.sourceUrls ?? []).join(" | "),
+        (record.aliases ?? []).join(" | "),
       ]),
     ];
     const csv = rows.map((row) => row.map(csvCell).join(",")).join("\n");
     const url = URL.createObjectURL(new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" }));
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${selectedCategory.id}-mattress-page-topics.csv`;
+    link.download = `${selectedCategory.id}-mattress-keywords.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -274,7 +265,7 @@ export default function App() {
             <p>No bare materials, unrelated test methods, or vague technical phrases. Every entry is written as a mattress page, comparison, brand page, roundup, or FAQ.</p>
           </div>
           <div className="hero-stats" aria-label="Library summary">
-            <div><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct page opportunities</span></div>
+            <div><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct keywords</span></div>
             <div><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
             <div><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
           </div>
@@ -314,7 +305,7 @@ export default function App() {
             <select id="mobile-category-sort" value={categorySort} onChange={(event) => setCategorySort(event.target.value as "priority" | "name" | "count")}>
               <option value="priority">Priority</option>
               <option value="name">Name</option>
-              <option value="count">Most pages</option>
+              <option value="count">Most keywords</option>
             </select>
           </div>
         </div>
@@ -328,7 +319,7 @@ export default function App() {
                 <select value={categorySort} onChange={(event) => setCategorySort(event.target.value as "priority" | "name" | "count")} aria-label="Sort categories">
                   <option value="priority">Priority</option>
                   <option value="name">Name</option>
-                  <option value="count">Most pages</option>
+                  <option value="count">Most keywords</option>
                 </select>
               </label>
             </div>
@@ -358,7 +349,7 @@ export default function App() {
               </div>
               <div className="keyword-heading-actions">
                 {!normalizedSearch && selectedCategory && <button className="export-button" onClick={exportCategoryCsv}>Export this category CSV</button>}
-                <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct pages</span></div>
+                <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct keywords</span></div>
               </div>
             </div>
 
@@ -382,14 +373,14 @@ export default function App() {
                   <section className="keyword-group" key={group}>
                     <div className="keyword-group-heading">
                       <h3>{group}</h3>
-                      <span>{formatNumber(keywords.length)} pages shown</span>
+                      <span>{formatNumber(keywords.length)} keywords shown</span>
                     </div>
                     <div className="keyword-list">
                       {keywords.map((record) => (
                         <article className="keyword-row" key={record.id}>
                           <div className="keyword-text">
                             <strong>{record.keyword}</strong>
-                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged query variants` : ""}</span>
+                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged exact variants` : ""}</span>
                           </div>
                           <div className="keyword-actions">
                             <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
@@ -405,12 +396,12 @@ export default function App() {
                 ))}
               </div>
             ) : (
-              <div className="empty-state"><span>⌕</span><h3>No mattress page topics found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
+              <div className="empty-state"><span>⌕</span><h3>No mattress keywords found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
             )}
 
             {visibleCount < filteredKeywords.length && (
               <button className="load-more" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
-                Show 120 more pages
+                Show 120 more keywords
                 <span>{formatNumber(filteredKeywords.length - visibleCount)} remaining</span>
               </button>
             )}
