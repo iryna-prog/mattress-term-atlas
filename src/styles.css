@@ -1873,7 +1873,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .code-cat-presence { position: relative; z-index: 2; min-height: 315px; }
 .code-cat-presence::before { position: absolute; z-index: -1; inset: -8px -18px -20px -22px; background: url('/assets/code-cat-hero.jpg') center bottom / contain no-repeat; filter: saturate(1.08) contrast(1.04); mask-image: radial-gradient(ellipse 78% 94% at 54% 52%, #000 48%, rgba(0,0,0,.96) 67%, transparent 94%); content: ""; pointer-events: none; animation: cat-scene-breathe 10s ease-in-out infinite alternate; }
 .code-cat-presence::after { position: absolute; z-index: -1; inset: 4% -7% -10% 10%; border-radius: 50%; background: radial-gradient(ellipse, rgba(83,220,255,.13), transparent 68%); filter: blur(24px); content: ""; }
-.cat-library-stamp { position: absolute; top: 18px; right: 10%; display: grid; gap: 2px; padding: 10px 34px 10px 12px; border: 1px solid rgba(69,232,255,.28); border-radius: 12px; color: #6cecff; background: rgba(5,6,22,.58); box-shadow: 0 12px 34px rgba(0,0,0,.22); backdrop-filter: blur(12px); }
+.cat-library-stamp { position: absolute; top: 18px; left: 4%; display: grid; gap: 2px; padding: 10px 34px 10px 12px; border: 1px solid rgba(69,232,255,.28); border-radius: 12px; color: #6cecff; background: rgba(5,6,22,.58); box-shadow: 0 12px 34px rgba(0,0,0,.22); backdrop-filter: blur(12px); }
 .cat-library-stamp i { position: absolute; top: 11px; right: 12px; width: 7px; height: 7px; border-radius: 50%; background: #57ffc7; box-shadow: 0 0 13px #57ffc7; animation: beacon 1.8s ease-in-out infinite; }
 .cat-library-stamp span { font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .11em; }
 .cat-library-stamp strong { color: white; font-size: 11px; }
