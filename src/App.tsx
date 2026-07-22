@@ -142,16 +142,19 @@ function Penguin({ className = "" }: { className?: string }) {
   );
 }
 
-function LibrarySwitch({ active, onChange }: { active: "mattress" | "code"; onChange: (library: "mattress" | "code") => void }) {
+type LibraryId = "mattress" | "code" | "credit";
+
+function LibrarySwitch({ active, onChange }: { active: LibraryId; onChange: (library: LibraryId) => void }) {
   return (
     <nav className="library-switch" aria-label="Keyword libraries">
       <button className={active === "mattress" ? "active mattress" : "mattress"} onClick={() => onChange("mattress")}><i>🐧</i><span>Mattress Keyword Library</span></button>
       <button className={active === "code" ? "active code" : "code"} onClick={() => onChange("code")}><i>⌘</i><span>Code Keyword Library</span></button>
+      <button className={active === "credit" ? "active credit" : "credit"} onClick={() => onChange("credit")}><i>☘</i><span>Credit Repair Keyword Library</span></button>
     </nav>
   );
 }
 
-function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") => void }) {
+function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
   const [activeCodeCategory, setActiveCodeCategory] = useState(codeCategories[0].id);
   const [codeSearch, setCodeSearch] = useState("");
   const [codeSort, setCodeSort] = useState<"priority" | "name">("priority");
@@ -224,8 +227,66 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: "mattress" | "code") =>
   );
 }
 
+function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
+  return (
+    <div className="site-shell credit-shell">
+      <div className="credit-atmosphere" aria-hidden="true"><i /><i /><i /><span className="bird bird-one">⌁</span><span className="bird bird-two">⌁</span></div>
+      <header className="site-header credit-header">
+        <button className="wordmark">
+          <span className="wordmark-icon credit-cat-mark">С</span>
+          <span><strong>Credit Repair Keyword Library</strong><small>Сніжок’s outdoor research garden</small></span>
+        </button>
+        <LibrarySwitch active="credit" onChange={onSwitch} />
+        <div className="header-actions"><div className="credit-status"><i />Сніжок is birdwatching</div></div>
+      </header>
+
+      <main>
+        <section className="credit-hero">
+          <div className="credit-hero-copy">
+            <span className="eyebrow"><i /> Сад Сніжка</span>
+            <h1>Grow a smarter<br /><span>credit strategy.</span></h1>
+            <p>A calm foundation for a future credit repair SEO library. Categories and keywords will be planted only after you choose the direction.</p>
+            <div className="credit-hero-pills"><span>Credit education</span><span>Consumer FAQs</span><span>Actionable guides</span><span>Research paused</span></div>
+          </div>
+          <div className="credit-cat-presence" role="img" aria-label="Сніжок outdoors in a green meadow watching birds" />
+        </section>
+
+        <section className="credit-summary" aria-label="Credit repair library summary">
+          <div><strong>0</strong><span>category clusters mapped</span></div>
+          <div><strong>0</strong><span>priority foundations</span></div>
+          <div><strong>0</strong><span>keywords added by design</span></div>
+        </section>
+
+        <section className="search-section credit-search" aria-label="Future credit repair search">
+          <span className="search-icon">⌕<i /></span>
+          <input disabled placeholder="Category planning starts after your direction…" aria-label="Credit repair keyword search is not available yet" />
+          <span className="credit-search-state">Not started</span>
+        </section>
+
+        <div className="credit-foundation-note"><span>Garden blueprint</span><p><strong>No categories or keywords have been invented.</strong> This library is ready for your brief, then each approved category can grow into distinct, non-repetitive SEO pages.</p></div>
+
+        <div className="library-layout credit-layout">
+          <aside className="category-panel credit-category-panel" aria-label="Credit repair keyword categories">
+            <div className="category-panel-heading"><span>Credit categories <small>0</small></span></div>
+            <div className="credit-empty-list"><i>☘</i><strong>No categories yet</strong><p>Your approved category map will appear here.</p></div>
+          </aside>
+
+          <section className="keyword-panel credit-panel">
+            <div className="keyword-panel-heading">
+              <div><div className="heading-meta"><span className="eyebrow">Future research workspace</span></div><h2>Waiting for your category brief</h2><p>Nothing has been pre-filled, so the next research phase can follow your exact credit repair strategy.</p></div>
+              <div className="result-count"><strong>0</strong><span>keywords</span></div>
+            </div>
+            <div className="credit-workspace-empty"><span>✦</span><div><strong>Ready when you are</strong><p>Сніжок is guarding a clean slate—no leash, no filler, and no duplicate page ideas.</p></div></div>
+          </section>
+        </div>
+      </main>
+      <footer><span>Сад Сніжка · Credit Repair Keyword Library</span><span>Category direction pending · Keyword discovery paused</span></footer>
+    </div>
+  );
+}
+
 export default function App() {
-  const [activeLibrary, setActiveLibrary] = useState<"mattress" | "code">("mattress");
+  const [activeLibrary, setActiveLibrary] = useState<LibraryId>("mattress");
   const [library, setLibrary] = useState<KeywordLibrary | null>(null);
   const [activeCategory, setActiveCategory] = useState("latex");
   const [search, setSearch] = useState("");
@@ -355,6 +416,7 @@ export default function App() {
   };
 
   if (activeLibrary === "code") return <CodeLibrary onSwitch={setActiveLibrary} />;
+  if (activeLibrary === "credit") return <CreditRepairLibrary onSwitch={setActiveLibrary} />;
 
   if (error) {
     return <main className="state-screen"><div><strong>Unable to open the library</strong><p>{error}</p></div></main>;
