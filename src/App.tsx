@@ -249,6 +249,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
             <div className="credit-hero-pills"><span>Credit education</span><span>Consumer FAQs</span><span>Actionable guides</span><span>Research paused</span></div>
           </div>
           <div className="credit-cat-presence" role="img" aria-label="Сніжок outdoors in a green meadow watching birds" />
+          <div className="credit-hero-birds" aria-hidden="true"><i /><i /><i /></div>
         </section>
 
         <section className="credit-summary" aria-label="Credit repair library summary">

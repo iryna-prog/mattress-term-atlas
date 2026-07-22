@@ -1961,8 +1961,10 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
   background-image:
     linear-gradient(90deg, rgba(6,27,14,.92) 0%, rgba(7,34,17,.72) 35%, rgba(8,35,17,.09) 61%, transparent 100%),
     url('/assets/snowball-credit-hero.png');
-  background-position: center bottom;
-  background-size: cover;
+  background-position: center, right 12px center;
+  background-size: 100% 100%, auto calc(100% - 24px);
+  background-repeat: no-repeat;
+  background-color: #0a2917;
   box-shadow: inset 0 1px rgba(255,255,255,.08), 0 30px 90px rgba(0,0,0,.34), 0 0 70px rgba(91,207,129,.07);
 }
 .credit-hero::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 70%, rgba(3,20,10,.2)); content: ""; pointer-events: none; }
@@ -1975,6 +1977,14 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-hero-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 21px; }
 .credit-hero-pills span { padding: 7px 10px; border: 1px solid rgba(178,229,144,.22); border-radius: 999px; color: #d9ead6; background: rgba(30,97,51,.2); font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; backdrop-filter: blur(8px); }
 .credit-cat-presence { min-height: 540px; }
+.credit-hero-birds { position: absolute; z-index: 3; top: 12%; right: 9%; width: 180px; height: 65px; pointer-events: none; }
+.credit-hero-birds i { position: absolute; width: 28px; height: 13px; filter: drop-shadow(0 2px 5px rgba(4,24,11,.45)); animation: credit-bird-soar 5.5s ease-in-out infinite; }
+.credit-hero-birds i::before, .credit-hero-birds i::after { position: absolute; top: 3px; width: 15px; height: 9px; border-top: 3px solid rgba(248,249,218,.95); border-radius: 50%; content: ""; }
+.credit-hero-birds i::before { left: 0; transform: rotate(18deg); }
+.credit-hero-birds i::after { right: 0; transform: rotate(-18deg); }
+.credit-hero-birds i:nth-child(1) { top: 4px; left: 4px; }
+.credit-hero-birds i:nth-child(2) { top: 31px; left: 64px; animation-delay: -1.8s; transform: scale(.75); }
+.credit-hero-birds i:nth-child(3) { top: 7px; right: 6px; animation-delay: -3.4s; transform: scale(.58); }
 
 .credit-summary { display: grid; grid-template-columns: repeat(3, 1fr); margin: 16px 0 0; overflow: hidden; border: 1px solid rgba(145,210,144,.18); border-radius: 19px; background: rgba(10,43,23,.75); box-shadow: inset 0 1px rgba(255,255,255,.04); }
 .credit-summary div { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 5px 10px; padding: 16px 20px; }
@@ -2017,6 +2027,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 @keyframes garden-drift { to { transform: translate3d(13%, 7%, 0) scale(1.18); } }
 @keyframes bird-flight { from { transform: translateX(0) translateY(0); } 45% { transform: translateX(55vw) translateY(-25px); } to { transform: translateX(110vw) translateY(12px); } }
 @keyframes garden-pulse { 50% { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(115,216,145,.1); } }
+@keyframes credit-bird-soar { 0%,100% { margin-top: 0; } 50% { margin-top: -7px; } }
 
 @media (max-width: 1080px) {
   .site-header { grid-template-columns: minmax(220px,1fr) auto minmax(150px,1fr); }
