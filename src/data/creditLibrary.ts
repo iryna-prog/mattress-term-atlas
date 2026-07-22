@@ -448,9 +448,173 @@ const adverseActionKeywords = buildKeywords("adverse-action", adverseActionSteps
   sourceUrls: sources.official,
 })));
 
+const scoreRepairEvents = [
+  "a negative item was deleted", "a collection was deleted", "a charge-off was deleted", "a late payment was removed", "a hard inquiry was removed",
+  "a duplicate account was removed", "an identity theft account was blocked", "a mixed credit file was corrected", "a wrong balance was corrected", "a credit limit was corrected",
+  "a paid account updated", "a settled account updated", "a mortgage balance updated", "a student loan balance updated", "an auto loan balance updated",
+  "a collection was paid", "a collection was settled", "a charge-off was paid", "a credit card was paid off", "utilization dropped below 30 percent",
+  "utilization dropped below 10 percent", "all credit cards reported zero balances", "one credit card reported a small balance", "a credit limit increased", "a credit limit decreased",
+  "an old card was closed", "a new secured card was opened", "a credit builder loan was opened", "an authorized user account was added", "an authorized user account was removed",
+  "a dispute comment was removed", "an active dispute was completed", "a bankruptcy was discharged", "a foreclosure aged off", "a repossession aged off",
+  "student loan rehabilitation was completed", "a defaulted loan returned to current", "a delinquent account became current", "a hardship plan ended", "a forbearance ended",
+  "a lender performed a rapid rescore", "a creditor sent an off-cycle update", "a new address was removed", "personal information was corrected", "an old collection aged off",
+];
+
+const scoreEventKeywords = buildKeywords("score-event", scoreRepairEvents.flatMap((event) => [
+  `why did my credit score not increase after ${event}`,
+  `how long until my credit score updates after ${event}`,
+].map((keyword, index) => ({
+  categoryId: "credit-scores",
+  keyword,
+  subcategory: index === 0 ? "Unexpected Score Results" : "Score Update Timing",
+  rank: 4 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: false,
+  sourceUrls: ["https://www.myfico.com/credit-education/faq/affects-of-credit-actions", "https://www.consumerfinance.gov/ask-cfpb/category-credit-reporting/"],
+}))));
+
+const scoreMismatchSituations = [
+  "my lender score is lower than my credit app score", "my mortgage score is lower than my FICO score", "my auto score is different from my mortgage score",
+  "Equifax shows a different score from Experian", "Experian shows a different score from TransUnion", "my FICO score differs from my VantageScore",
+  "my credit score changed but my report did not", "my credit report changed but my score did not", "my score dropped with no new negative accounts",
+  "my score dropped after paying debt", "my score dropped after closing a card", "my score dropped after a limit decrease", "my score dropped after becoming an authorized user",
+  "my score disappeared after an account closed", "I have a credit report but no credit score", "one bureau cannot generate my credit score",
+  "my score factors mention high utilization after payoff", "my score factors mention a serious delinquency I cannot find", "my score factors mention too many accounts with balances",
+  "my score factors mention a short credit history after a file correction", "my score changed during a credit dispute", "my score changed after a dispute comment was added",
+];
+
+const scoreMismatchKeywords = buildKeywords("score-mismatch", scoreMismatchSituations.map((situation) => ({
+  categoryId: "credit-scores",
+  keyword: `what to do when ${situation}`,
+  subcategory: "Score Mismatches & Diagnostics",
+  rank: 4 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: false,
+  sourceUrls: ["https://www.myfico.com/credit-education/faq/negative-reasons/why-is-my-fico-score-dropping"],
+})));
+
+const collectionDebtTypes = [
+  "medical bill", "hospital bill", "ambulance bill", "dental bill", "utility bill", "electric bill", "gas bill", "water bill", "cell phone bill", "internet bill",
+  "apartment debt", "broken lease debt", "move-out charge", "storage unit debt", "gym membership debt", "toll debt", "parking debt", "HOA debt",
+  "tuition debt", "private student loan debt", "payday loan debt", "buy now pay later debt", "insurance debt", "veterinary bill", "childcare bill",
+];
+
+const collectionProblems = [
+  "belongs to someone else", "has the wrong balance", "was already paid", "was covered by insurance", "was included in bankruptcy", "is listed twice",
+  "names the wrong original creditor", "shows the wrong date of first delinquency", "reappeared after deletion", "was sold while under dispute",
+];
+
+const collectionTypeKeywords = buildKeywords("collection-type", collectionDebtTypes.flatMap((debtType) => collectionProblems.map((problem) => ({
+  categoryId: "debt-collections",
+  keyword: `what to do when a ${debtType} collection ${problem}`,
+  subcategory: "Debt-Type Collection Problems",
+  rank: (["medical bill", "hospital bill", "utility bill", "apartment debt"].includes(debtType) ? 4 : 3) as CreditKeyword["rank"],
+  tier: (["medical bill", "hospital bill", "utility bill", "apartment debt"].includes(debtType) ? "green" : "yellow") as CreditKeyword["tier"],
+  demand: (["medical bill", "hospital bill", "utility bill", "apartment debt"].includes(debtType) ? "Medium" : "Low") as CreditKeyword["demand"],
+  difficulty: "Medium" as const,
+  specialistReview: true,
+  sourceUrls: ["https://www.consumerfinance.gov/ask-cfpb/what-information-does-a-debt-collector-have-to-give-me-about-the-debt-en-331/"],
+}))));
+
+const validationNoticeProblems = [
+  "has no current creditor name", "has no original creditor name", "has the wrong account number", "has no itemization date", "has no itemized interest",
+  "has unexplained fees", "has the wrong payment credits", "has no current balance", "has the wrong dispute deadline", "arrived after the dispute deadline",
+  "was sent to the wrong address", "was sent only by text message", "was sent only by email", "uses a name I do not recognize", "lists more than one creditor",
+  "does not identify the debt type", "does not include a response form", "does not say the communication is from a collector", "has a different balance from my credit report",
+  "arrived after the collector reported the debt", "was never provided", "does not explain how to request the original creditor", "contains someone else's personal information",
+];
+
+const validationKeywords = buildKeywords("validation-notice", validationNoticeProblems.map((problem) => ({
+  categoryId: "debt-collections",
+  keyword: `what to do when a debt collection validation notice ${problem}`,
+  subcategory: "Validation Notice Errors",
+  rank: 5 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: true,
+  sourceUrls: ["https://www.consumerfinance.gov/ask-cfpb/what-information-does-a-debt-collector-have-to-give-me-about-the-debt-en-331/"],
+})));
+
+const collectionEscalations = [
+  "a debt collector ignores your validation request", "a debt collector continues collecting before validating", "a collector reports a debt during the validation period",
+  "a collector verifies a debt without documents", "a collector refuses to name the original creditor", "a collector changes the balance after a dispute",
+  "a collector sells a disputed debt", "a new collector contacts you about the same disputed debt", "two collectors demand payment for the same debt",
+  "the original creditor and collector both report balances", "a collector updates only one credit bureau", "a collector deletes an account from only one bureau",
+  "a paid collection updates without a zero balance", "a settled collection reports as unpaid", "a collection is re-aged after transfer",
+  "a collector contacts your employer about a debt", "a collector contacts family members repeatedly", "a collector calls after a cease communication request",
+  "a collector texts after you opt out", "a collector uses social media to contact you", "a collector threatens arrest over consumer debt",
+  "a collector sues after the statute of limitations", "a collector sues the wrong person", "a collection lawsuit was never served correctly",
+  "a collector freezes funds from an exempt account", "a collector garnishes wages after the debt was paid", "a debt buyer cannot prove account ownership",
+];
+
+const collectionEscalationKeywords = buildKeywords("collection-escalation", collectionEscalations.map((situation) => ({
+  categoryId: "debt-collections",
+  keyword: `what to do when ${situation}`,
+  subcategory: "Collection Dispute Escalation",
+  rank: 4 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "High" as const,
+  specialistReview: true,
+  sourceUrls: ["https://www.consumerfinance.gov/ask-cfpb/what-do-i-need-to-know-if-a-debt-collector-contacts-me-en-1695/"],
+})));
+
+const identityFraudTypes = [
+  "a fraudulent credit card", "a fraudulent store card", "a fraudulent auto loan", "a fraudulent personal loan", "a fraudulent student loan", "a fraudulent mortgage inquiry",
+  "a fraudulent buy now pay later account", "a fraudulent payday loan", "a fraudulent utility account", "a fraudulent cell phone account", "a fraudulent internet account",
+  "a fraudulent apartment debt", "a fraudulent medical account", "a fraudulent collection account", "a fraudulent business account on your personal report",
+  "a synthetic identity file", "child identity theft", "elder identity theft", "deceased identity theft", "tax identity theft", "employment identity theft",
+  "account takeover fraud", "SIM swap fraud", "mail theft", "a change-of-address scam", "a data breach", "a stolen Social Security number",
+];
+
+const identityFraudKeywords = buildKeywords("identity-fraud", identityFraudTypes.flatMap((fraudType) => [
+  `how to remove ${fraudType} from your credit report`,
+  `credit report recovery checklist after ${fraudType}`,
+  `what evidence do you need to dispute ${fraudType}`,
+].map((keyword, index) => ({
+  categoryId: "identity-theft",
+  keyword,
+  subcategory: ["Fraudulent Account Removal", "Recovery Checklists", "Identity Theft Evidence"][index],
+  rank: 4 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: true,
+  sourceUrls: sources.identity,
+}))));
+
+const identityEscalations = [
+  "a credit bureau refuses your FTC identity theft report", "a credit bureau will not block fraudulent information", "a bureau reinserts a blocked identity theft account",
+  "a creditor keeps reporting an identity theft account", "a collector keeps pursuing identity theft debt", "a furnisher asks for a police report in addition to an FTC report",
+  "a lender refuses to send identity theft application records", "a creditor sends only partial identity theft records", "a fraud alert is missing from one bureau",
+  "an extended fraud alert is removed early", "a credit freeze fails to stop a new account", "a freeze is missing from one credit bureau",
+  "identity theft creates a mixed credit file", "identity theft creates multiple credit files", "a new fraudulent inquiry appears after a freeze",
+  "an identity theft account is sold to collections", "a fraudulent account becomes a charge-off", "a fraudulent utility account blocks new service",
+  "a fraudulent tenant screening record causes a denial", "a fraudulent employment report causes a job denial", "an identity theft dispute exceeds 30 days",
+  "only one bureau removes the fraudulent account", "a credit score stays low after fraud removal", "a victim statement does not appear on your report",
+];
+
+const identityEscalationKeywords = buildKeywords("identity-escalation", identityEscalations.map((situation) => ({
+  categoryId: "identity-theft",
+  keyword: `what to do when ${situation}`,
+  subcategory: "Identity Theft Escalation",
+  rank: 5 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "High" as const,
+  specialistReview: true,
+  sourceUrls: sources.identity,
+})));
+
 export const creditRepairKeywords = [...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords];
 export const creditLatestUpdateKeywords = [...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords];
-export const creditKeywords = [...creditRepairKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords];
+export const creditPriorityTwoUpdateKeywords = [...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords];
+export const creditKeywords = [...creditRepairKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...creditPriorityTwoUpdateKeywords];
 
 export function getCreditKeywords(categoryId: string) {
   return creditKeywords.filter((keyword) => keyword.categoryId === categoryId);

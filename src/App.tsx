@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
-import { creditCategories, creditKeywords, creditLatestUpdateKeywords, creditRepairKeywords, getCreditKeywords, type CreditKeyword } from "./data/creditLibrary";
+import { creditCategories, creditKeywords, creditLatestUpdateKeywords, creditPriorityTwoUpdateKeywords, creditRepairKeywords, getCreditKeywords, type CreditKeyword } from "./data/creditLibrary";
 
 interface KeywordCategory {
   id: string;
@@ -285,7 +285,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
           <span><strong>Credit Repair Keyword Library</strong><small>Сніжок’s outdoor research garden</small></span>
         </button>
         <LibrarySwitch active="credit" onChange={onSwitch} />
-        <div className="header-actions"><button className="updates-button" onClick={() => setShowCreditUpdates(true)}><span>Updates</span><small>+{formatNumber(creditLatestUpdateKeywords.length)}</small></button><div className="credit-status"><i />Сніжок is birdwatching</div></div>
+        <div className="header-actions"><button className="updates-button" onClick={() => setShowCreditUpdates(true)}><span>Updates</span><small>+{formatNumber(creditPriorityTwoUpdateKeywords.length)}</small></button><div className="credit-status"><i />Сніжок is birdwatching</div></div>
       </header>
 
       <main>
@@ -341,7 +341,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
         </div>
       </main>
       <footer><span>Сад Сніжка · Credit Repair Keyword Library</span><span>11,325 existing URLs checked · Missing opportunities only</span></footer>
-      {showCreditUpdates && <LibraryUpdatesDrawer title="Credit library updates" description="Only credit research appears here. This run expands problem-led repair pages and mines three recommended high-fit categories." runs={[{ id: "credit-expansion-2026-07-22", date: "2026-07-22", summary: "Expanded account-specific repair, bureau failures, specialty reports, life-event recovery, and denial recovery.", keywords: creditLatestUpdateKeywords, categories: [...new Set(creditLatestUpdateKeywords.map((keyword) => keyword.categoryId))].map((categoryId) => ({ id: categoryId, name: creditCategories.find((category) => category.id === categoryId)?.name ?? categoryId, count: creditLatestUpdateKeywords.filter((keyword) => keyword.categoryId === categoryId).length })) }, { id: "credit-initial-2026-07-22", date: "2026-07-22", summary: "Initial sitemap gap audit and credit repair opportunity map.", keywords: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)), categories: [{ id: "credit-repair", name: "Credit Repair", count: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)).length }] }]} onClose={() => setShowCreditUpdates(false)} onCategory={(categoryId) => { setActiveCreditCategory(categoryId); setCreditSearch(""); }} />}
+      {showCreditUpdates && <LibraryUpdatesDrawer title="Credit library updates" description="Only credit research appears here. The newest run fills every previously empty Priority 2 category." runs={[{ id: "credit-p2-2026-07-22", date: "2026-07-22", summary: "Filled Credit Scores, Debt & Collections, and Identity Theft with distinct problem-led page opportunities.", keywords: creditPriorityTwoUpdateKeywords, categories: [...new Set(creditPriorityTwoUpdateKeywords.map((keyword) => keyword.categoryId))].map((categoryId) => ({ id: categoryId, name: creditCategories.find((category) => category.id === categoryId)?.name ?? categoryId, count: creditPriorityTwoUpdateKeywords.filter((keyword) => keyword.categoryId === categoryId).length })) }, { id: "credit-expansion-2026-07-22", date: "2026-07-22", summary: "Expanded account-specific repair, bureau failures, specialty reports, life-event recovery, and denial recovery.", keywords: creditLatestUpdateKeywords, categories: [...new Set(creditLatestUpdateKeywords.map((keyword) => keyword.categoryId))].map((categoryId) => ({ id: categoryId, name: creditCategories.find((category) => category.id === categoryId)?.name ?? categoryId, count: creditLatestUpdateKeywords.filter((keyword) => keyword.categoryId === categoryId).length })) }, { id: "credit-initial-2026-07-22", date: "2026-07-22", summary: "Initial sitemap gap audit and credit repair opportunity map.", keywords: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)), categories: [{ id: "credit-repair", name: "Credit Repair", count: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)).length }] }]} onClose={() => setShowCreditUpdates(false)} onCategory={(categoryId) => { setActiveCreditCategory(categoryId); setCreditSearch(""); }} />}
     </div>
   );
 }
