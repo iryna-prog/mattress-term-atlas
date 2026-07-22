@@ -1958,11 +1958,14 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
   overflow: hidden;
   border: 1px solid rgba(154,220,151,.22);
   border-radius: 32px;
+  background-image: linear-gradient(90deg, rgba(5,27,13,.28), rgba(5,27,13,.08) 45%, transparent 70%), url('/assets/snowball-credit-hero-wide.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: #0a2917;
   box-shadow: inset 0 1px rgba(255,255,255,.08), 0 30px 90px rgba(0,0,0,.34), 0 0 70px rgba(91,207,129,.07);
 }
-.credit-hero::before { position: absolute; z-index: 0; inset: -22px; background: url('/assets/snowball-credit-hero.png') center / cover no-repeat; filter: blur(17px) saturate(.9); transform: scale(1.04); content: ""; pointer-events: none; }
-.credit-hero::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(6,27,14,.96) 0%, rgba(7,34,17,.84) 34%, rgba(8,35,17,.34) 53%, rgba(3,20,10,.05) 76%), linear-gradient(180deg, rgba(3,20,10,.03), rgba(3,20,10,.18)); content: ""; pointer-events: none; }
+.credit-hero::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(6,27,14,.34) 0%, rgba(7,34,17,.12) 42%, transparent 68%), linear-gradient(180deg, rgba(3,20,10,.02), rgba(3,20,10,.12)); content: ""; pointer-events: none; }
 .credit-hero-copy { position: relative; z-index: 2; align-self: center; padding: 54px 0 54px 48px; }
 .credit-hero .eyebrow { display: flex; gap: 8px; align-items: center; color: #c9ef82; }
 .credit-hero .eyebrow i { width: 8px; height: 8px; border-radius: 50% 0 50% 50%; background: #79df9b; box-shadow: 0 0 15px #79df9b; transform: rotate(-35deg); }
@@ -1971,8 +1974,8 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-hero-copy > p { max-width: 550px; margin: 17px 0 0; color: #bbd1bd; font-size: 15px; line-height: 1.55; }
 .credit-hero-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 21px; }
 .credit-hero-pills span { padding: 7px 10px; border: 1px solid rgba(178,229,144,.22); border-radius: 999px; color: #d9ead6; background: rgba(30,97,51,.2); font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; backdrop-filter: blur(8px); }
-.credit-cat-presence { position: absolute; z-index: 1; inset: 12px 0 12px 25%; min-height: 0; background: url('/assets/snowball-credit-hero.png') right center / auto 100% no-repeat; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%); }
-.credit-hero-birds { position: absolute; z-index: 3; top: 12%; right: 9%; width: 180px; height: 65px; pointer-events: none; }
+.credit-cat-presence { position: relative; z-index: 1; min-height: 540px; }
+.credit-hero-birds { position: absolute; z-index: 3; top: 16%; right: 9%; width: 180px; height: 65px; pointer-events: none; }
 .credit-hero-birds i { position: absolute; width: 28px; height: 13px; filter: drop-shadow(0 2px 5px rgba(4,24,11,.45)); animation: credit-bird-soar 5.5s ease-in-out infinite; }
 .credit-hero-birds i::before, .credit-hero-birds i::after { position: absolute; top: 3px; width: 15px; height: 9px; border-top: 3px solid rgba(248,249,218,.95); border-radius: 50%; content: ""; }
 .credit-hero-birds i::before { left: 0; transform: rotate(18deg); }
@@ -2032,7 +2035,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
   .code-hero { grid-template-columns: 1fr 440px; min-height: 580px; }
   .credit-status { font-size: 0; }
   .credit-hero { grid-template-columns: minmax(330px,.8fr) minmax(430px,1.2fr); min-height: 510px; }
-  .credit-cat-presence { min-height: 0; }
+  .credit-cat-presence { min-height: 510px; }
 }
 
 @media (max-width: 780px) {
