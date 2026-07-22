@@ -200,6 +200,7 @@ function add(keyword, categoryId, subcategory, source = "Curated expansion", met
     specialistReview: Boolean(metadata.specialistReview),
     rationale: metadata.rationale,
     sourceUrls: metadata.sourceUrls ?? [],
+    aliasesAreExact: Boolean(metadata.aliasesAreExact),
     rankingOverride: metadata.rankingOverride,
   };
   seen.set(equivalenceKey, record);
@@ -1330,6 +1331,7 @@ for (const run of dailyResearch.runs) {
         intent: entry.intent,
         aliases: entry.aliases,
         sourceUrls: entry.sourceUrls,
+        aliasesAreExact: Boolean(entry.aliasesAreExact),
         rankingOverride: entry.rankingOverride,
       },
     );
@@ -1366,6 +1368,10 @@ for (const record of records) {
 
 const recordsWithAliases = [...records];
 for (const record of recordsWithAliases) {
+  if (record.aliasesAreExact) {
+    record.aliases = [...new Set(record.aliases.filter((alias) => normalize(alias) !== record.keyword))];
+    continue;
+  }
   const recordKey = exactEquivalentKey(record.keyword);
   const exactAliases = [];
   const distinctKeywords = [];

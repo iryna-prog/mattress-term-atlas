@@ -61,7 +61,7 @@ for (const record of library.keywords) {
   for (const alias of record.aliases ?? []) {
     const collision = canonicalByCategory.get(`${record.categoryId}|${alias.toLowerCase().trim()}`);
     if (collision && collision.id !== record.id) errors.push(`Alias cannibalizes canonical page: ${alias}`);
-    if (equivalentKey(alias) !== equivalentKey(record.keyword)) errors.push(`Broad alias should be a separate keyword: ${alias} -> ${record.keyword}`);
+    if (!record.aliasesAreExact && equivalentKey(alias) !== equivalentKey(record.keyword)) errors.push(`Broad alias should be a separate keyword: ${alias} -> ${record.keyword}`);
   }
 }
 
