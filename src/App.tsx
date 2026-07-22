@@ -206,7 +206,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <aside className="category-panel code-category-panel" aria-label="Code keyword categories">
             <div className="category-panel-heading"><span>Code categories <small>{visibleCodeCategories.length}</small></span><label><span className="sr-only">Sort code categories</span><select value={codeSort} onChange={(event) => setCodeSort(event.target.value as "priority" | "name")}><option value="priority">Priority</option><option value="name">Name</option></select></label></div>
             <div className="category-list">
-              {visibleCodeCategories.map((category) => <button key={category.id} className={category.id === activeCodeCategory ? "active" : ""} onClick={() => { setActiveCodeCategory(category.id); setCodeSearch(""); window.scrollTo({ top: 0, behavior: "smooth" }); }}><span className="category-name">{category.name}<em>P{category.priority}</em></span><small>{category.subcategories.length}</small></button>)}
+              {visibleCodeCategories.map((category) => <button key={category.id} className={category.id === activeCodeCategory ? "active" : ""} onClick={() => { setActiveCodeCategory(category.id); setCodeSearch(""); }}><span className="category-name">{category.name}<em>P{category.priority}</em></span><small>{category.subcategories.length}</small></button>)}
             </div>
           </aside>
 
@@ -288,6 +288,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
 
 export default function App() {
   const [activeLibrary, setActiveLibrary] = useState<LibraryId>("mattress");
+  const [libraryRestored, setLibraryRestored] = useState(false);
   const [library, setLibrary] = useState<KeywordLibrary | null>(null);
   const [activeCategory, setActiveCategory] = useState("latex");
   const [search, setSearch] = useState("");
@@ -299,6 +300,22 @@ export default function App() {
   const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
   const [showUpdates, setShowUpdates] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const hashLibrary = window.location.hash.replace("#", "");
+    const savedLibrary = window.localStorage.getItem("keyword-atlas-active-library");
+    const restoredLibrary = ["mattress", "code", "credit"].includes(hashLibrary)
+      ? hashLibrary
+      : savedLibrary;
+    if (restoredLibrary && ["mattress", "code", "credit"].includes(restoredLibrary)) setActiveLibrary(restoredLibrary as LibraryId);
+    setLibraryRestored(true);
+  }, []);
+
+  useEffect(() => {
+    if (!libraryRestored) return;
+    window.localStorage.setItem("keyword-atlas-active-library", activeLibrary);
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${activeLibrary}`);
+  }, [activeLibrary, libraryRestored]);
 
   useEffect(() => {
     Promise.all([
@@ -413,7 +430,6 @@ export default function App() {
     setSearch("");
     setActiveType("All");
     setActivePriority("All");
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (activeLibrary === "code") return <CodeLibrary onSwitch={setActiveLibrary} />;
