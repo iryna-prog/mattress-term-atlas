@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
-import { creditCategories, creditRepairKeywords } from "./data/creditLibrary";
+import { creditCategories, creditKeywords, creditLatestUpdateKeywords, creditRepairKeywords, getCreditKeywords, type CreditKeyword } from "./data/creditLibrary";
 
 interface KeywordCategory {
   id: string;
@@ -155,10 +155,31 @@ function LibrarySwitch({ active, onChange }: { active: LibraryId; onChange: (lib
   );
 }
 
+interface SimpleUpdateRun {
+  id: string;
+  date: string;
+  summary: string;
+  keywords: CreditKeyword[];
+  categories: Array<{ id: string; name: string; count: number }>;
+}
+
+function LibraryUpdatesDrawer({ title, description, runs, onClose, onCategory }: { title: string; description: string; runs: SimpleUpdateRun[]; onClose: () => void; onCategory?: (categoryId: string) => void }) {
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => event.key === "Escape" && onClose();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener("keydown", closeOnEscape); };
+  }, [onClose]);
+
+  return <div className="updates-scrim"><section className="updates-drawer" role="dialog" aria-modal="true" aria-labelledby="library-updates-title"><div className="updates-drawer-header"><div><span className="eyebrow">Library research log</span><h2 id="library-updates-title">{title}</h2><p>{description}</p></div><button className="updates-close" onClick={onClose} aria-label="Close updates">×</button></div>{runs.length ? <div className="updates-runs">{runs.map((run, index) => <details className="update-run" key={run.id} open={index === 0 ? true : undefined}><summary><div><strong>{formatDate(run.date)}</strong><span>{run.summary}</span></div><div className="update-total"><strong>+{formatNumber(run.keywords.length)}</strong><span>{run.categories.length} categories updated</span></div></summary><div className="update-run-body"><div className="update-counts">{run.categories.map((category) => <span key={category.id}>{category.name} <strong>+{formatNumber(category.count)}</strong></span>)}</div><div className="update-keywords">{run.keywords.map((keyword) => <article key={`${run.id}-${keyword.id}`}><div><strong>{keyword.keyword}</strong><span>{keyword.subcategory} · Demand {keyword.demand} · Difficulty {keyword.difficulty}{keyword.specialistReview ? " · specialist review" : ""}</span></div><div className="update-keyword-actions"><span className={`priority-badge ${keyword.tier}`}><i />{keyword.rank}/5</span>{onCategory && <button onClick={() => { onCategory(keyword.categoryId); onClose(); }}>{creditCategories.find((category) => category.id === keyword.categoryId)?.name ?? "View"}</button>}</div></article>)}</div></div></details>)}</div> : <div className="updates-empty"><strong>No keyword updates yet</strong><p>This library has its own update history. Its first research run will appear here without mixing with another library.</p></div>}</section></div>;
+}
+
 function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
   const [activeCodeCategory, setActiveCodeCategory] = useState(codeCategories[0].id);
   const [codeSearch, setCodeSearch] = useState("");
   const [codeSort, setCodeSort] = useState<"priority" | "name">("priority");
+  const [showCodeUpdates, setShowCodeUpdates] = useState(false);
   const selectedCodeCategory = codeCategories.find((category) => category.id === activeCodeCategory) ?? codeCategories[0];
   const visibleCodeCategories = [...codeCategories]
     .filter((category) => `${category.name} ${category.description} ${category.subcategories.join(" ")}`.toLowerCase().includes(codeSearch.trim().toLowerCase()))
@@ -173,7 +194,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <span><strong>Code Keyword Library</strong><small>Живчиха’s AI coding lab</small></span>
         </button>
         <LibrarySwitch active="code" onChange={onSwitch} />
-        <div className="header-actions"><div className="code-status"><i />Живчиха is supervising</div></div>
+        <div className="header-actions"><button className="updates-button" onClick={() => setShowCodeUpdates(true)}><span>Updates</span><small>0</small></button><div className="code-status"><i />Живчиха is supervising</div></div>
       </header>
 
       <main>
@@ -224,6 +245,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
         </div>
       </main>
       <footer><span>Бібліотека Живчихи · Code Keyword Library</span><span>Category architecture only · Keyword discovery paused</span></footer>
+      {showCodeUpdates && <LibraryUpdatesDrawer title="Code library updates" description="Only AI coding keyword research will appear here. Mattress and credit changes stay in their own libraries." runs={[]} onClose={() => setShowCodeUpdates(false)} />}
     </div>
   );
 }
@@ -232,14 +254,13 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
   const [activeCreditCategory, setActiveCreditCategory] = useState("credit-repair");
   const [creditSearch, setCreditSearch] = useState("");
   const [creditSort, setCreditSort] = useState<"priority" | "name">("priority");
+  const [showCreditUpdates, setShowCreditUpdates] = useState(false);
   const selectedCategory = creditCategories.find((category) => category.id === activeCreditCategory) ?? creditCategories[0];
   const normalizedSearch = creditSearch.trim().toLowerCase();
   const visibleCategories = [...creditCategories]
-    .filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(normalizedSearch) || (category.id === "credit-repair" && creditRepairKeywords.some((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch))))
+    .filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(normalizedSearch) || getCreditKeywords(category.id).some((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)))
     .sort((left, right) => creditSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
-  const visibleKeywords = selectedCategory.id === "credit-repair"
-    ? creditRepairKeywords.filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch))
-    : [];
+  const visibleKeywords = getCreditKeywords(selectedCategory.id).filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch));
   const keywordGroups = [...new Set(visibleKeywords.map((item) => item.subcategory))].map((subcategory) => ({
     subcategory,
     keywords: visibleKeywords.filter((item) => item.subcategory === subcategory),
@@ -250,7 +271,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
     const blob = new Blob([rows.map((row) => row.map(csvCell).join(",")).join("\n")], { type: "text/csv;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "credit-repair-keywords.csv";
+    link.download = `${selectedCategory.id}-keywords.csv`;
     link.click();
     URL.revokeObjectURL(link.href);
   }
@@ -264,7 +285,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
           <span><strong>Credit Repair Keyword Library</strong><small>Сніжок’s outdoor research garden</small></span>
         </button>
         <LibrarySwitch active="credit" onChange={onSwitch} />
-        <div className="header-actions"><div className="credit-status"><i />Сніжок is birdwatching</div></div>
+        <div className="header-actions"><button className="updates-button" onClick={() => setShowCreditUpdates(true)}><span>Updates</span><small>+{formatNumber(creditLatestUpdateKeywords.length)}</small></button><div className="credit-status"><i />Сніжок is birdwatching</div></div>
       </header>
 
       <main>
@@ -282,7 +303,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
         <section className="credit-summary" aria-label="Credit repair library summary">
           <div><strong>{creditCategories.length}</strong><span>category clusters mapped</span></div>
           <div><strong>{creditCategories.filter((category) => category.priority === 1).length}</strong><span>priority foundations</span></div>
-          <div><strong>{creditRepairKeywords.length}</strong><span>missing page opportunities</span></div>
+          <div><strong>{formatNumber(creditKeywords.length)}</strong><span>missing page opportunities</span></div>
         </section>
 
         <section className="search-section credit-search" aria-label="Search credit repair keywords">
@@ -298,7 +319,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
             <div className="category-panel-heading"><span>Credit categories <small>{visibleCategories.length}</small></span><label><span className="sr-only">Sort credit categories</span><select value={creditSort} onChange={(event) => setCreditSort(event.target.value as "priority" | "name")}><option value="priority">Priority</option><option value="name">Name</option></select></label></div>
             <div className="category-list">
               {visibleCategories.map((category) => {
-                const count = category.id === "credit-repair" ? creditRepairKeywords.length : 0;
+                const count = getCreditKeywords(category.id).length;
                 return <button key={category.id} className={category.id === activeCreditCategory ? "active" : ""} onClick={() => { setActiveCreditCategory(category.id); setCreditSearch(""); }}><span className="category-name">{category.name}<em>P{category.priority}</em>{category.suggested && <b>Suggested</b>}</span><small>{count}</small></button>;
               })}
             </div>
@@ -309,17 +330,18 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div><div className="heading-meta"><span className="eyebrow">Selected credit category</span><span className={`category-priority p${selectedCategory.priority}`}>Priority {selectedCategory.priority}</span>{selectedCategory.suggested && <span className="credit-suggested">New suggestion</span>}</div><h2>{selectedCategory.name}</h2><p>{selectedCategory.description}</p></div>
               <div className="result-count"><strong>{visibleKeywords.length}</strong><span>keywords / pages</span></div>
             </div>
-            {selectedCategory.id === "credit-repair" ? <>
+            {visibleKeywords.length || getCreditKeywords(selectedCategory.id).length ? <>
               <div className="credit-keyword-toolbar"><span>{keywordGroups.length} focused subcategories</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
               <div className="credit-keyword-groups">
                 {keywordGroups.map((group) => <section key={group.subcategory} className="credit-keyword-group"><div className="credit-group-heading"><h3>{group.subcategory}</h3><span>{group.keywords.length}</span></div><div className="credit-keyword-list">{group.keywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}</div></section>)}
                 {!keywordGroups.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
               </div>
-            </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but no new keywords were added because this research pass focuses only on Credit Repair.</p></div></div>}
+            </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but its dedicated keyword audit has not started yet.</p></div></div>}
           </section>
         </div>
       </main>
       <footer><span>Сад Сніжка · Credit Repair Keyword Library</span><span>11,325 existing URLs checked · Missing opportunities only</span></footer>
+      {showCreditUpdates && <LibraryUpdatesDrawer title="Credit library updates" description="Only credit research appears here. This run expands problem-led repair pages and mines three recommended high-fit categories." runs={[{ id: "credit-expansion-2026-07-22", date: "2026-07-22", summary: "Expanded account-specific repair, bureau failures, specialty reports, life-event recovery, and denial recovery.", keywords: creditLatestUpdateKeywords, categories: [...new Set(creditLatestUpdateKeywords.map((keyword) => keyword.categoryId))].map((categoryId) => ({ id: categoryId, name: creditCategories.find((category) => category.id === categoryId)?.name ?? categoryId, count: creditLatestUpdateKeywords.filter((keyword) => keyword.categoryId === categoryId).length })) }, { id: "credit-initial-2026-07-22", date: "2026-07-22", summary: "Initial sitemap gap audit and credit repair opportunity map.", keywords: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)), categories: [{ id: "credit-repair", name: "Credit Repair", count: creditRepairKeywords.filter((keyword) => !creditLatestUpdateKeywords.some((latest) => latest.id === keyword.id)).length }] }]} onClose={() => setShowCreditUpdates(false)} onCategory={(categoryId) => { setActiveCreditCategory(categoryId); setCreditSearch(""); }} />}
     </div>
   );
 }

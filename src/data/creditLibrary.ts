@@ -8,6 +8,7 @@ export interface CreditCategory {
 
 export interface CreditKeyword {
   id: string;
+  categoryId: string;
   keyword: string;
   subcategory: string;
   rank: 1 | 2 | 3 | 4 | 5;
@@ -20,6 +21,7 @@ export interface CreditKeyword {
 
 export const creditCategories: CreditCategory[] = [
   { id: "credit-repair", name: "Credit Repair", priority: 1, description: "Missing page opportunities for fixing inaccurate reporting, escalating disputes, rebuilding credit, and choosing repair help." },
+  { id: "specialty-consumer-reports", name: "Specialty Consumer Reports", priority: 1, suggested: true, description: "A high-fit expansion for fixing ChexSystems, Innovis, LexisNexis, SageStream, NCTUE, tenant-screening, employment, and insurance report errors." },
   { id: "credit-reports-bureaus", name: "Credit Reports & Bureaus", priority: 2, description: "Experian, Equifax, TransUnion, Innovis, reports, freezes, alerts, and bureau procedures." },
   { id: "credit-scores", name: "Credit Scores", priority: 2, description: "Score ranges, scoring factors, score changes, FICO models, and score improvement." },
   { id: "debt-collections", name: "Debt & Collections", priority: 2, description: "Collection accounts, debt collectors, validation, settlement, lawsuits, and consumer rights." },
@@ -175,7 +177,6 @@ Identity Theft Recovery|elder identity theft credit repair steps|4|green|Medium|
 Identity Theft Recovery|financial abuse ruined my credit what can I do|5|green|Medium|Medium
 Identity Theft Recovery|domestic violence survivor credit repair resources|5|green|Medium|Medium
 Identity Theft Recovery|credit repair after account takeover fraud|4|green|Medium|Medium
-Identity Theft Recovery|credit repair after tax identity theft|4|green|Medium|Medium
 Rebuilding Strategy|how to rebuild credit after negative items are removed|5|green|High|High
 Rebuilding Strategy|why credit score did not increase after deletion|5|green|High|Medium
 Rebuilding Strategy|why credit score dropped after a successful dispute|5|green|High|Medium
@@ -253,10 +254,11 @@ Rights & Compliance|credit repair records you should keep|4|green|Medium|Low
 
 const legalSubcategories = new Set(["Dispute Escalation", "Identity Theft Recovery", "Rights & Compliance"]);
 
-export const creditRepairKeywords: CreditKeyword[] = keywordSource.trim().split("\n").map((line, index) => {
+const creditRepairCoreKeywords: CreditKeyword[] = keywordSource.trim().split("\n").map((line, index) => {
   const [subcategory, keyword, rank, tier, demand, difficulty] = line.split("|");
   return {
     id: `credit-repair-${String(index + 1).padStart(3, "0")}`,
+    categoryId: "credit-repair",
     keyword,
     subcategory,
     rank: Number(rank) as CreditKeyword["rank"],
@@ -267,3 +269,189 @@ export const creditRepairKeywords: CreditKeyword[] = keywordSource.trim().split(
     sourceUrls: subcategory === "Identity Theft Recovery" ? sources.identity : subcategory === "Services & Decisions" ? sources.comparison : sources.official,
   };
 });
+
+type KeywordSeed = Omit<CreditKeyword, "id">;
+
+function buildKeywords(prefix: string, seeds: KeywordSeed[]): CreditKeyword[] {
+  return seeds.map((seed, index) => ({ ...seed, id: `${prefix}-${String(index + 1).padStart(4, "0")}` }));
+}
+
+const accountTypes = [
+  ["credit card", "card"], ["retail credit card", "card"], ["secured credit card", "card"], ["authorized user account", "card"],
+  ["mortgage", "installment"], ["HELOC", "installment"], ["home equity loan", "installment"], ["auto loan", "installment"],
+  ["auto lease", "installment"], ["personal loan", "installment"], ["federal student loan", "installment"], ["private student loan", "installment"],
+  ["credit builder loan", "installment"], ["buy now pay later account", "installment"], ["payday loan", "installment"],
+  ["utility account", "service"], ["cell phone account", "service"], ["internet service account", "service"], ["medical account", "service"],
+  ["apartment debt", "service"], ["business credit card on a personal report", "card"], ["cosigned loan", "installment"],
+  ["joint account", "general"], ["collection account", "collection"], ["child support account", "service"], ["tax lien entry", "service"],
+] as const;
+
+const reportingProblems = [
+  ["wrong balance", ["card", "installment", "service", "collection", "general"]],
+  ["wrong credit limit", ["card"]],
+  ["reported closed even though it is open", ["card", "installment", "general"]],
+  ["reported open even though it is closed", ["card", "installment", "service", "general"]],
+  ["reported unpaid after it was paid", ["card", "installment", "service", "collection", "general"]],
+  ["reported late by mistake", ["card", "installment", "service", "general"]],
+  ["listed twice", ["card", "installment", "service", "collection", "general"]],
+  ["reported under the wrong owner", ["card", "installment", "service", "collection", "general"]],
+  ["wrong date opened", ["card", "installment", "general"]],
+  ["wrong date of first delinquency", ["card", "installment", "service", "collection", "general"]],
+  ["wrong account status", ["card", "installment", "service", "collection", "general"]],
+  ["missing a recent payment update", ["card", "installment", "service", "general"]],
+  ["charged off by mistake", ["card", "installment", "service"]],
+  ["still reporting a balance after bankruptcy discharge", ["card", "installment", "service", "collection"]],
+  ["reappeared after a successful dispute", ["card", "installment", "service", "collection", "general"]],
+] as const;
+
+const accountErrorKeywords = buildKeywords("account-error", accountTypes.flatMap(([accountType, group]) => reportingProblems
+  .filter(([, groups]) => groups.includes(group as never))
+  .map(([problem]) => ({
+    categoryId: "credit-repair",
+    keyword: `how to fix a ${accountType} ${problem} on your credit report`,
+    subcategory: "Account-Specific Reporting Errors",
+    rank: (group === "card" || group === "installment" ? 4 : 3) as CreditKeyword["rank"],
+    tier: (group === "service" ? "yellow" : "green") as CreditKeyword["tier"],
+    demand: (group === "card" || group === "installment" ? "Medium" : "Low") as CreditKeyword["demand"],
+    difficulty: "Medium" as const,
+    specialistReview: false,
+    sourceUrls: sources.official,
+  }))));
+
+const bureauFailures = [
+  "did not investigate my dispute", "verified an account that is not mine", "ignored the documents in my dispute", "marked my dispute frivolous",
+  "did not respond to my dispute on time", "deleted an item and then reinserted it", "corrected an error that came back", "sent incomplete dispute results",
+  "refused to disclose the method of verification", "failed to notify the data furnisher", "keeps reporting a wrong balance", "keeps reporting the wrong payment status",
+  "mixed my file with another person", "split my credit file", "failed to block identity theft accounts", "did not add my consumer statement",
+  "closed my dispute without a result", "updated only one of several wrong accounts",
+];
+
+const bureauKeywords = buildKeywords("bureau-failure", ["Equifax", "Experian", "TransUnion"].flatMap((bureau) => bureauFailures.map((failure) => ({
+  categoryId: "credit-reports-bureaus",
+  keyword: `what to do when ${bureau} ${failure}`,
+  subcategory: "Bureau-Specific Dispute Failures",
+  rank: 4 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: true,
+  sourceUrls: sources.official,
+}))));
+
+const specialtyReports = ["ChexSystems report", "Innovis credit report", "LexisNexis consumer report", "SageStream report", "NCTUE report", "tenant screening report", "employment background report", "insurance consumer report"];
+const specialtyProblems = ["an account that is not mine", "the wrong balance", "duplicate information", "outdated negative information", "identity theft information", "a paid account shown as unpaid", "a mixed file", "an error that returned after a dispute"];
+
+const specialtyReportKeywords = buildKeywords("specialty-report", specialtyReports.flatMap((report) => specialtyProblems.map((problem) => ({
+  categoryId: "specialty-consumer-reports",
+  keyword: `how to dispute ${problem} on a ${report}`,
+  subcategory: "Specialty Consumer Report Errors",
+  rank: 3 as const,
+  tier: "yellow" as const,
+  demand: "Low" as const,
+  difficulty: "Low" as const,
+  specialistReview: true,
+  sourceUrls: sources.official,
+}))));
+
+const repairSituations = [
+  "after a creditor reverses a payment", "after a bank closes your account", "after a loan servicing transfer", "after a mortgage servicing error",
+  "after student loan rehabilitation", "after student loan consolidation", "after an auto loan trade-in", "after voluntarily returning a leased car",
+  "after a debt cancellation", "after receiving a 1099-C", "after a settlement agreement is completed", "after a pay-for-delete agreement",
+  "after a creditor merger", "after a lender changes account numbers", "after an account is sold to another lender", "after a collection agency sells the debt",
+  "after a returned payment error", "after a duplicate payment reversal", "after a billing dispute", "after a chargeback",
+  "after a military PCS move", "after leaving active duty", "after leaving an abusive household", "after leaving foster care",
+  "after a name change", "after changing your Social Security number", "after becoming a permanent resident", "after correcting immigration records",
+  "when your address is linked to someone else", "when a deceased relative appears on your report", "when an ex-spouse account is still linked to you", "when a former roommate debt appears",
+  "when a landlord reports debt you do not owe", "when an employer credit check finds an error", "when a lender reports during an active dispute", "when a furnisher updates only one bureau",
+  "when a payment arrangement is reported incorrectly", "when a hardship plan is reported incorrectly", "when a deferment is reported incorrectly", "when a loan modification is reported incorrectly",
+  "when an account is transferred during bankruptcy", "when a reaffirmed debt is reported incorrectly", "when a dismissed bankruptcy is reported as discharged", "when a withdrawn bankruptcy appears on your report",
+  "when a creditor cannot provide account records", "when an account number is partially wrong", "when your credit report lists the wrong account type", "when your credit report lists the wrong monthly payment",
+  "when your credit report lists the wrong original creditor", "when your credit report lists the wrong collection agency", "when a zero balance account shows utilization", "when a card is missing its credit limit",
+];
+
+const situationKeywords = buildKeywords("repair-situation", repairSituations.map((situation) => ({
+  categoryId: "credit-repair",
+  keyword: `credit repair ${situation}`,
+  subcategory: "Specific Credit Repair Situations",
+  rank: 3 as const,
+  tier: "yellow" as const,
+  demand: "Low" as const,
+  difficulty: "Low" as const,
+  specialistReview: situation.includes("bankruptcy") || situation.includes("abusive"),
+  sourceUrls: sources.official,
+})));
+
+const lifeEvents = [
+  "job loss", "reduced work hours", "a layoff", "long-term unemployment", "starting a new job", "changing careers", "self-employment income loss", "a failed small business",
+  "legal separation", "a spouse's death", "becoming a widow or widower", "financial abuse", "domestic violence", "leaving a controlling relationship", "a cosigner default",
+  "serious illness", "cancer treatment", "a disability", "medical leave", "unexpected surgery", "mental health leave", "unpaid medical bills", "losing health insurance",
+  "incarceration", "release from prison", "homelessness", "leaving a shelter", "aging out of foster care", "returning from military deployment", "leaving military service", "a natural disaster",
+  "a house fire", "a flood", "a hurricane", "a wildfire", "account takeover fraud", "a romance scam",
+  "moving to the United States", "moving back to the United States", "a legal name change", "marriage", "having a baby", "adoption", "becoming a caregiver", "retirement",
+  "the death of a parent", "an inherited debt dispute", "student loan default", "mortgage foreclosure", "vehicle repossession", "eviction", "bankruptcy dismissal", "bankruptcy discharge",
+  "a debt settlement program", "leaving credit counseling", "paying off collections", "completing loan rehabilitation",
+];
+
+const lifeEventRepairPagesAlreadyCovered = new Set(["financial abuse", "medical leave", "incarceration", "homelessness", "account takeover fraud", "moving to the United States"]);
+
+const lifeEventKeywords = buildKeywords("life-event", lifeEvents.flatMap((lifeEvent) => [
+  `credit repair after ${lifeEvent}`,
+  `credit report checklist after ${lifeEvent}`,
+].map((keyword, index) => ({ keyword, index })).filter(({ index }) => index !== 0 || !lifeEventRepairPagesAlreadyCovered.has(lifeEvent)).map(({ keyword, index }) => ({
+  categoryId: "life-event-recovery",
+  keyword,
+  subcategory: index === 0 ? "Recovery Plans" : "Report Audits",
+  rank: (lifeEvent.includes("identity theft") || lifeEvent.includes("divorce") || lifeEvent.includes("bankruptcy") ? 5 : 3) as CreditKeyword["rank"],
+  tier: (lifeEvent.includes("identity theft") || lifeEvent.includes("divorce") || lifeEvent.includes("bankruptcy") ? "green" : "yellow") as CreditKeyword["tier"],
+  demand: (lifeEvent.includes("identity theft") || lifeEvent.includes("divorce") || lifeEvent.includes("bankruptcy") ? "High" : "Low") as CreditKeyword["demand"],
+  difficulty: "Medium" as const,
+  specialistReview: ["domestic violence", "financial abuse", "incarceration", "bankruptcy"].some((flag) => lifeEvent.includes(flag)),
+  sourceUrls: lifeEvent.includes("identity theft") ? sources.identity : sources.official,
+}))));
+
+const deniedProducts = ["mortgage", "apartment", "auto loan", "credit card", "personal loan", "student loan refinance", "HELOC", "home equity loan", "business loan", "cell phone financing", "utility account", "insurance policy", "job", "security clearance"];
+const denialReasons = [
+  "collections", "late payments", "a charge-off", "high credit utilization", "too many hard inquiries", "a thin credit file", "no credit score", "a mixed credit file",
+  "identity theft accounts", "an incorrect balance", "a duplicate account", "an old address", "a repossession", "foreclosure", "student loan default", "medical debt",
+  "an account that is not mine", "an open credit dispute", "a low credit score", "insufficient credit history",
+];
+
+const denialKeywords = buildKeywords("denial-recovery", deniedProducts.flatMap((product) => denialReasons.map((reason) => ({
+  categoryId: "denials-adverse-action",
+  keyword: `how to fix your credit after a ${product} denial caused by ${reason}`,
+  subcategory: `${product.replace(/\b\w/g, (letter) => letter.toUpperCase())} Denials`,
+  rank: (["mortgage", "apartment", "auto loan", "credit card"].includes(product) ? 5 : 3) as CreditKeyword["rank"],
+  tier: (["mortgage", "apartment", "auto loan", "credit card"].includes(product) ? "green" : "yellow") as CreditKeyword["tier"],
+  demand: (["mortgage", "apartment", "auto loan", "credit card"].includes(product) ? "High" : "Low") as CreditKeyword["demand"],
+  difficulty: "Medium" as const,
+  specialistReview: product === "job" || product === "security clearance",
+  sourceUrls: sources.official,
+}))));
+
+const adverseActionSteps = [
+  "how to read an adverse action notice", "how to request denial reasons within 60 days", "how to get a free credit report after a denial", "what to do when an adverse action notice names the wrong bureau",
+  "what to do when an adverse action notice has no specific reasons", "how to dispute an error found after a credit denial", "how long to wait before reapplying after fixing a credit error",
+  "how to compare a denial score with your current credit score", "what to do when a lender used an outdated credit report", "what to do when a lender denies you during an active dispute",
+  "how to add a consumer statement after a denial", "how to document credit discrimination after a denial", "how to file a CFPB complaint after an inaccurate credit denial",
+  "how to prepare for reconsideration after fixing a credit report", "what credit items to fix first after a denial", "credit repair checklist before reapplying after a denial",
+];
+
+const adverseActionKeywords = buildKeywords("adverse-action", adverseActionSteps.map((keyword) => ({
+  categoryId: "denials-adverse-action",
+  keyword,
+  subcategory: "Adverse Action Notices",
+  rank: 5 as const,
+  tier: "green" as const,
+  demand: "Medium" as const,
+  difficulty: "Medium" as const,
+  specialistReview: true,
+  sourceUrls: sources.official,
+})));
+
+export const creditRepairKeywords = [...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords];
+export const creditLatestUpdateKeywords = [...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords];
+export const creditKeywords = [...creditRepairKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords];
+
+export function getCreditKeywords(categoryId: string) {
+  return creditKeywords.filter((keyword) => keyword.categoryId === categoryId);
+}

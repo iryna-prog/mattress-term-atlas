@@ -242,6 +242,7 @@ main {
   grid-template-columns: auto 1fr auto;
   gap: 14px;
   align-items: center;
+  min-height: 580px;
   min-height: 66px;
   padding: 0 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1841,7 +1842,8 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 
 .code-header { border-color: rgba(183, 120, 255, .2); background: rgba(7, 6, 23, .78); }
 .code-cat-mark { display: grid; place-items: center; color: #f8efff; background: linear-gradient(145deg, #8d4cff, #27d9ef); box-shadow: 0 0 22px rgba(159,79,255,.25); }
-.code-cat-mark::before { display: block; position: static; width: auto; height: auto; background: none; box-shadow: none; content: "Ж"; font-size: 16px; font-weight: 850; }
+.code-cat-mark { border: 1px solid rgba(105,231,255,.38); background-image: url('/assets/code-cat-hero-wide.png'); background-position: 70% 48%; background-size: 310%; background-repeat: no-repeat; }
+.code-cat-mark::before { display: none; }
 .code-cat-mark::after, .code-cat-mark i, .code-cat-mark b { display: none; }
 .code-status { display: flex; gap: 8px; align-items: center; color: #c9b3e9; font-size: 11px; }
 .code-status i { width: 7px; height: 7px; border-radius: 50%; background: #55f2c2; box-shadow: 0 0 13px #55f2c2; animation: beacon 1.8s ease-in-out infinite; }
@@ -1853,7 +1855,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
   grid-template-columns: minmax(0, .88fr) minmax(470px, 1.12fr);
   grid-template-rows: 1fr auto;
   gap: 28px;
-  min-height: 610px;
+  min-height: 580px;
   margin-top: 24px;
   padding: 34px 38px 28px;
   overflow: hidden;
@@ -1921,6 +1923,9 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .code-empty-state strong { color: white; font-size: 13px; }
 .code-empty-state p { margin: 0; color: #998aaf; font-size: 11px; line-height: 1.45; }
 .code-shell footer { border-color: rgba(181,117,255,.15); background: rgba(7,6,23,.86); }
+.code-shell .updates-button { border-color: rgba(181,113,255,.28); color: #f1eaff; background: rgba(62,29,108,.62); }
+.code-shell .updates-button:hover { border-color: #c77fff; color: white; box-shadow: 0 0 24px rgba(174,88,255,.17); }
+.code-shell .updates-button small { color: #130923; background: linear-gradient(135deg, #65efff, #d78aff); }
 
 /* Сніжок's outdoor credit repair library */
 .credit-shell {
@@ -1943,7 +1948,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-shell > *:not(.credit-atmosphere) { position: relative; z-index: 1; }
 
 .credit-header { border-color: rgba(142,213,144,.18); background: rgba(5,25,13,.82); }
-.credit-cat-mark { display: grid; place-items: center; color: #12311d; background: linear-gradient(145deg, #ddf69d, #66d99c); box-shadow: 0 0 22px rgba(102,217,156,.22); font-size: 16px; font-weight: 850; }
+.credit-cat-mark { display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(209,243,144,.42); color: transparent; background-image: url('/assets/snowball-credit-hero-wide.png'); background-position: 73% 48%; background-size: 360%; background-repeat: no-repeat; box-shadow: 0 0 22px rgba(102,217,156,.22); font-size: 0; }
 .credit-cat-mark::before, .credit-cat-mark::after, .credit-cat-mark i, .credit-cat-mark b { display: none; }
 .credit-status { display: flex; gap: 8px; align-items: center; color: #a9cbae; font-size: 11px; }
 .credit-status i { width: 7px; height: 7px; border-radius: 50%; background: #c9ed78; box-shadow: 0 0 13px #c9ed78; animation: beacon 1.8s ease-in-out infinite; }
@@ -1953,7 +1958,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
   position: relative;
   display: grid;
   grid-template-columns: minmax(350px, .82fr) minmax(520px, 1.18fr);
-  min-height: 540px;
+  min-height: 580px;
   margin-top: 24px;
   overflow: hidden;
   border: 1px solid rgba(154,220,151,.22);
@@ -2043,6 +2048,27 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-workspace-empty strong { color: white; font-size: 14px; }
 .credit-workspace-empty p { max-width: 520px; margin: 0; color: #95af99; font-size: 11px; line-height: 1.55; }
 .credit-shell footer { border-color: rgba(143,209,144,.15); background: rgba(5,25,13,.88); }
+.code-shell .updates-scrim { background: rgba(4,2,17,.78); backdrop-filter: blur(13px); }
+.code-shell .updates-drawer { color: #f4efff; background: linear-gradient(180deg, #11092c, #070617); box-shadow: -30px 0 80px rgba(0,0,0,.55); }
+.code-shell .updates-drawer-header p, .code-shell .update-run summary > div:first-child > span, .code-shell .update-total span, .code-shell .update-keywords article span, .code-shell .updates-empty p { color: #a99abf; }
+.code-shell .updates-close { color: white; background: rgba(178,111,255,.17); }
+.code-shell .update-run, .code-shell .updates-empty { border-color: rgba(183,120,255,.2); background: rgba(19,11,46,.86); }
+.code-shell .update-run-body, .code-shell .update-keywords, .code-shell .update-keywords article + article { border-color: rgba(183,120,255,.14); }
+.code-shell .update-total strong, .code-shell .update-counts strong { color: #72efff; }
+.code-shell .update-counts span { color: #dfd2ef; background: rgba(158,87,235,.14); }
+
+.credit-shell .updates-button { border-color: rgba(168,224,137,.26); color: #eef9ed; background: rgba(19,70,36,.7); }
+.credit-shell .updates-button:hover { border-color: #bce985; color: white; box-shadow: 0 0 24px rgba(122,218,151,.16); }
+.credit-shell .updates-button small { color: #173921; background: linear-gradient(135deg, #d7f493, #70d99a); }
+.credit-shell .updates-scrim { background: rgba(3,18,9,.78); backdrop-filter: blur(13px); }
+.credit-shell .updates-drawer { color: #eff9ef; background: linear-gradient(180deg, #0b2d19, #06170d); box-shadow: -30px 0 80px rgba(0,0,0,.55); }
+.credit-shell .updates-drawer-header p, .credit-shell .update-run summary > div:first-child > span, .credit-shell .update-total span, .credit-shell .update-keywords article span, .credit-shell .updates-empty p { color: #9fbea4; }
+.credit-shell .updates-close { color: white; background: rgba(122,211,145,.16); }
+.credit-shell .update-run, .credit-shell .updates-empty { border-color: rgba(143,209,144,.19); background: rgba(10,42,22,.88); }
+.credit-shell .update-run-body, .credit-shell .update-keywords, .credit-shell .update-keywords article + article { border-color: rgba(143,209,144,.13); }
+.credit-shell .update-total strong, .credit-shell .update-counts strong { color: #c9ef82; }
+.credit-shell .update-counts span { color: #d5e7d4; background: rgba(109,204,135,.13); }
+.credit-shell .update-keywords article button { color: #c9ef82; background: rgba(104,207,135,.12); }
 
 @keyframes code-orbit { to { transform: translate3d(15%, 8%, 0) scale(1.2); } }
 @keyframes code-rain { from { transform: translateY(-35%); } to { transform: translateY(35%); } }
