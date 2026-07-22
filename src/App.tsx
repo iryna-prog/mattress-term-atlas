@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { creditCategories, creditRepairKeywords } from "./data/creditLibrary";
 
 interface KeywordCategory {
   id: string;
@@ -228,6 +229,32 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
 }
 
 function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
+  const [activeCreditCategory, setActiveCreditCategory] = useState("credit-repair");
+  const [creditSearch, setCreditSearch] = useState("");
+  const [creditSort, setCreditSort] = useState<"priority" | "name">("priority");
+  const selectedCategory = creditCategories.find((category) => category.id === activeCreditCategory) ?? creditCategories[0];
+  const normalizedSearch = creditSearch.trim().toLowerCase();
+  const visibleCategories = [...creditCategories]
+    .filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(normalizedSearch) || (category.id === "credit-repair" && creditRepairKeywords.some((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch))))
+    .sort((left, right) => creditSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
+  const visibleKeywords = selectedCategory.id === "credit-repair"
+    ? creditRepairKeywords.filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch))
+    : [];
+  const keywordGroups = [...new Set(visibleKeywords.map((item) => item.subcategory))].map((subcategory) => ({
+    subcategory,
+    keywords: visibleKeywords.filter((item) => item.subcategory === subcategory),
+  }));
+
+  function exportCreditKeywords() {
+    const rows = [["Keyword", "Category"], ...visibleKeywords.map((item) => [item.keyword, selectedCategory.name])];
+    const blob = new Blob([rows.map((row) => row.map(csvCell).join(",")).join("\n")], { type: "text/csv;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "credit-repair-keywords.csv";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
+
   return (
     <div className="site-shell credit-shell">
       <div className="credit-atmosphere" aria-hidden="true"><i /><i /><i /><span className="bird bird-one">⌁</span><span className="bird bird-two">⌁</span></div>
@@ -245,43 +272,54 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
           <div className="credit-hero-copy">
             <span className="eyebrow"><i /> Сад Сніжка</span>
             <h1>Grow a smarter<br /><span>credit strategy.</span></h1>
-            <p>A calm foundation for a future credit repair SEO library. Categories and keywords will be planted only after you choose the direction.</p>
-            <div className="credit-hero-pills"><span>Credit education</span><span>Consumer FAQs</span><span>Actionable guides</span><span>Research paused</span></div>
+            <p>A focused SEO research garden of missing credit repair pages, checked against every URL already published on The Credit People.</p>
+            <div className="credit-hero-pills"><span>Credit repair</span><span>Consumer FAQs</span><span>Actionable guides</span><span>Existing pages excluded</span></div>
           </div>
           <div className="credit-cat-presence" role="img" aria-label="Сніжок outdoors in a green meadow watching birds" />
           <div className="credit-hero-birds" aria-hidden="true"><i /><i /><i /></div>
         </section>
 
         <section className="credit-summary" aria-label="Credit repair library summary">
-          <div><strong>0</strong><span>category clusters mapped</span></div>
-          <div><strong>0</strong><span>priority foundations</span></div>
-          <div><strong>0</strong><span>keywords added by design</span></div>
+          <div><strong>{creditCategories.length}</strong><span>category clusters mapped</span></div>
+          <div><strong>{creditCategories.filter((category) => category.priority === 1).length}</strong><span>priority foundations</span></div>
+          <div><strong>{creditRepairKeywords.length}</strong><span>missing page opportunities</span></div>
         </section>
 
-        <section className="search-section credit-search" aria-label="Future credit repair search">
+        <section className="search-section credit-search" aria-label="Search credit repair keywords">
           <span className="search-icon">⌕<i /></span>
-          <input disabled placeholder="Category planning starts after your direction…" aria-label="Credit repair keyword search is not available yet" />
-          <span className="credit-search-state">Not started</span>
+          <input value={creditSearch} onChange={(event) => setCreditSearch(event.target.value)} placeholder="Search mixed files, dispute denials, late payments, collections…" aria-label="Search credit repair keywords" />
+          {creditSearch ? <button onClick={() => setCreditSearch("")}>Clear</button> : <span className="credit-search-state">Researched</span>}
         </section>
 
-        <div className="credit-foundation-note"><span>Garden blueprint</span><p><strong>No categories or keywords have been invented.</strong> This library is ready for your brief, then each approved category can grow into distinct, non-repetitive SEO pages.</p></div>
+        <div className="credit-foundation-note"><span>Sitemap gap audit</span><p><strong>All 11,325 existing sitemap URLs were checked first.</strong> The Credit Repair category contains missing, standalone page intents—not renamed versions of pages already on the site. Rankings and demand are directional; no paid-tool volume is invented.</p></div>
 
         <div className="library-layout credit-layout">
           <aside className="category-panel credit-category-panel" aria-label="Credit repair keyword categories">
-            <div className="category-panel-heading"><span>Credit categories <small>0</small></span></div>
-            <div className="credit-empty-list"><i>☘</i><strong>No categories yet</strong><p>Your approved category map will appear here.</p></div>
+            <div className="category-panel-heading"><span>Credit categories <small>{visibleCategories.length}</small></span><label><span className="sr-only">Sort credit categories</span><select value={creditSort} onChange={(event) => setCreditSort(event.target.value as "priority" | "name")}><option value="priority">Priority</option><option value="name">Name</option></select></label></div>
+            <div className="category-list">
+              {visibleCategories.map((category) => {
+                const count = category.id === "credit-repair" ? creditRepairKeywords.length : 0;
+                return <button key={category.id} className={category.id === activeCreditCategory ? "active" : ""} onClick={() => { setActiveCreditCategory(category.id); setCreditSearch(""); }}><span className="category-name">{category.name}<em>P{category.priority}</em>{category.suggested && <b>Suggested</b>}</span><small>{count}</small></button>;
+              })}
+            </div>
           </aside>
 
           <section className="keyword-panel credit-panel">
             <div className="keyword-panel-heading">
-              <div><div className="heading-meta"><span className="eyebrow">Future research workspace</span></div><h2>Waiting for your category brief</h2><p>Nothing has been pre-filled, so the next research phase can follow your exact credit repair strategy.</p></div>
-              <div className="result-count"><strong>0</strong><span>keywords</span></div>
+              <div><div className="heading-meta"><span className="eyebrow">Selected credit category</span><span className={`category-priority p${selectedCategory.priority}`}>Priority {selectedCategory.priority}</span>{selectedCategory.suggested && <span className="credit-suggested">New suggestion</span>}</div><h2>{selectedCategory.name}</h2><p>{selectedCategory.description}</p></div>
+              <div className="result-count"><strong>{visibleKeywords.length}</strong><span>keywords / pages</span></div>
             </div>
-            <div className="credit-workspace-empty"><span>✦</span><div><strong>Ready when you are</strong><p>Сніжок is guarding a clean slate—no leash, no filler, and no duplicate page ideas.</p></div></div>
+            {selectedCategory.id === "credit-repair" ? <>
+              <div className="credit-keyword-toolbar"><span>{keywordGroups.length} focused subcategories</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
+              <div className="credit-keyword-groups">
+                {keywordGroups.map((group) => <section key={group.subcategory} className="credit-keyword-group"><div className="credit-group-heading"><h3>{group.subcategory}</h3><span>{group.keywords.length}</span></div><div className="credit-keyword-list">{group.keywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}</div></section>)}
+                {!keywordGroups.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
+              </div>
+            </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but no new keywords were added because this research pass focuses only on Credit Repair.</p></div></div>}
           </section>
         </div>
       </main>
-      <footer><span>Сад Сніжка · Credit Repair Keyword Library</span><span>Category direction pending · Keyword discovery paused</span></footer>
+      <footer><span>Сад Сніжка · Credit Repair Keyword Library</span><span>11,325 existing URLs checked · Missing opportunities only</span></footer>
     </div>
   );
 }
