@@ -611,10 +611,65 @@ const identityEscalationKeywords = buildKeywords("identity-escalation", identity
   sourceUrls: sources.identity,
 })));
 
+const saturationAuditSource = `
+credit-repair|Dispute Escalation|credit bureau dispute marked irrelevant what to do|5|green|Medium|Medium|true|official
+credit-repair|Dispute Escalation|how to dispute information reported by a landlord|5|green|Medium|Medium|true|official
+credit-repair|Dispute Escalation|how to dispute a credit report error after the 45 day investigation period|4|green|Low|Medium|true|official
+credit-repair|Complaints & Evidence|how to document a CFPB credit reporting complaint|5|green|Medium|Medium|true|official
+credit-repair|Complaints & Evidence|credit bureau complaint dismissed because a dispute was pending|4|green|Low|High|true|official
+credit-repair|Identity & Data Errors|how to stop prescreened credit offers after identity theft|4|green|Medium|Medium|true|identity
+credit-repair|Identity & Data Errors|how to dispute an unfamiliar creditor before assuming identity theft|5|green|Medium|Medium|true|identity
+credit-repair|Reporting Errors|how to correct a credit report error caused by a data reseller|4|green|Low|High|true|official
+specialty-consumer-reports|Access & Freezes|how to request a specialty consumer report|5|green|Medium|Medium|true|official
+specialty-consumer-reports|Access & Freezes|how to freeze a specialty consumer report|5|green|Medium|Medium|true|official
+specialty-consumer-reports|Employment Screening|how to dispute an employment screening report|5|green|Medium|High|true|official
+specialty-consumer-reports|Insurance Reports|how to dispute an insurance consumer report|5|green|Medium|High|true|official
+credit-reports-bureaus|Personal Information Errors|credit report shows the wrong address how to fix it|5|green|High|Medium|false|official
+credit-reports-bureaus|Investigation Failures|credit bureau says verified but the creditor has no records|5|green|Medium|High|true|official
+credit-reports-bureaus|File Access Problems|credit report is locked and cannot be accessed|5|green|Medium|Medium|true|official
+credit-reports-bureaus|File Access Problems|how to get your credit report after a bureau denies access|5|green|Medium|Medium|true|official
+credit-reports-bureaus|Consumer Statements|how to add a statement of dispute to your credit file|4|green|Medium|Medium|true|official
+credit-reports-bureaus|Consumer Statements|how to remove a statement of dispute from your credit file|4|green|Medium|Medium|true|official
+credit-scores|Score Model Differences|why do different lenders show different credit scores|5|green|High|Medium|false|official
+credit-scores|Utilization Recovery|how long does a credit score take to recover after high utilization|5|green|High|Medium|false|official
+debt-collections|Settlement Problems|pay for delete agreement not honored what to do|5|green|Medium|High|true|official
+debt-collections|Collection Reporting Errors|collection account closed but still showing a balance|5|green|High|Medium|true|official
+identity-theft|Identity Theft Blocking|how to block identity theft accounts without an FTC identity theft report|5|green|Medium|High|true|identity
+identity-theft|Child Identity Protection|how to freeze a child's credit report before identity theft|5|green|Medium|Medium|true|identity
+identity-theft|Child Identity Protection|child has no credit report after identity theft what to do|5|green|Low|High|true|identity
+identity-theft|Medical Identity Theft|how to fix medical identity theft errors on a credit report|5|green|Medium|High|true|identity
+identity-theft|Account Takeover|account takeover changed my credit report contact information|5|green|Medium|High|true|identity
+life-event-recovery|Natural Disaster Recovery|disaster forbearance caused a late payment on my credit report|5|green|Medium|High|true|official
+life-event-recovery|Divorce Recovery|divorce decree does not remove an ex spouse's debt from your credit report|5|green|Medium|High|true|official
+life-event-recovery|Natural Disaster Recovery|how to rebuild credit after a natural disaster loan default|4|green|Low|High|true|official
+denials-adverse-action|Denial Reason Recovery|denied credit because of insufficient credit history|5|green|High|Medium|true|official
+denials-adverse-action|Denial Reason Recovery|denied credit because of too many recent inquiries|5|green|High|Medium|true|official
+denials-adverse-action|Denial Reason Recovery|denied credit because of high credit utilization|5|green|High|Medium|true|official
+denials-adverse-action|Adverse Action Notice Errors|adverse action notice does not list the credit score used|5|green|Medium|High|true|official
+denials-adverse-action|Reconsideration|how to request reconsideration after a credit denial|5|green|High|Medium|true|official
+denials-adverse-action|Housing Denials|denied an apartment because of a credit report error|5|green|High|High|true|official
+denials-adverse-action|Insurance Denials|denied insurance because of credit report information|5|green|Medium|High|true|official
+`;
+
+export const creditSaturationAuditKeywords = buildKeywords("saturation-audit", saturationAuditSource.trim().split("\n").map((line) => {
+  const [categoryId, subcategory, keyword, rank, tier, demand, difficulty, specialistReview, sourceKey] = line.split("|");
+  return {
+    categoryId,
+    subcategory,
+    keyword,
+    rank: Number(rank) as CreditKeyword["rank"],
+    tier: tier as CreditKeyword["tier"],
+    demand: demand as CreditKeyword["demand"],
+    difficulty: difficulty as CreditKeyword["difficulty"],
+    specialistReview: specialistReview === "true",
+    sourceUrls: sources[sourceKey as keyof typeof sources],
+  };
+}));
+
 export const creditRepairKeywords = [...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords];
 export const creditLatestUpdateKeywords = [...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords];
 export const creditPriorityTwoUpdateKeywords = [...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords];
-export const creditKeywords = [...creditRepairKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...creditPriorityTwoUpdateKeywords];
+export const creditKeywords = [...creditRepairKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...creditPriorityTwoUpdateKeywords, ...creditSaturationAuditKeywords];
 
 export function getCreditKeywords(categoryId: string) {
   return creditKeywords.filter((keyword) => keyword.categoryId === categoryId);
