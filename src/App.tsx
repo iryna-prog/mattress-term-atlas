@@ -200,6 +200,11 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
       <main>
         <section className="code-hero">
           <span className="cat-paw-overlay" aria-hidden="true" />
+          <div className="live-code-overlay" aria-hidden="true">
+            <span><i>const agent = await build();</i><i>research.map(findIntent);</i><i>dedupe(canonicalPages);</i></span>
+            <span><i>function rank(query) &#123;</i><i>&nbsp;&nbsp;return intent * value;</i><i>&#125;</i></span>
+            <span><i>$ npm run future</i><i>✓ categories indexed</i><i>✓ ready to publish</i></span>
+          </div>
           <div className="code-hero-copy">
             <span className="eyebrow"><i /> Бібліотека Живчихи</span>
             <h1>Map the queries.<br /><span>Build the future.</span></h1>
@@ -297,6 +302,8 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
             <div className="credit-hero-pills"><span>Credit repair</span><span>Consumer FAQs</span><span>Actionable guides</span><span>Existing pages excluded</span></div>
           </div>
           <div className="credit-cat-presence" role="img" aria-label="Сніжок outdoors in a green meadow watching birds" />
+          <span className="credit-wind-canopy" aria-hidden="true" />
+          <span className="credit-tail-motion" aria-hidden="true" />
           <div className="credit-hero-birds" aria-hidden="true"><i /><i /><i /></div>
         </section>
 
