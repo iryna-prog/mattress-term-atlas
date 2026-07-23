@@ -90,6 +90,15 @@ const priorityFilters = [
   { id: "red", label: "Red · keep, low priority" },
 ];
 
+type DifficultySort = "default" | "high" | "low";
+const difficultyOrder = { Low: 1, Medium: 2, High: 3 };
+
+function sortByDifficulty<T>(items: T[], sort: DifficultySort, getDifficulty: (item: T) => keyof typeof difficultyOrder) {
+  if (sort === "default") return items;
+  const direction = sort === "high" ? -1 : 1;
+  return [...items].sort((left, right) => direction * (difficultyOrder[getDifficulty(left)] - difficultyOrder[getDifficulty(right)]));
+}
+
 const codeCategories: CodeCategory[] = [
   { id: "ai-coding-tools", name: "AI Coding Tools", priority: 1, description: "AI code assistants, copilots, editors, builders, model capabilities, pricing, reviews, and comparisons.", subcategories: ["AI coding assistants", "AI IDEs and editors", "App builders", "Tool comparisons", "Pricing and plans", "Reviews and alternatives"] },
   { id: "vibe-coding", name: "Vibe Coding", priority: 1, description: "Natural-language software creation, workflows, limitations, best practices, and real-world projects.", subcategories: ["Vibe coding basics", "Workflows", "Project ideas", "Best tools", "Safety and limitations", "Production readiness"] },
@@ -179,6 +188,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
   const [activeCodeCategory, setActiveCodeCategory] = useState(codeCategories[0].id);
   const [codeSearch, setCodeSearch] = useState("");
   const [codeSort, setCodeSort] = useState<"priority" | "name">("priority");
+  const [codeDifficultySort, setCodeDifficultySort] = useState<DifficultySort>("default");
   const [showCodeUpdates, setShowCodeUpdates] = useState(false);
   const selectedCodeCategory = codeCategories.find((category) => category.id === activeCodeCategory) ?? codeCategories[0];
   const visibleCodeCategories = [...codeCategories]
@@ -237,6 +247,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
               <div><div className="heading-meta"><span className="eyebrow">Selected code category</span><span className={`category-priority p${selectedCodeCategory.priority}`}>Priority {selectedCodeCategory.priority}</span></div><h2>{selectedCodeCategory.name}</h2><p>{selectedCodeCategory.description}</p></div>
               <div className="result-count"><strong>{selectedCodeCategory.subcategories.length}</strong><span>research lanes</span></div>
             </div>
+            <div className="difficulty-toolbar"><span>Keyword sorting</span><label>Difficulty <select value={codeDifficultySort} onChange={(event) => setCodeDifficultySort(event.target.value as DifficultySort)} disabled><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label></div>
             <div className="code-lane-grid">
               {selectedCodeCategory.subcategories.map((subcategory, index) => <article key={subcategory} style={{ "--lane-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{subcategory}</strong><small>Keyword research not started</small></div><i>→</i></article>)}
             </div>
@@ -254,13 +265,18 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
   const [activeCreditCategory, setActiveCreditCategory] = useState("credit-repair");
   const [creditSearch, setCreditSearch] = useState("");
   const [creditSort, setCreditSort] = useState<"priority" | "name">("priority");
+  const [creditDifficultySort, setCreditDifficultySort] = useState<DifficultySort>("default");
   const [showCreditUpdates, setShowCreditUpdates] = useState(false);
   const selectedCategory = creditCategories.find((category) => category.id === activeCreditCategory) ?? creditCategories[0];
   const normalizedSearch = creditSearch.trim().toLowerCase();
   const visibleCategories = [...creditCategories]
     .filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(normalizedSearch) || getCreditKeywords(category.id).some((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)))
     .sort((left, right) => creditSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
-  const visibleKeywords = getCreditKeywords(selectedCategory.id).filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch));
+  const visibleKeywords = sortByDifficulty(
+    getCreditKeywords(selectedCategory.id).filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)),
+    creditDifficultySort,
+    (item) => item.difficulty,
+  );
   const keywordGroups = [...new Set(visibleKeywords.map((item) => item.subcategory))].map((subcategory) => ({
     subcategory,
     keywords: visibleKeywords.filter((item) => item.subcategory === subcategory),
@@ -331,7 +347,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div className="result-count"><strong>{visibleKeywords.length}</strong><span>keywords / pages</span></div>
             </div>
             {visibleKeywords.length || getCreditKeywords(selectedCategory.id).length ? <>
-              <div className="credit-keyword-toolbar"><span>{keywordGroups.length} focused subcategories</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
+              <div className="credit-keyword-toolbar"><span>{keywordGroups.length} focused subcategories</span><div className="toolbar-actions"><label>Difficulty <select value={creditDifficultySort} onChange={(event) => setCreditDifficultySort(event.target.value as DifficultySort)}><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div></div>
               <div className="credit-keyword-groups">
                 {keywordGroups.map((group) => <section key={group.subcategory} className="credit-keyword-group"><div className="credit-group-heading"><h3>{group.subcategory}</h3><span>{group.keywords.length}</span></div><div className="credit-keyword-list">{group.keywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}</div></section>)}
                 {!keywordGroups.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
@@ -355,6 +371,7 @@ export default function App() {
   const [activeType, setActiveType] = useState("All");
   const [activePriority, setActivePriority] = useState("All");
   const [categorySort, setCategorySort] = useState<"priority" | "name" | "count">("priority");
+  const [difficultySort, setDifficultySort] = useState<DifficultySort>("default");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [copiedId, setCopiedId] = useState("");
   const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
@@ -410,7 +427,7 @@ export default function App() {
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [activeCategory, activePriority, activeType, search]);
+  }, [activeCategory, activePriority, activeType, difficultySort, search]);
 
   const selectedCategory = library?.categories.find((category) => category.id === activeCategory) ?? null;
   const normalizedSearch = search.trim().toLowerCase();
@@ -425,14 +442,15 @@ export default function App() {
 
   const filteredKeywords = useMemo(() => {
     if (!library) return [];
-    return library.keywords.filter((record) => {
+    const matches = library.keywords.filter((record) => {
       if (!normalizedSearch && record.categoryId !== activeCategory) return false;
       if (normalizedSearch && !`${record.keyword} ${record.category} ${record.subcategory}`.includes(normalizedSearch)) return false;
       if (activeType !== "All" && record.contentType !== activeType) return false;
       if (activePriority !== "All" && record.priorityTier !== activePriority) return false;
       return true;
     });
-  }, [activeCategory, activePriority, activeType, library, normalizedSearch]);
+    return sortByDifficulty(matches, difficultySort, (record) => record.difficultyEstimate);
+  }, [activeCategory, activePriority, activeType, difficultySort, library, normalizedSearch]);
 
   const visibleKeywords = filteredKeywords.slice(0, visibleCount);
   const groupedKeywords = useMemo(() => {
@@ -652,6 +670,8 @@ export default function App() {
                 </button>
               ))}
             </div>
+
+            <div className="difficulty-toolbar"><span>Sort keywords</span><label>Difficulty <select value={difficultySort} onChange={(event) => setDifficultySort(event.target.value as DifficultySort)}><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label></div>
 
             {groupedKeywords.length > 0 ? (
               <div className="keyword-groups">
