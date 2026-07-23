@@ -262,7 +262,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
 }
 
 function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
-  const [activeCreditCategory, setActiveCreditCategory] = useState("credit-repair");
+  const [activeCreditCategory, setActiveCreditCategory] = useState("credit-repair-exact");
   const [creditSearch, setCreditSearch] = useState("");
   const [creditSort, setCreditSort] = useState<"priority" | "name">("priority");
   const [creditDifficultySort, setCreditDifficultySort] = useState<DifficultySort>("default");
