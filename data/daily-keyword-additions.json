@@ -13195,6 +13195,636 @@
         ],
         "saturationStatement": "Practically saturated for distinct couple and motion-isolation page intent under current evidence; reopen only for genuinely new products, SERPs, or first-party query data."
       }
+    },
+    {
+      "id": "2026-07-23-price-sales-financing-audit-01",
+      "date": "2026-07-23",
+      "sequence": 1,
+      "summary": "Dedicated Price, Sales & Financing audit checked six current U.S. sources and accepted 21 distinct canonical pages. It retained 42 exact wording variants as aliases, rejected 15 covered or weak ideas, and kept brands and retailers frozen. The category is substantially improved but not yet declared practically saturated.",
+      "categoriesAdded": [],
+      "keywords": [
+        {
+          "keyword": "mattress financing hard vs soft credit check",
+          "categoryId": "price",
+          "subcategory": "Financing applications",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "does mattress financing use a hard credit check",
+            "does mattress financing use a soft credit check"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "does mattress financing affect your credit score",
+          "categoryId": "price",
+          "subcategory": "Financing and credit",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "can financing a mattress hurt your credit",
+            "does buying a mattress on payments affect credit"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "what happens if you miss a mattress financing payment",
+          "categoryId": "price",
+          "subcategory": "Financing problems",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "missed mattress payment consequences",
+            "late mattress financing payment"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "how much should you pay monthly to avoid deferred interest on mattress financing",
+          "categoryId": "price",
+          "subcategory": "Deferred interest",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "mattress financing minimum payment vs payoff amount",
+            "monthly payment to pay off mattress before deferred interest ends"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "can you pay off mattress financing early",
+          "categoryId": "price",
+          "subcategory": "Financing repayment",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "early payoff mattress financing",
+            "does mattress financing have a prepayment penalty"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "how mattress financing refunds work after a return",
+          "categoryId": "price",
+          "subcategory": "Financed returns",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "returning a financed mattress",
+            "what happens to mattress financing after a refund"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "mattress financing vs credit card",
+          "categoryId": "price",
+          "subcategory": "Financing comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "credit card or mattress financing",
+            "store financing vs credit card for a mattress"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "mattress financing vs buy now pay later",
+          "categoryId": "price",
+          "subcategory": "Financing comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "bnpl vs store financing for a mattress",
+            "buy now pay later or mattress payment plan"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "mattress financing vs personal loan",
+          "categoryId": "price",
+          "subcategory": "Financing comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Useful lower-demand supporting page retained after current-source and cannibalization review.",
+          "aliases": [
+            "personal loan or mattress financing",
+            "best way to borrow money for a mattress"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful lower-demand supporting page retained after current-source and cannibalization review."
+          }
+        },
+        {
+          "keyword": "mattress financing application denied what next",
+          "categoryId": "price",
+          "subcategory": "Financing applications",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "denied mattress financing options",
+            "what to do after mattress financing denial"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "does mattress financing require a down payment",
+          "categoryId": "price",
+          "subcategory": "Financing applications",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "down payment for mattress financing",
+            "can you finance a mattress with no money down"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "no credit check mattress financing risks",
+          "categoryId": "price",
+          "subcategory": "Financing risks",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "is no credit check mattress financing safe",
+            "no credit check mattress payment plan explained"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+            "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+            "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "how to tell if a mattress sale is real",
+          "categoryId": "price",
+          "subcategory": "Sale verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "fake mattress sale signs",
+            "is this mattress discount a real deal"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "can you negotiate mattress price",
+          "categoryId": "price",
+          "subcategory": "Price negotiation",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Strong standalone mattress purchase or financing problem with direct decision-stage value.",
+          "aliases": [
+            "how to negotiate mattress price",
+            "do mattress stores negotiate prices"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong standalone mattress purchase or financing problem with direct decision-stage value."
+          }
+        },
+        {
+          "keyword": "mattress msrp vs actual selling price",
+          "categoryId": "price",
+          "subcategory": "Mattress pricing",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "mattress list price vs sale price",
+            "why mattress msrp is higher than the real price"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "is a floor model mattress worth the discount",
+          "categoryId": "price",
+          "subcategory": "Clearance and floor models",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "how much discount should a floor model mattress have",
+            "floor sample mattress discount worth it"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "prime day mattress sale",
+          "categoryId": "price",
+          "subcategory": "Seasonal sales",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "amazon prime day mattress deals",
+            "best mattress deals on prime day"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "veterans day mattress sale",
+          "categoryId": "price",
+          "subcategory": "Seasonal sales",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Useful lower-demand supporting page retained after current-source and cannibalization review.",
+          "aliases": [
+            "veterans day mattress deals",
+            "best mattress sales for veterans day"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful lower-demand supporting page retained after current-source and cannibalization review."
+          }
+        },
+        {
+          "keyword": "can mattress discounts be combined",
+          "categoryId": "price",
+          "subcategory": "Discount rules",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "can you stack mattress coupons and sales",
+            "mattress coupon plus sale price"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        },
+        {
+          "keyword": "mattress sale freebies vs cash discount",
+          "categoryId": "price",
+          "subcategory": "Discount comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": false,
+          "rationale": "Useful lower-demand supporting page retained after current-source and cannibalization review.",
+          "aliases": [
+            "free bedding bundle or lower mattress price",
+            "mattress accessories bundle vs price discount"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Useful lower-demand supporting page retained after current-source and cannibalization review."
+          }
+        },
+        {
+          "keyword": "mattress price adjustment after purchase",
+          "categoryId": "price",
+          "subcategory": "Post-purchase pricing",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": false,
+          "rationale": "Distinct mattress pricing or financing question with a credible shopping and lead path.",
+          "aliases": [
+            "mattress went on sale after I bought it",
+            "can you get a mattress sale price refunded after purchase"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.sleepfoundation.org/mattress-sales",
+            "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+            "https://www.goodbed.com/guides/mattress-prices/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Distinct mattress pricing or financing question with a credible shopping and lead path."
+          }
+        }
+      ],
+      "audit": {
+        "category": "Price, Sales & Financing",
+        "sourcesChecked": [
+          "https://www.consumerfinance.gov/ask-cfpb/what-is-a-buy-now-pay-later-bnpl-loan-en-2119/",
+          "https://www.consumerfinance.gov/ask-cfpb/will-a-buy-now-pay-later-bnpl-loan-impact-my-credit-scores-en-2117/",
+          "https://www.consumerfinance.gov/ask-cfpb/i-got-a-credit-card-promising-no-interest-for-a-purchase-if-i-pay-in-full-within-12-months-how-does-this-work-en-40/",
+          "https://www.sleepfoundation.org/mattress-sales",
+          "https://www.consumerreports.org/home-garden/mattresses/haggling-for-a-mattress-could-help-you-save-a2352446856/",
+          "https://www.goodbed.com/guides/mattress-prices/"
+        ],
+        "aliasesMerged": 42,
+        "rejected": [
+          {
+            "keyword": "how much does mattress financing cost",
+            "reason": "Covered by mattress financing, APR, and deferred-interest pages."
+          },
+          {
+            "keyword": "best mattress financing",
+            "reason": "Provider-style roundup would drift into the frozen retailer strategy."
+          },
+          {
+            "keyword": "mattress financing interest rate",
+            "reason": "Section within the existing mattress financing page rather than a separate durable intent."
+          },
+          {
+            "keyword": "interest free mattress financing",
+            "reason": "Covered by the existing interest-free versus deferred-interest comparison."
+          },
+          {
+            "keyword": "mattress financing with no interest",
+            "reason": "Exact intent duplicate of interest-free mattress financing."
+          },
+          {
+            "keyword": "mattress financing for 12 months",
+            "reason": "Term-length modifier, not a distinct editorial problem."
+          },
+          {
+            "keyword": "mattress financing for 24 months",
+            "reason": "Term-length modifier, not a distinct editorial problem."
+          },
+          {
+            "keyword": "mattress financing calculator",
+            "reason": "Tool intent requires a real calculator rather than a standard editorial page."
+          },
+          {
+            "keyword": "mattress price match exclusions",
+            "reason": "Belongs inside the existing mattress price-match policy page."
+          },
+          {
+            "keyword": "mattress sale price history by brand",
+            "reason": "Would reopen the frozen brand strategy."
+          },
+          {
+            "keyword": "memorial day vs labor day mattress sale",
+            "reason": "Seasonal comparison is sufficiently answered by the existing sale calendar."
+          },
+          {
+            "keyword": "black friday vs cyber monday mattress sale",
+            "reason": "Existing separate event pages and sale calendar cover the decision."
+          },
+          {
+            "keyword": "new year mattress sale",
+            "reason": "Current U.S. evidence was weaker than established holiday sale intents."
+          },
+          {
+            "keyword": "mattress delivery fee",
+            "reason": "Covered by the Delivery, Trials, Returns & Warranties category."
+          },
+          {
+            "keyword": "mattress disposal fee",
+            "reason": "Covered by mattress removal and disposal pages."
+          }
+        ],
+        "saturationStatement": "Not yet practically saturated: financing edge cases and sale-verification intent are now well covered, but one later evidence-led follow-up may still find defensible gaps."
+      }
     }
   ]
 }
