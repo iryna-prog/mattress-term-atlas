@@ -20,7 +20,7 @@ export interface CreditKeyword {
 }
 
 export const creditCategories: CreditCategory[] = [
-  { id: "credit-repair-exact", name: "Credit Repair Keywords", priority: 1, description: "Every keyword containing the exact phrase “credit repair,” grouped separately for focused publishing." },
+  { id: "credit-repair-exact", name: "Credit Repair Keywords", priority: 1, description: "Every keyword containing “credit repair” or “repair credit,” grouped together as the same topic." },
   { id: "credit-repair", name: "Credit Repair Related", priority: 1, description: "Closely related fixing, dispute, rebuilding, and repair-help pages that do not contain the exact phrase “credit repair.”" },
   { id: "specialty-consumer-reports", name: "Specialty Consumer Reports", priority: 1, suggested: true, description: "A high-fit expansion for fixing ChexSystems, Innovis, LexisNexis, SageStream, NCTUE, tenant-screening, employment, and insurance report errors." },
   { id: "credit-reports-bureaus", name: "Credit Reports & Bureaus", priority: 2, description: "Experian, Equifax, TransUnion, Innovis, reports, freezes, alerts, and bureau procedures." },
@@ -278,7 +278,28 @@ function buildKeywords(prefix: string, seeds: KeywordSeed[]): CreditKeyword[] {
 }
 
 function routeExactCreditRepairPhrase(record: CreditKeyword): CreditKeyword {
-  return /\bcredit repair\b/i.test(record.keyword) ? { ...record, categoryId: "credit-repair-exact" } : record;
+  return /\bcredit repair\b|\brepair credit\b/i.test(record.keyword) ? { ...record, categoryId: "credit-repair-exact" } : record;
+}
+
+function creditRepairEquivalentKey(keyword: string) {
+  return keyword.toLowerCase()
+    .replace(/\bfixing credit\b/g, "repairing credit")
+    .replace(/\bfix credit\b/g, "repair credit")
+    .replace(/\bcredit fixing\b/g, "credit repair")
+    .replace(/\bfixed credit\b/g, "repaired credit")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function finalizeCreditKeywords(records: CreditKeyword[]) {
+  const unique = new Map<string, CreditKeyword>();
+  for (const routedRecord of records.map(routeExactCreditRepairPhrase)) {
+    const key = creditRepairEquivalentKey(routedRecord.keyword);
+    const existing = unique.get(key);
+    const prefersRepair = /\brepair(?:ing|ed)?\b/i.test(routedRecord.keyword) && !/\bfix(?:ing|ed)?\b/i.test(routedRecord.keyword);
+    if (!existing || prefersRepair) unique.set(key, routedRecord);
+  }
+  return [...unique.values()];
 }
 
 const accountTypes = [
@@ -671,10 +692,10 @@ export const creditSaturationAuditKeywords = buildKeywords("saturation-audit", s
   };
 })).map(routeExactCreditRepairPhrase);
 
-export const creditRepairKeywords = [...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords].map(routeExactCreditRepairPhrase);
-export const creditLatestUpdateKeywords = [...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords].map(routeExactCreditRepairPhrase);
-export const creditPriorityTwoUpdateKeywords = [...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords].map(routeExactCreditRepairPhrase);
-export const creditKeywords = [...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords, ...creditSaturationAuditKeywords].map(routeExactCreditRepairPhrase);
+export const creditRepairKeywords = finalizeCreditKeywords([...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords]);
+export const creditLatestUpdateKeywords = finalizeCreditKeywords([...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords]);
+export const creditPriorityTwoUpdateKeywords = finalizeCreditKeywords([...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords]);
+export const creditKeywords = finalizeCreditKeywords([...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords, ...creditSaturationAuditKeywords]);
 
 export function getCreditKeywords(categoryId: string) {
   return creditKeywords.filter((keyword) => keyword.categoryId === categoryId);

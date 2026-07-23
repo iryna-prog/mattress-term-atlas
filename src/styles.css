@@ -2032,7 +2032,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-group-heading { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid rgba(143,209,144,.13); background: rgba(38,91,50,.22); }
 .credit-group-heading h3 { margin: 0; color: #eaf7e8; font-size: 12px; }
 .credit-group-heading span { display: grid; min-width: 24px; height: 24px; place-items: center; border-radius: 999px; color: #183921; background: #c5eb87; font-size: 9px; font-weight: 850; }
-.credit-keyword-list { display: grid; }
+.credit-keyword-list { display: grid; overflow: hidden; margin-top: 16px; border: 1px solid rgba(143,209,144,.16); border-radius: 16px; background: rgba(7,31,16,.55); }
 .credit-keyword-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 18px; align-items: center; padding: 13px 16px; transition: background .18s ease, transform .18s ease; }
 .credit-keyword-row + .credit-keyword-row { border-top: 1px solid rgba(143,209,144,.09); }
 .credit-keyword-row:hover { background: rgba(102,211,138,.07); transform: translateX(2px); }
@@ -2044,7 +2044,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-tier.green { color: #bff2a0; background: rgba(91,205,122,.14); }
 .credit-tier.yellow { color: #f4dfa0; background: rgba(220,184,80,.14); }
 .credit-tier.red { color: #ffb2a8; background: rgba(225,89,79,.14); }
-.credit-keyword-row dl { display: grid; grid-template-columns: repeat(3, minmax(48px,auto)); gap: 12px; margin: 0; }
+.credit-keyword-row dl { display: grid; grid-template-columns: minmax(110px,1.6fr) repeat(3, minmax(48px,auto)); gap: 12px; margin: 0; }
 .credit-keyword-row dl div { display: grid; gap: 3px; }
 .credit-keyword-row dt { color: #719078; font-size: 7px; letter-spacing: .04em; text-transform: uppercase; }
 .credit-keyword-row dd { margin: 0; color: #bfd2c1; font-size: 9px; font-weight: 700; }

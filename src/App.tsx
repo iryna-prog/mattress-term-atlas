@@ -277,11 +277,6 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
     creditDifficultySort,
     (item) => item.difficulty,
   );
-  const keywordGroups = [...new Set(visibleKeywords.map((item) => item.subcategory))].map((subcategory) => ({
-    subcategory,
-    keywords: visibleKeywords.filter((item) => item.subcategory === subcategory),
-  }));
-
   function exportCreditKeywords() {
     const rows = [["Keyword", "Category"], ...visibleKeywords.map((item) => [item.keyword, selectedCategory.name])];
     const blob = new Blob([rows.map((row) => row.map(csvCell).join(",")).join("\n")], { type: "text/csv;charset=utf-8" });
@@ -347,10 +342,10 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div className="result-count"><strong>{visibleKeywords.length}</strong><span>keywords / pages</span></div>
             </div>
             {visibleKeywords.length || getCreditKeywords(selectedCategory.id).length ? <>
-              <div className="credit-keyword-toolbar"><span>{keywordGroups.length} focused subcategories</span><div className="toolbar-actions"><label>Difficulty <select value={creditDifficultySort} onChange={(event) => setCreditDifficultySort(event.target.value as DifficultySort)}><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div></div>
-              <div className="credit-keyword-groups">
-                {keywordGroups.map((group) => <section key={group.subcategory} className="credit-keyword-group"><div className="credit-group-heading"><h3>{group.subcategory}</h3><span>{group.keywords.length}</span></div><div className="credit-keyword-list">{group.keywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}</div></section>)}
-                {!keywordGroups.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
+              <div className="credit-keyword-toolbar"><span>{visibleKeywords.length} distinct keywords</span><div className="toolbar-actions"><label>Difficulty <select value={creditDifficultySort} onChange={(event) => setCreditDifficultySort(event.target.value as DifficultySort)}><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div></div>
+              <div className="credit-keyword-list">
+                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Subcategory</dt><dd>{item.subcategory}</dd></div><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}
+                {!visibleKeywords.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
               </div>
             </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but its dedicated keyword audit has not started yet.</p></div></div>}
           </section>
@@ -453,17 +448,6 @@ export default function App() {
   }, [activeCategory, activePriority, activeType, difficultySort, library, normalizedSearch]);
 
   const visibleKeywords = filteredKeywords.slice(0, visibleCount);
-  const groupedKeywords = useMemo(() => {
-    const groups = new Map<string, KeywordRecord[]>();
-    visibleKeywords.forEach((record) => {
-      const key = normalizedSearch ? record.category : record.subcategory;
-      const current = groups.get(key) ?? [];
-      current.push(record);
-      groups.set(key, current);
-    });
-    return [...groups.entries()];
-  }, [normalizedSearch, visibleKeywords]);
-
   const availableTypes = useMemo(() => {
     if (!library) return typeOrder;
     const records = normalizedSearch
@@ -673,20 +657,13 @@ export default function App() {
 
             <div className="difficulty-toolbar"><span>Sort keywords</span><label>Difficulty <select value={difficultySort} onChange={(event) => setDifficultySort(event.target.value as DifficultySort)}><option value="default">Default</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label></div>
 
-            {groupedKeywords.length > 0 ? (
-              <div className="keyword-groups">
-                {groupedKeywords.map(([group, keywords]) => (
-                  <section className="keyword-group" key={group}>
-                    <div className="keyword-group-heading">
-                      <h3>{group}</h3>
-                      <span>{formatNumber(keywords.length)} keywords shown</span>
-                    </div>
-                    <div className="keyword-list">
-                      {keywords.map((record) => (
+            {visibleKeywords.length > 0 ? (
+              <div className="keyword-list">
+                      {visibleKeywords.map((record) => (
                         <article className="keyword-row" key={record.id}>
                           <div className="keyword-text">
                             <strong>{record.keyword}</strong>
-                            <span>{normalizedSearch ? `${record.subcategory} · ` : ""}Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged exact variants` : ""}</span>
+                            <span>Subcategory: {record.subcategory} · Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged exact variants` : ""}</span>
                           </div>
                           <div className="keyword-actions">
                             <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
@@ -697,9 +674,6 @@ export default function App() {
                           </div>
                         </article>
                       ))}
-                    </div>
-                  </section>
-                ))}
               </div>
             ) : (
               <div className="empty-state"><span>⌕</span><h3>No mattress keywords found</h3><p>Try a broader mattress phrase or select another filter.</p><button onClick={() => { setSearch(""); setActiveType("All"); setActivePriority("All"); }}>Reset filters</button></div>
