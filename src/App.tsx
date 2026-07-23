@@ -113,8 +113,8 @@ function KeywordSortControls({ sort, onChange, disabled = false }: { sort: Keywo
   return <div className="keyword-sort-controls"><span>Keyword</span>{labels.map(([field, label]) => {
     const active = sort.field === field;
     const nextDirection = active && sort.direction === "desc" ? "asc" : "desc";
-    return <button key={field} disabled={disabled} className={active ? "active" : ""} title={field === "volume" ? "Directional High, Medium, or Low estimate—not paid-tool volume." : undefined} onClick={() => onChange({ field, direction: nextDirection })} aria-label={`Sort ${label} ${nextDirection === "desc" ? "highest" : "lowest"} first`}><span>{label}</span><i>{active ? sort.direction === "desc" ? "↓" : "↑" : "↕"}</i></button>;
-  })}<strong>Actions</strong></div>;
+    return <button key={field} disabled={disabled} className={`${active ? "active " : ""}sort-${field}`} title={field === "volume" ? "Directional High, Medium, or Low estimate—not paid-tool volume." : undefined} onClick={() => onChange({ field, direction: nextDirection })} aria-label={`Sort ${label} ${nextDirection === "desc" ? "highest" : "lowest"} first`}><span>{label}</span><i>{active ? sort.direction === "desc" ? "↓" : "↑" : "↕"}</i></button>;
+  })}</div>;
 }
 
 const codeCategories: CodeCategory[] = [
@@ -366,7 +366,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div className="credit-keyword-toolbar"><span>{visibleKeywords.length} distinct keywords</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
               <KeywordSortControls sort={creditKeywordSort} onChange={setCreditKeywordSort} />
               <div className="credit-keyword-list">
-                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div className="credit-keyword-text"><strong>{item.keyword}</strong></div><span className="keyword-column-value rank-value">{item.rank}/5</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{demandFromRank(item.rank)}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span><div className="credit-row-actions">{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></div></article>)}
+                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div className="credit-keyword-text"><strong>{item.keyword}</strong></div><span className="keyword-column-value rank-value">{item.rank}/5</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{demandFromRank(item.rank)}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span></article>)}
                 {!visibleKeywords.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
               </div>
             </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but its dedicated keyword audit has not started yet.</p></div></div>}
@@ -390,7 +390,6 @@ export default function App() {
   const [categorySort, setCategorySort] = useState<"priority" | "name" | "count">("priority");
   const [keywordSort, setKeywordSort] = useState<KeywordSort>({ field: null, direction: "desc" });
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const [copiedId, setCopiedId] = useState("");
   const [updates, setUpdates] = useState<UpdateLog>({ generatedAt: "", runs: [] });
   const [showUpdates, setShowUpdates] = useState(false);
   const [error, setError] = useState("");
@@ -478,16 +477,6 @@ export default function App() {
     const present = new Set(records.map((record) => record.contentType));
     return typeOrder.filter((type) => type === "All" || present.has(type));
   }, [activeCategory, library, normalizedSearch]);
-
-  const copyKeyword = async (record: KeywordRecord) => {
-    try {
-      await navigator.clipboard.writeText(record.keyword);
-      setCopiedId(record.id);
-      window.setTimeout(() => setCopiedId(""), 1200);
-    } catch {
-      setCopiedId("");
-    }
-  };
 
   const exportVisibleCsv = () => {
     if (!visibleKeywords.length) return;
@@ -684,12 +673,6 @@ export default function App() {
                           <span className="keyword-column-value">{record.difficultyEstimate}</span>
                           <span className="keyword-column-value">{demandFromRank(record.opportunityScore)}</span>
                           <span className="keyword-column-value subcategory-value">{record.subcategory}</span>
-                          <div className="keyword-actions">
-                            <span className={`type-badge ${record.contentType.toLowerCase()}`}>{record.contentType}</span>
-                            <button onClick={() => copyKeyword(record)} aria-label={`Copy ${record.keyword}`}>
-                              {copiedId === record.id ? "Copied" : "Copy"}
-                            </button>
-                          </div>
                         </article>
                       ))}
               </div>
