@@ -232,9 +232,9 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           </div>
         </section>
 
-        <section className="search-section code-search" aria-label="Search code categories">
+        <section className="search-section code-search" aria-label="Search code keywords and categories">
           <span className="search-icon">⌕<i /></span>
-          <input value={codeSearch} onChange={(event) => setCodeSearch(event.target.value)} placeholder="Search AI coding tools, debugging, Python, deployment, agents…" aria-label="Search code categories" />
+          <input value={codeSearch} onChange={(event) => setCodeSearch(event.target.value)} placeholder="Search AI coding tools, debugging, Python, deployment, agents…" aria-label="Search code keywords and categories" />
           {codeSearch && <button onClick={() => setCodeSearch("")} aria-label="Clear code category search">Clear</button>}
         </section>
 
@@ -251,7 +251,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <section className="keyword-panel code-panel">
             <div className="keyword-panel-heading">
               <div><div className="heading-meta"><span className="eyebrow">Selected code category</span><span className={`category-priority p${selectedCodeCategory.priority}`}>Priority {selectedCodeCategory.priority}</span></div><h2>{selectedCodeCategory.name}</h2><p>{selectedCodeCategory.description}</p></div>
-              <div className="result-count"><strong>{selectedCodeCategory.subcategories.length}</strong><span>research lanes</span></div>
+              <div className="keyword-heading-actions"><button className="export-button" disabled>Export visible CSV</button><div className="result-count"><strong>{selectedCodeCategory.subcategories.length}</strong><span>research lanes</span></div></div>
             </div>
             <KeywordSortControls sort={codeKeywordSort} onChange={setCodeKeywordSort} disabled />
             <div className="code-lane-grid">
@@ -278,17 +278,20 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
   const visibleCategories = [...creditCategories]
     .filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(normalizedSearch) || getCreditKeywords(category.id).some((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)))
     .sort((left, right) => creditSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
+  const creditSearchPool = normalizedSearch ? creditKeywords : getCreditKeywords(selectedCategory.id);
   const visibleKeywords = sortKeywordItems(
-    getCreditKeywords(selectedCategory.id).filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)),
+    creditSearchPool.filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)),
     creditKeywordSort,
     (item) => ({ rank: item.rank, demand: difficultyOrder[item.demand], difficulty: difficultyOrder[item.difficulty] }),
   );
+  const creditHeading = normalizedSearch ? `Results for “${creditSearch.trim()}”` : selectedCategory.name;
+  const creditDescription = normalizedSearch ? `Matching credit keywords across all ${creditCategories.length} categories.` : selectedCategory.description;
   function exportCreditKeywords() {
-    const rows = [["Keyword", "Category"], ...visibleKeywords.map((item) => [item.keyword, selectedCategory.name])];
+    const rows = [["Keyword", "Category"], ...visibleKeywords.map((item) => [item.keyword, creditCategories.find((category) => category.id === item.categoryId)?.name ?? item.categoryId])];
     const blob = new Blob([rows.map((row) => row.map(csvCell).join(",")).join("\n")], { type: "text/csv;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `${selectedCategory.id}-keywords.csv`;
+    link.download = normalizedSearch ? "credit-visible-keywords.csv" : `${selectedCategory.id}-keywords.csv`;
     link.click();
     URL.revokeObjectURL(link.href);
   }
@@ -344,7 +347,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
 
           <section className="keyword-panel credit-panel">
             <div className="keyword-panel-heading">
-              <div><div className="heading-meta"><span className="eyebrow">Selected credit category</span><span className={`category-priority p${selectedCategory.priority}`}>Priority {selectedCategory.priority}</span>{selectedCategory.suggested && <span className="credit-suggested">New suggestion</span>}</div><h2>{selectedCategory.name}</h2><p>{selectedCategory.description}</p></div>
+              <div><div className="heading-meta"><span className="eyebrow">{normalizedSearch ? "Search results" : "Selected credit category"}</span>{!normalizedSearch && <span className={`category-priority p${selectedCategory.priority}`}>Priority {selectedCategory.priority}</span>}{!normalizedSearch && selectedCategory.suggested && <span className="credit-suggested">New suggestion</span>}</div><h2>{creditHeading}</h2><p>{creditDescription}</p></div>
               <div className="result-count"><strong>{visibleKeywords.length}</strong><span>keywords / pages</span></div>
             </div>
             {visibleKeywords.length || getCreditKeywords(selectedCategory.id).length ? <>
@@ -474,12 +477,11 @@ export default function App() {
     }
   };
 
-  const exportCategoryCsv = () => {
-    if (!library || !selectedCategory) return;
-    const records = library.keywords.filter((record) => record.categoryId === selectedCategory.id);
+  const exportVisibleCsv = () => {
+    if (!visibleKeywords.length) return;
     const rows = [
       ["Keyword", "Category", "Merged exact variants"],
-      ...records.map((record) => [
+      ...visibleKeywords.map((record) => [
         record.keyword,
         record.category,
         (record.aliases ?? []).join(" | "),
@@ -489,7 +491,7 @@ export default function App() {
     const url = URL.createObjectURL(new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" }));
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${selectedCategory.id}-mattress-keywords.csv`;
+    link.download = normalizedSearch ? "mattress-visible-keywords.csv" : `${selectedCategory?.id ?? "mattress"}-visible-keywords.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -643,7 +645,7 @@ export default function App() {
                 <p>{description}</p>
               </div>
               <div className="keyword-heading-actions">
-                {!normalizedSearch && selectedCategory && <button className="export-button" onClick={exportCategoryCsv}>Export this category CSV</button>}
+                <button className="export-button" onClick={exportVisibleCsv} disabled={!visibleKeywords.length}>Export visible CSV</button>
                 <div className="result-count"><strong>{formatNumber(filteredKeywords.length)}</strong><span>distinct keywords</span></div>
               </div>
             </div>
