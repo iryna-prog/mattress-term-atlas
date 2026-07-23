@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { type CodeKeyword } from "./data/codeLibrary";
 import { creditCategories, creditKeywords, creditLatestUpdateKeywords, creditPriorityTwoUpdateKeywords, creditRepairKeywords, creditSaturationAuditKeywords, getCreditKeywords, type CreditKeyword } from "./data/creditLibrary";
 
 interface KeywordCategory {
@@ -182,11 +183,23 @@ function LibrarySwitch({ active, onChange }: { active: LibraryId; onChange: (lib
   );
 }
 
+interface SimpleUpdateKeyword {
+  id: string;
+  keyword: string;
+  categoryId: string;
+  subcategory: string;
+  rank: number;
+  tier: "green" | "yellow" | "red";
+  demand: "High" | "Medium" | "Low";
+  difficulty: "High" | "Medium" | "Low";
+  specialistReview: boolean;
+}
+
 interface SimpleUpdateRun {
   id: string;
   date: string;
   summary: string;
-  keywords: CreditKeyword[];
+  keywords: SimpleUpdateKeyword[];
   categories: Array<{ id: string; name: string; count: number }>;
 }
 
@@ -208,10 +221,49 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
   const [codeSort, setCodeSort] = useState<"priority" | "name">("priority");
   const [codeKeywordSort, setCodeKeywordSort] = useState<KeywordSort>({ field: null, direction: "desc" });
   const [showCodeUpdates, setShowCodeUpdates] = useState(false);
+  const [codeVisibleCount, setCodeVisibleCount] = useState(PAGE_SIZE);
+  const [codeKeywordData, setCodeKeywordData] = useState<CodeKeyword[]>([]);
   const selectedCodeCategory = codeCategories.find((category) => category.id === activeCodeCategory) ?? codeCategories[0];
+  const normalizedCodeSearch = codeSearch.trim().toLowerCase();
+  const codeKeywordsByCategory = useMemo(() => {
+    const grouped = new Map<string, CodeKeyword[]>();
+    for (const item of codeKeywordData) grouped.set(item.categoryId, [...(grouped.get(item.categoryId) ?? []), item]);
+    return grouped;
+  }, [codeKeywordData]);
+  const getCodeKeywordsForCategory = (categoryId: string) => codeKeywordsByCategory.get(categoryId) ?? [];
   const visibleCodeCategories = [...codeCategories]
-    .filter((category) => `${category.name} ${category.description} ${category.subcategories.join(" ")}`.toLowerCase().includes(codeSearch.trim().toLowerCase()))
+    .filter((category) => `${category.name} ${category.description} ${category.subcategories.join(" ")}`.toLowerCase().includes(normalizedCodeSearch) || getCodeKeywordsForCategory(category.id).some((item) => `${item.keyword} ${item.subcategory} ${item.aliases.join(" ")}`.toLowerCase().includes(normalizedCodeSearch)))
     .sort((left, right) => codeSort === "name" ? left.name.localeCompare(right.name) : left.priority - right.priority || left.name.localeCompare(right.name));
+  const codeSearchPool = normalizedCodeSearch ? codeKeywordData : getCodeKeywordsForCategory(activeCodeCategory);
+  const filteredCodeKeywords = sortKeywordItems(
+    codeSearchPool.filter((item) => !normalizedCodeSearch || `${item.keyword} ${item.subcategory} ${item.aliases.join(" ")}`.toLowerCase().includes(normalizedCodeSearch)),
+    codeKeywordSort,
+    (item) => ({ rank: item.rank, volume: difficultyOrder[item.volume], difficulty: difficultyOrder[item.difficulty], demand: difficultyOrder[item.demand], subcategory: item.subcategory }),
+  );
+  const visibleCodeKeywords = filteredCodeKeywords.slice(0, codeVisibleCount);
+
+  useEffect(() => {
+    setCodeVisibleCount(PAGE_SIZE);
+  }, [activeCodeCategory, codeKeywordSort, normalizedCodeSearch]);
+
+  useEffect(() => {
+    fetch("/data/code-keywords.json")
+      .then((response) => response.ok ? response.json() as Promise<CodeKeyword[]> : [])
+      .then(setCodeKeywordData)
+      .catch(() => setCodeKeywordData([]));
+  }, []);
+
+  function exportCodeKeywords() {
+    if (!visibleCodeKeywords.length) return;
+    const rows = [["Keyword", "Category"], ...visibleCodeKeywords.map((item) => [item.keyword, codeCategories.find((category) => category.id === item.categoryId)?.name ?? item.categoryId])];
+    const csv = rows.map((row) => row.map(csvCell).join(",")).join("\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `code-keywords-${normalizedCodeSearch ? "search" : activeCodeCategory}.csv`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
 
   return (
     <div className="site-shell code-shell">
@@ -222,7 +274,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <span><strong>Code Keyword Library</strong><small>Живчиха’s AI coding lab</small></span>
         </button>
         <LibrarySwitch active="code" onChange={onSwitch} />
-        <div className="header-actions"><button className="updates-button" onClick={() => setShowCodeUpdates(true)}><span>Updates</span><small>0</small></button><div className="code-status"><i />Живчиха is supervising</div></div>
+        <div className="header-actions"><button className="updates-button" onClick={() => setShowCodeUpdates(true)}><span>Updates</span><small>{codeKeywordData.length ? 1 : 0}</small></button><div className="code-status"><i />Живчиха is supervising</div></div>
       </header>
 
       <main>
@@ -231,7 +283,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <div className="code-hero-copy">
             <span className="eyebrow"><i /> Бібліотека Живчихи</span>
             <h1>Map the queries.<br /><span>Build the future.</span></h1>
-            <p>A category-first SEO foundation for a website that helps people create real software with AI. Keyword research intentionally begins after you approve this structure.</p>
+            <p>A category-first SEO foundation for a website that helps people create real software with AI. Priority-one research focuses on distinct pages that can introduce, compare, or convert users for your coding tool.</p>
             <div className="code-hero-pills"><span>AI coding</span><span>Developer tools</span><span>FAQs</span><span>Commercial intent</span></div>
           </div>
           <div className="code-cat-presence" aria-label="Живчиха supervising the futuristic coding workspace">
@@ -241,7 +293,7 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
         <section className="code-hero-stats" aria-label="Code library summary">
           <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
           <div><strong>{codeCategories.filter((category) => category.priority === 1).length}</strong><span>priority-one foundations</span></div>
-          <div><strong>0</strong><span>keywords added by design</span></div>
+          <div><strong>{formatNumber(codeKeywordData.length)}</strong><span>priority-one keywords mapped</span></div>
         </section>
 
         <section className="search-section code-search" aria-label="Search code keywords and categories">
@@ -250,31 +302,39 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           {codeSearch && <button onClick={() => setCodeSearch("")} aria-label="Clear code category search">Clear</button>}
         </section>
 
-        <div className="code-foundation-note"><span>Foundation mode</span><p><strong>Categories and research lanes only.</strong> No code keywords have been generated yet, so you can approve the architecture before the full SEO expansion begins.</p></div>
+        <div className="code-foundation-note"><span>P1 research</span><p><strong>Priority-one categories are actively mined.</strong> Exact synonyms and reversed comparisons are merged as aliases; materially different page intent remains separate.</p></div>
 
         <div className="library-layout code-layout">
           <aside className="category-panel code-category-panel" aria-label="Code keyword categories">
             <div className="category-panel-heading"><span>Code categories <small>{visibleCodeCategories.length}</small></span><label><span className="sr-only">Sort code categories</span><select value={codeSort} onChange={(event) => setCodeSort(event.target.value as "priority" | "name")}><option value="priority">Priority</option><option value="name">Name</option></select></label></div>
             <div className="category-list">
-              {visibleCodeCategories.map((category) => <button key={category.id} className={category.id === activeCodeCategory ? "active" : ""} onClick={() => { setActiveCodeCategory(category.id); setCodeSearch(""); }}><span className="category-name">{category.name}<em>P{category.priority}</em></span><small>{category.subcategories.length}</small></button>)}
+              {visibleCodeCategories.map((category) => <button key={category.id} className={category.id === activeCodeCategory ? "active" : ""} onClick={() => { setActiveCodeCategory(category.id); setCodeSearch(""); }}><span className="category-name">{category.name}<em>P{category.priority}</em></span><small>{getCodeKeywordsForCategory(category.id).length}</small></button>)}
             </div>
           </aside>
 
           <section className="keyword-panel code-panel">
             <div className="keyword-panel-heading">
-              <div><div className="heading-meta"><span className="eyebrow">Selected code category</span><span className={`category-priority p${selectedCodeCategory.priority}`}>Priority {selectedCodeCategory.priority}</span></div><h2>{selectedCodeCategory.name}</h2><p>{selectedCodeCategory.description}</p></div>
-              <div className="keyword-heading-actions"><button className="export-button" disabled>Export visible CSV</button><div className="result-count"><strong>{selectedCodeCategory.subcategories.length}</strong><span>research lanes</span></div></div>
+              <div><div className="heading-meta"><span className="eyebrow">{normalizedCodeSearch ? "Search results" : "Selected code category"}</span>{!normalizedCodeSearch && <span className={`category-priority p${selectedCodeCategory.priority}`}>Priority {selectedCodeCategory.priority}</span>}</div><h2>{normalizedCodeSearch ? `Results for “${codeSearch.trim()}”` : selectedCodeCategory.name}</h2><p>{normalizedCodeSearch ? "Distinct code SEO page opportunities matching this phrase across the library." : selectedCodeCategory.description}</p></div>
+              <div className="keyword-heading-actions"><button className="export-button" onClick={exportCodeKeywords} disabled={!visibleCodeKeywords.length}>Export visible CSV</button><div className="result-count"><strong>{formatNumber(filteredCodeKeywords.length)}</strong><span>keywords / pages</span></div></div>
             </div>
-            <KeywordSortControls sort={codeKeywordSort} onChange={setCodeKeywordSort} disabled />
-            <div className="code-lane-grid">
-              {selectedCodeCategory.subcategories.map((subcategory, index) => <article key={subcategory} style={{ "--lane-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{subcategory}</strong><small>Keyword research not started</small></div><i>→</i></article>)}
-            </div>
-            <div className="code-empty-state"><span className="code-prompt">_</span><div><strong>Ready for category approval</strong><p>Once this structure feels right, each lane can expand into distinct FAQ, comparison, tool, tutorial, and commercial keyword opportunities.</p></div></div>
+            {filteredCodeKeywords.length ? <>
+              <KeywordSortControls sort={codeKeywordSort} onChange={setCodeKeywordSort} />
+              <div className="keyword-list">
+                {visibleCodeKeywords.map((item) => <article className="keyword-row" key={item.id}><div className="keyword-text"><strong>{item.keyword}</strong>{item.aliases.length || item.specialistReview ? <span>{item.aliases.length ? `${item.aliases.length} merged exact variants` : ""}{item.aliases.length && item.specialistReview ? " · " : ""}{item.specialistReview ? "specialist review" : ""}</span> : null}</div><span className="keyword-column-value rank-value"><span className={`priority-badge ${item.tier}`} title={item.rationale}><i />{item.rank}/5</span></span><span className="keyword-column-value">{item.volume}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span></article>)}
+              </div>
+              {visibleCodeKeywords.length < filteredCodeKeywords.length && <button className="load-more" onClick={() => setCodeVisibleCount((count) => count + PAGE_SIZE)}><strong>Load {Math.min(PAGE_SIZE, filteredCodeKeywords.length - visibleCodeKeywords.length)} more</strong><span>{formatNumber(filteredCodeKeywords.length - visibleCodeKeywords.length)} remaining</span></button>}
+            </> : <>
+              <KeywordSortControls sort={codeKeywordSort} onChange={setCodeKeywordSort} disabled />
+              <div className="code-lane-grid">
+                {selectedCodeCategory.subcategories.map((subcategory, index) => <article key={subcategory} style={{ "--lane-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{subcategory}</strong><small>{normalizedCodeSearch ? "No matching keyword yet" : "Keyword research not started"}</small></div><i>→</i></article>)}
+              </div>
+              <div className="code-empty-state"><span className="code-prompt">_</span><div><strong>{normalizedCodeSearch ? "No matching page ideas" : "Research queued after P1"}</strong><p>{normalizedCodeSearch ? "Try a broader AI coding phrase or clear the search." : "This category remains mapped but intentionally unmined while priority-one coverage is completed."}</p></div></div>
+            </>}
           </section>
         </div>
       </main>
-      <footer><span>Бібліотека Живчихи · Code Keyword Library</span><span>Category architecture only · Keyword discovery paused</span></footer>
-      {showCodeUpdates && <LibraryUpdatesDrawer title="Code library updates" description="Only AI coding keyword research will appear here. Mattress and credit changes stay in their own libraries." runs={[]} onClose={() => setShowCodeUpdates(false)} />}
+      <footer><span>Бібліотека Живчихи · Code Keyword Library</span><span>{formatNumber(codeKeywordData.length)} distinct P1 code page opportunities</span></footer>
+      {showCodeUpdates && <LibraryUpdatesDrawer title="Code library updates" description="Only AI coding keyword research appears here. Mattress and credit changes stay in their own libraries." runs={codeKeywordData.length ? [{ id: "code-p1-2026-07-23", date: "2026-07-23", summary: "Six priority-one categories mined through independent discovery passes and strict same-intent deduplication.", keywords: codeKeywordData, categories: codeCategories.filter((category) => category.priority === 1).map((category) => ({ id: category.id, name: category.name, count: getCodeKeywordsForCategory(category.id).length })) }] : []} onClose={() => setShowCodeUpdates(false)} />}
     </div>
   );
 }
