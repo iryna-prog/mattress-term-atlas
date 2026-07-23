@@ -2025,6 +2025,17 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .difficulty-toolbar select, .toolbar-actions select { min-height: 34px; padding: 0 30px 0 11px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; }
 .code-shell .difficulty-toolbar { border-color: rgba(111,178,255,.18); }
 .credit-shell .difficulty-toolbar, .credit-shell .toolbar-actions select { border-color: rgba(143,209,144,.2); background: rgba(8,35,20,.72); color: #dff5dc; }
+.keyword-sort-controls { display: flex; align-items: center; justify-content: flex-end; gap: 9px; margin: 14px 0; padding: 9px 11px; border: 1px solid var(--border); border-radius: 14px; color: var(--muted); font-size: 9px; }
+.keyword-sort-controls > span { margin-right: auto; font-size: 10px; font-weight: 800; }
+.keyword-sort-controls > div { display: flex; align-items: center; gap: 3px; padding-left: 8px; border-left: 1px solid var(--border); }
+.keyword-sort-controls strong { margin-right: 3px; color: inherit; font-size: 9px; }
+.keyword-sort-controls button { width: 25px; height: 25px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--muted); cursor: pointer; }
+.keyword-sort-controls button:hover, .keyword-sort-controls button.active { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.keyword-sort-controls button:disabled { opacity: .35; cursor: not-allowed; }
+.credit-shell .keyword-sort-controls { border-color: rgba(143,209,144,.18); color: #93b699; }
+.credit-shell .keyword-sort-controls > div, .credit-shell .keyword-sort-controls button { border-color: rgba(143,209,144,.18); }
+.credit-shell .keyword-sort-controls button { background: rgba(8,35,20,.72); color: #b8d2bb; }
+.credit-shell .keyword-sort-controls button.active { color: #0b2b19; border-color: #8fe58f; background: #8fe58f; }
 .credit-keyword-toolbar .export-button { border-color: rgba(155,225,142,.3); color: #143722; background: linear-gradient(135deg, #d7f493, #70d99a); box-shadow: 0 8px 24px rgba(76,190,113,.14); }
 .credit-keyword-toolbar .export-button:disabled { opacity: .4; cursor: not-allowed; }
 .credit-keyword-groups { display: grid; gap: 16px; margin-top: 16px; }

@@ -20,7 +20,7 @@ export interface CreditKeyword {
 }
 
 export const creditCategories: CreditCategory[] = [
-  { id: "credit-repair-exact", name: "Credit Repair Keywords", priority: 1, description: "Every keyword containing “credit repair” or “repair credit,” grouped together as the same topic." },
+  { id: "credit-repair-exact", name: "Credit Repair Keywords", priority: 1, description: "Every keyword containing both “credit” and a repair word—repair, repairs, repairing, or repaired—regardless of word order." },
   { id: "credit-repair", name: "Credit Repair Related", priority: 1, description: "Closely related fixing, dispute, rebuilding, and repair-help pages that do not contain the exact phrase “credit repair.”" },
   { id: "specialty-consumer-reports", name: "Specialty Consumer Reports", priority: 1, suggested: true, description: "A high-fit expansion for fixing ChexSystems, Innovis, LexisNexis, SageStream, NCTUE, tenant-screening, employment, and insurance report errors." },
   { id: "credit-reports-bureaus", name: "Credit Reports & Bureaus", priority: 2, description: "Experian, Equifax, TransUnion, Innovis, reports, freezes, alerts, and bureau procedures." },
@@ -278,7 +278,9 @@ function buildKeywords(prefix: string, seeds: KeywordSeed[]): CreditKeyword[] {
 }
 
 function routeExactCreditRepairPhrase(record: CreditKeyword): CreditKeyword {
-  return /\bcredit repair\b|\brepair credit\b/i.test(record.keyword) ? { ...record, categoryId: "credit-repair-exact" } : record;
+  const hasCredit = /\bcredit\b/i.test(record.keyword);
+  const hasRepair = /\brepair(?:s|ing|ed)?\b/i.test(record.keyword);
+  return hasCredit && hasRepair ? { ...record, categoryId: "credit-repair-exact" } : record;
 }
 
 function creditRepairEquivalentKey(keyword: string) {
