@@ -90,19 +90,31 @@ const priorityFilters = [
   { id: "red", label: "Red · keep, low priority" },
 ];
 
-type KeywordSortField = "rank" | "demand" | "difficulty";
+type KeywordSortField = "rank" | "volume" | "difficulty" | "demand" | "subcategory";
 type KeywordSort = { field: KeywordSortField | null; direction: "asc" | "desc" };
 const difficultyOrder = { Low: 1, Medium: 2, High: 3 };
 
-function sortKeywordItems<T>(items: T[], sort: KeywordSort, values: (item: T) => Record<KeywordSortField, number>) {
+function demandFromRank(rank: number): keyof typeof difficultyOrder {
+  return rank >= 5 ? "High" : rank >= 4 ? "Medium" : "Low";
+}
+
+function sortKeywordItems<T>(items: T[], sort: KeywordSort, values: (item: T) => Record<KeywordSortField, number | string>) {
   if (!sort.field) return items;
   const direction = sort.direction === "asc" ? 1 : -1;
-  return [...items].sort((left, right) => direction * (values(left)[sort.field!] - values(right)[sort.field!]));
+  return [...items].sort((left, right) => {
+    const leftValue = values(left)[sort.field!];
+    const rightValue = values(right)[sort.field!];
+    return direction * (typeof leftValue === "string" && typeof rightValue === "string" ? leftValue.localeCompare(rightValue) : Number(leftValue) - Number(rightValue));
+  });
 }
 
 function KeywordSortControls({ sort, onChange, disabled = false }: { sort: KeywordSort; onChange: (sort: KeywordSort) => void; disabled?: boolean }) {
-  const labels: Array<[KeywordSortField, string]> = [["rank", "Rank"], ["demand", "Demand"], ["difficulty", "Difficulty"]];
-  return <div className="keyword-sort-controls"><span>Sort keywords</span>{labels.map(([field, label]) => <div key={field} className={sort.field === field ? "active" : ""}><strong>{label}</strong><button disabled={disabled} className={sort.field === field && sort.direction === "asc" ? "active" : ""} onClick={() => onChange({ field, direction: "asc" })} aria-label={`Sort ${label} lowest first`}>↑</button><button disabled={disabled} className={sort.field === field && sort.direction === "desc" ? "active" : ""} onClick={() => onChange({ field, direction: "desc" })} aria-label={`Sort ${label} highest first`}>↓</button></div>)}</div>;
+  const labels: Array<[KeywordSortField, string]> = [["rank", "Rank"], ["volume", "Volume"], ["difficulty", "Difficulty"], ["demand", "Demand"], ["subcategory", "Subcategory"]];
+  return <div className="keyword-sort-controls"><span>Keyword</span>{labels.map(([field, label]) => {
+    const active = sort.field === field;
+    const nextDirection = active && sort.direction === "desc" ? "asc" : "desc";
+    return <button key={field} disabled={disabled} className={active ? "active" : ""} title={field === "volume" ? "Directional High, Medium, or Low estimate—not paid-tool volume." : undefined} onClick={() => onChange({ field, direction: nextDirection })} aria-label={`Sort ${label} ${nextDirection === "desc" ? "highest" : "lowest"} first`}><span>{label}</span><i>{active ? sort.direction === "desc" ? "↓" : "↑" : "↕"}</i></button>;
+  })}<strong>Actions</strong></div>;
 }
 
 const codeCategories: CodeCategory[] = [
@@ -282,7 +294,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
   const visibleKeywords = sortKeywordItems(
     creditSearchPool.filter((item) => `${item.keyword} ${item.subcategory}`.toLowerCase().includes(normalizedSearch)),
     creditKeywordSort,
-    (item) => ({ rank: item.rank, demand: difficultyOrder[item.demand], difficulty: difficultyOrder[item.difficulty] }),
+    (item) => ({ rank: item.rank, volume: difficultyOrder[item.demand], difficulty: difficultyOrder[item.difficulty], demand: difficultyOrder[demandFromRank(item.rank)], subcategory: item.subcategory }),
   );
   const creditHeading = normalizedSearch ? `Results for “${creditSearch.trim()}”` : selectedCategory.name;
   const creditDescription = normalizedSearch ? `Matching credit keywords across all ${creditCategories.length} categories.` : selectedCategory.description;
@@ -354,7 +366,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div className="credit-keyword-toolbar"><span>{visibleKeywords.length} distinct keywords</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
               <KeywordSortControls sort={creditKeywordSort} onChange={setCreditKeywordSort} />
               <div className="credit-keyword-list">
-                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div><strong>{item.keyword}</strong><span>{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></span></div><dl><div><dt>Subcategory</dt><dd>{item.subcategory}</dd></div><div><dt>Rank</dt><dd>{item.rank}/5</dd></div><div><dt>Demand</dt><dd>{item.demand}</dd></div><div><dt>Difficulty</dt><dd>{item.difficulty}</dd></div></dl></article>)}
+                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div className="credit-keyword-text"><strong>{item.keyword}</strong></div><span className="keyword-column-value">{item.rank}/5</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{demandFromRank(item.rank)}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span><div className="credit-row-actions">{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></div></article>)}
                 {!visibleKeywords.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
               </div>
             </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but its dedicated keyword audit has not started yet.</p></div></div>}
@@ -454,7 +466,7 @@ export default function App() {
       if (activePriority !== "All" && record.priorityTier !== activePriority) return false;
       return true;
     });
-    return sortKeywordItems(matches, keywordSort, (record) => ({ rank: record.opportunityScore, demand: difficultyOrder[record.demandEstimate], difficulty: difficultyOrder[record.difficultyEstimate] }));
+    return sortKeywordItems(matches, keywordSort, (record) => ({ rank: record.opportunityScore, volume: difficultyOrder[record.demandEstimate], difficulty: difficultyOrder[record.difficultyEstimate], demand: difficultyOrder[demandFromRank(record.opportunityScore)], subcategory: record.subcategory }));
   }, [activeCategory, activePriority, activeType, keywordSort, library, normalizedSearch]);
 
   const visibleKeywords = filteredKeywords.slice(0, visibleCount);
@@ -672,10 +684,14 @@ export default function App() {
                         <article className="keyword-row" key={record.id}>
                           <div className="keyword-text">
                             <strong>{record.keyword}</strong>
-                            <span>Subcategory: {record.subcategory} · Demand {record.demandEstimate} · Difficulty {record.difficultyEstimate}{record.aliases?.length ? ` · ${record.aliases.length} merged exact variants` : ""}</span>
+                            {record.aliases?.length ? <span>{record.aliases.length} merged exact variants</span> : null}
                           </div>
+                          <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
+                          <span className="keyword-column-value">{record.demandEstimate}</span>
+                          <span className="keyword-column-value">{record.difficultyEstimate}</span>
+                          <span className="keyword-column-value">{demandFromRank(record.opportunityScore)}</span>
+                          <span className="keyword-column-value subcategory-value">{record.subcategory}</span>
                           <div className="keyword-actions">
-                            <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
                             <span className={`type-badge ${record.contentType.toLowerCase()}`}>{record.contentType}</span>
                             <button onClick={() => copyKeyword(record)} aria-label={`Copy ${record.keyword}`}>
                               {copiedId === record.id ? "Copied" : "Copy"}
