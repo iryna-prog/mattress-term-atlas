@@ -237,11 +237,11 @@ function CodeLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => void }) {
           <div className="code-cat-presence" aria-label="Живчиха supervising the futuristic coding workspace">
             <div className="cat-library-stamp"><i /><span>ЖИВЧИХА.OS</span><strong>Her library. Her rules.</strong></div>
           </div>
-          <div className="code-hero-stats">
-            <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
-            <div><strong>{codeCategories.filter((category) => category.priority === 1).length}</strong><span>priority-one foundations</span></div>
-            <div><strong>0</strong><span>keywords added by design</span></div>
-          </div>
+        </section>
+        <section className="code-hero-stats" aria-label="Code library summary">
+          <div><strong>{codeCategories.length}</strong><span>category clusters mapped</span></div>
+          <div><strong>{codeCategories.filter((category) => category.priority === 1).length}</strong><span>priority-one foundations</span></div>
+          <div><strong>0</strong><span>keywords added by design</span></div>
         </section>
 
         <section className="search-section code-search" aria-label="Search code keywords and categories">
@@ -366,7 +366,7 @@ function CreditRepairLibrary({ onSwitch }: { onSwitch: (library: LibraryId) => v
               <div className="credit-keyword-toolbar"><span>{visibleKeywords.length} distinct keywords</span><button className="export-button" onClick={exportCreditKeywords} disabled={!visibleKeywords.length}>Export CSV</button></div>
               <KeywordSortControls sort={creditKeywordSort} onChange={setCreditKeywordSort} />
               <div className="credit-keyword-list">
-                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div className="credit-keyword-text"><strong>{item.keyword}</strong></div><span className="keyword-column-value">{item.rank}/5</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{demandFromRank(item.rank)}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span><div className="credit-row-actions">{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></div></article>)}
+                {visibleKeywords.map((item) => <article key={item.id} className="credit-keyword-row"><div className="credit-keyword-text"><strong>{item.keyword}</strong></div><span className="keyword-column-value rank-value">{item.rank}/5</span><span className="keyword-column-value">{item.demand}</span><span className="keyword-column-value">{item.difficulty}</span><span className="keyword-column-value">{demandFromRank(item.rank)}</span><span className="keyword-column-value subcategory-value">{item.subcategory}</span><div className="credit-row-actions">{item.specialistReview && <em>Specialist review</em>}<i className={`credit-tier ${item.tier}`}>{item.tier}</i></div></article>)}
                 {!visibleKeywords.length && <div className="credit-workspace-empty"><span>⌕</span><div><strong>No matching page ideas</strong><p>Try a broader credit repair phrase or clear the search.</p></div></div>}
               </div>
             </> : <div className="credit-workspace-empty"><span>✦</span><div><strong>Architecture mapped; research intentionally paused</strong><p>This topic exists in the sitemap structure, but its dedicated keyword audit has not started yet.</p></div></div>}
@@ -565,19 +565,12 @@ export default function App() {
             <h1>Explore the<br /><span>keyword ice shelf.</span></h1>
             <p>No bare materials, unrelated test methods, or vague technical phrases. Every entry is written as a mattress page, comparison, brand page, roundup, or FAQ.</p>
           </div>
-          <div className="polar-scene" aria-hidden="true">
-            <i className="polar-moon" />
-            <div className="mountain mountain-one" /><div className="mountain mountain-two" /><div className="mountain mountain-three" />
-            <i className="ice-shine shine-one" /><i className="ice-shine shine-two" />
-            <Penguin className="penguin-captain" />
-            <Penguin className="penguin-scout" />
-            <div className="penguin-message"><span>Research station online</span><strong>{formatNumber(library.totalKeywords)} ideas mapped</strong></div>
-          </div>
-          <div className="hero-stats" aria-label="Library summary">
-            <div><i>❄</i><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct keywords</span></div>
-            <div><i>◈</i><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
-            <div><i>✦</i><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
-          </div>
+          <div className="polar-photo-presence" role="img" aria-label="A Chinstrap, Gentoo, Adélie, and Emperor penguin together on an Antarctic ice shelf" />
+        </section>
+        <section className="hero-stats" aria-label="Library summary">
+          <div><i>❄</i><strong>{formatNumber(library.totalKeywords)}</strong><span>distinct keywords</span></div>
+          <div><i>◈</i><strong>{priorityOneCategoryCount}</strong><span>priority-one categories</span></div>
+          <div><i>✦</i><strong>{formatNumber(greenKeywordCount)}</strong><span>green opportunities</span></div>
         </section>
 
         <section className="search-section" aria-label="Search mattress keywords">
@@ -686,7 +679,7 @@ export default function App() {
                             <strong>{record.keyword}</strong>
                             {record.aliases?.length ? <span>{record.aliases.length} merged exact variants</span> : null}
                           </div>
-                          <span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span>
+                          <span className="keyword-column-value rank-value"><span className={`priority-badge ${record.priorityTier}`} title={record.priorityReason}><i />{record.opportunityScore}/5</span></span>
                           <span className="keyword-column-value">{record.demandEstimate}</span>
                           <span className="keyword-column-value">{record.difficultyEstimate}</span>
                           <span className="keyword-column-value">{demandFromRank(record.opportunityScore)}</span>
