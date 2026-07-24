@@ -43,6 +43,11 @@ const sources = {
   ],
   identity: ["https://www.identitytheft.gov/", "https://www.consumerfinance.gov/ask-cfpb/category-credit-reporting/"],
   comparison: ["https://credit.com/sitemap.xml", "https://www.thecreditpeople.com/sitemap.xml"],
+  cfpb2025: ["https://files.consumerfinance.gov/f/documents/cfpb_2025-cr-annual-report_2026-03.pdf"],
+  ftcFixing: ["https://consumer.ftc.gov/articles/fixing-your-credit-faqs"],
+  ftcDisputes: ["https://consumer.ftc.gov/articles/disputing-errors-your-credit-reports"],
+  transUnionDisputes: ["https://www.transunion.com/credit-disputes/credit-disputes-faq"],
+  experianRepair: ["https://www.experian.com/blogs/ask-experian/how-to-repair-credit/"],
 };
 
 const keywordSource = `
@@ -694,10 +699,40 @@ export const creditSaturationAuditKeywords = buildKeywords("saturation-audit", s
   };
 })).map(routeExactCreditRepairPhrase);
 
+const finalDeepAuditSource = `
+credit-repair-exact|Scams & Illegal Schemes|credit repair CPN and new-credit-identity scam|5|green|Medium|High|true|ftcFixing
+credit-repair-exact|Services & Decisions|how to report a credit repair company to the FTC or state authorities|5|green|Medium|Medium|true|ftcFixing
+credit-repair-exact|Complaints & Evidence|credit repair company submitted CFPB complaints without permission|4|green|Low|High|true|cfpb2025
+credit-repair|Post-Correction Rights|how to ask a credit bureau to notify past report recipients after a correction|4|green|Low|High|true|ftcDisputes
+credit-repair|Dispute Escalation|credit bureau corrected an error but did not provide a free updated report|5|green|Medium|Medium|true|ftcDisputes
+credit-repair|Dispute Escalation|credit bureau did not send written dispute results|5|green|Medium|Medium|true|ftcDisputes
+credit-repair|Dispute Escalation|credit bureau did not forward all dispute evidence to the furnisher|5|green|Low|High|true|ftcDisputes
+credit-repair|Furnisher Dispute Failures|furnisher keeps reporting a disputed account without a dispute notice|5|green|Medium|High|true|ftcDisputes
+credit-repair|Complaints & Evidence|company CFPB complaint response is missing supporting documents|4|green|Low|High|true|cfpb2025
+credit-repair|Reporting Errors|credit report has the wrong date of birth|4|green|Medium|Medium|false|transUnionDisputes
+credit-repair|Inquiries & Permissions|unrecognized soft inquiry on a credit report|4|green|Low|Medium|true|cfpb2025
+credit-repair-exact|Rebuilding Strategy|how to repair credit when your credit reports have no errors|5|green|High|High|false|experianRepair
+`;
+
+export const creditFinalDeepAuditKeywords = buildKeywords("final-deep-audit", finalDeepAuditSource.trim().split("\n").map((line) => {
+  const [categoryId, subcategory, keyword, rank, tier, demand, difficulty, specialistReview, sourceKey] = line.split("|");
+  return {
+    categoryId,
+    subcategory,
+    keyword,
+    rank: Number(rank) as CreditKeyword["rank"],
+    tier: tier as CreditKeyword["tier"],
+    demand: demand as CreditKeyword["demand"],
+    difficulty: difficulty as CreditKeyword["difficulty"],
+    specialistReview: specialistReview === "true",
+    sourceUrls: sources[sourceKey as keyof typeof sources],
+  };
+})).map(routeExactCreditRepairPhrase);
+
 export const creditRepairKeywords = finalizeCreditKeywords([...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords]);
 export const creditLatestUpdateKeywords = finalizeCreditKeywords([...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords]);
 export const creditPriorityTwoUpdateKeywords = finalizeCreditKeywords([...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords]);
-export const creditKeywords = finalizeCreditKeywords([...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords, ...creditSaturationAuditKeywords]);
+export const creditKeywords = finalizeCreditKeywords([...creditRepairCoreKeywords, ...accountErrorKeywords, ...bureauKeywords, ...specialtyReportKeywords, ...situationKeywords, ...lifeEventKeywords, ...denialKeywords, ...adverseActionKeywords, ...scoreEventKeywords, ...scoreMismatchKeywords, ...collectionTypeKeywords, ...validationKeywords, ...collectionEscalationKeywords, ...identityFraudKeywords, ...identityEscalationKeywords, ...creditSaturationAuditKeywords, ...creditFinalDeepAuditKeywords]);
 
 export function getCreditKeywords(categoryId: string) {
   return creditKeywords.filter((keyword) => keyword.categoryId === categoryId);
