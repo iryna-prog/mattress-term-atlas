@@ -10714,8 +10714,10 @@
           "aliases": [
             "organic vs natural mattress",
             "difference between organic and natural mattress",
-            "is natural the same as organic mattress"
+            "is natural the same as organic mattress",
+            "natural vs organic mattress claims"
           ],
+          "aliasesAreExact": true,
           "sourceUrls": [
             "https://www.sleepfoundation.org/best-mattress/best-organic-mattresses",
             "https://www.healthline.com/health/healthy-sleep/how-to-choose-a-mattress"
@@ -11150,6 +11152,7 @@
             "difference between mattress certification and safety standard",
             "are mattress certifications required"
           ],
+          "aliasesAreExact": true,
           "sourceUrls": [
             "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Mattresses"
           ],
@@ -11173,6 +11176,7 @@
             "how long does a new mattress smell last",
             "when does mattress off gassing stop"
           ],
+          "aliasesAreExact": true,
           "sourceUrls": [
             "https://www.sleepfoundation.org/mattress-information/mattress-shopping"
           ],
@@ -13824,6 +13828,701 @@
           }
         ],
         "saturationStatement": "Not yet practically saturated: financing edge cases and sale-verification intent are now well covered, but one later evidence-led follow-up may still find defensible gaps."
+      }
+    },
+    {
+      "id": "2026-07-24-safety-certifications-audit-01",
+      "date": "2026-07-24",
+      "sequence": 1,
+      "summary": "Dedicated Mattress Safety & Certifications audit checked six authoritative source families across seven official pages and accepted 26 distinct canonical pages. It merged 5 exact intents, rejected 9 covered or section-level ideas, kept brands and retailers frozen, and flagged every accepted page for specialist review. The category is practically saturated under current evidence.",
+      "categoriesAdded": [],
+      "keywords": [
+        {
+          "keyword": "how to check if a mattress has been recalled",
+          "categoryId": "safety",
+          "subcategory": "Mattress recalls",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "mattress recall lookup",
+            "mattress recall search"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/Recalls"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "what to do if your mattress is recalled",
+          "categoryId": "safety",
+          "subcategory": "Mattress recalls",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "recalled mattress what to do",
+            "mattress recall next steps"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/Recalls"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "16 cfr 1632 vs 1633 mattress standards",
+          "categoryId": "safety",
+          "subcategory": "Federal flammability standards",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "difference between 16 cfr 1632 and 1633",
+            "cigarette ignition vs open flame mattress testing"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/FAQ/Mattresses-Mattress-Pads-Mattress-Sets"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "do imported mattresses follow u.s. flammability standards",
+          "categoryId": "safety",
+          "subcategory": "Federal flammability standards",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "u.s. safety standards for imported mattresses"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/FAQ/Mattresses-Mattress-Pads-Mattress-Sets"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "are futon mattresses covered by federal flammability standards",
+          "categoryId": "safety",
+          "subcategory": "Federal flammability standards",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Narrow but defensible federal-safety question retained after source and cannibalization review.",
+          "aliases": [
+            "futon mattress flammability requirements"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/FAQ/Mattresses-Mattress-Pads-Mattress-Sets"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Narrow but defensible federal-safety question retained after source and cannibalization review."
+          }
+        },
+        {
+          "keyword": "are air mattresses covered by federal flammability standards",
+          "categoryId": "safety",
+          "subcategory": "Federal flammability standards",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Narrow but defensible federal-safety question retained after source and cannibalization review.",
+          "aliases": [
+            "air mattress flammability requirements"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.cpsc.gov/FAQ/Mattresses-Mattress-Pads-Mattress-Sets"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 3,
+            "priorityTier": "yellow",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Low",
+            "priorityReason": "Narrow but defensible federal-safety question retained after source and cannibalization review."
+          }
+        },
+        {
+          "keyword": "how to verify certipur-us foam in a mattress",
+          "categoryId": "safety",
+          "subcategory": "Certification verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "certipur-us directory mattress lookup",
+            "certipur mattress verification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://certipur.us/about-the-certification/frequently-asked-questions/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "certipur-us vs greenguard gold mattress certification",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "greenguard gold vs certipur-us mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://certipur.us/about-the-certification/frequently-asked-questions/",
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "certipur-us vs oeko-tex mattress certification",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "oeko-tex vs certipur-us mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://certipur.us/about-the-certification/frequently-asked-questions/",
+            "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "certipur-us vs gots mattress certification",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "gots vs certipur-us mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://certipur.us/about-the-certification/frequently-asked-questions/",
+            "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "does certipur-us mean a mattress is flame retardant free",
+          "categoryId": "safety",
+          "subcategory": "Certification limits",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "certipur-us flame retardant requirements"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://certipur.us/about-the-certification/frequently-asked-questions/"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "greenguard vs greenguard gold mattress",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "greenguard gold difference for mattresses"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "what does greenguard test in a mattress",
+          "categoryId": "safety",
+          "subcategory": "Certification scope",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "greenguard mattress testing explained"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "how to verify a greenguard certified mattress",
+          "categoryId": "safety",
+          "subcategory": "Certification verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "greenguard mattress certification lookup"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "does greenguard gold mean a mattress is voc free",
+          "categoryId": "safety",
+          "subcategory": "Certification limits",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "greenguard gold mattress voc free claim"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "greenguard gold vs oeko-tex mattress certification",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "oeko-tex vs greenguard gold mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ul.com/services/ul-greenguard-certification",
+            "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "how to verify an oeko-tex mattress certificate",
+          "categoryId": "safety",
+          "subcategory": "Certification verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "oeko-tex mattress lookup",
+            "check oeko-tex mattress certificate number"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "oeko-tex vs gots mattress certification",
+          "categoryId": "safety",
+          "subcategory": "Certification comparisons",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "gots vs oeko-tex mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100",
+            "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "how to verify a gots certified mattress",
+          "categoryId": "safety",
+          "subcategory": "Certification verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "gots mattress lookup",
+            "check gots mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "gots organic vs made with organic mattress label",
+          "categoryId": "safety",
+          "subcategory": "Organic certification labels",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "gots organic label vs made with organic label mattress"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "does gots certify a whole mattress or only the fabric",
+          "categoryId": "safety",
+          "subcategory": "Certification scope",
+          "contentType": "FAQ",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "gots certified mattress vs gots certified components"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "how to evaluate organic mattress claims",
+          "categoryId": "safety",
+          "subcategory": "Mattress marketing claims",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "how to verify organic mattress claims"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "what does plant-based foam mean in a mattress",
+          "categoryId": "safety",
+          "subcategory": "Mattress marketing claims",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "plant based mattress foam claims explained"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "voc-free vs low-voc mattress claims",
+          "categoryId": "safety",
+          "subcategory": "Emissions claims",
+          "contentType": "Comparison",
+          "intent": "Commercial Investigation",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "low-voc vs zero-voc mattress",
+            "no-voc vs low-voc mattress"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims",
+            "https://www.ul.com/services/ul-greenguard-certification"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        },
+        {
+          "keyword": "how to evaluate chemical-free mattress claims",
+          "categoryId": "safety",
+          "subcategory": "Mattress marketing claims",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying.",
+          "aliases": [
+            "how to verify chemical-free mattress claims"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 4,
+            "priorityTier": "green",
+            "demandEstimate": "Low",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Distinct certification or claims question that helps shoppers assess mattress evidence before buying."
+          }
+        },
+        {
+          "keyword": "how to tell if a mattress certification is independent",
+          "categoryId": "safety",
+          "subcategory": "Certification verification",
+          "contentType": "Guide",
+          "intent": "Informational",
+          "specialistReview": true,
+          "rationale": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path.",
+          "aliases": [
+            "independent vs self-awarded mattress certification"
+          ],
+          "aliasesAreExact": true,
+          "sourceUrls": [
+            "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims"
+          ],
+          "rankingOverride": {
+            "opportunityScore": 5,
+            "priorityTier": "green",
+            "demandEstimate": "Medium",
+            "difficultyEstimate": "Medium",
+            "priorityReason": "Strong safety or certification decision with a direct mattress verification, comparison, or replacement path."
+          }
+        }
+      ],
+      "audit": {
+        "category": "Mattress Safety & Certifications",
+        "sourcesChecked": [
+          "https://www.cpsc.gov/FAQ/Mattresses-Mattress-Pads-Mattress-Sets",
+          "https://www.cpsc.gov/Recalls",
+          "https://certipur.us/about-the-certification/frequently-asked-questions/",
+          "https://www.ul.com/services/ul-greenguard-certification",
+          "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100",
+          "https://global-standard.org/images/resource-library/documents/standard-and-manual/Manual_for_the_Implementation_of_GOTS_V_7.0.pdf",
+          "https://www.ftc.gov/business-guidance/blog/2017/09/ftc-says-company-didnt-have-support-organic-mattress-claims"
+        ],
+        "sourceFamiliesChecked": 6,
+        "aliasesMerged": 5,
+        "aliasMerges": [
+          {
+            "alias": "how to check if a mattress meets federal flammability standards",
+            "canonical": "mattress flammability standard"
+          },
+          {
+            "alias": "what does certipur-us certification cover in a mattress",
+            "canonical": "certipur-us certified mattress"
+          },
+          {
+            "alias": "what does oeko-tex standard 100 cover in a mattress",
+            "canonical": "oeko-tex certified mattress"
+          },
+          {
+            "alias": "natural vs organic mattress claims",
+            "canonical": "organic mattress vs natural mattress"
+          },
+          {
+            "alias": "cigarette ignition vs open flame mattress testing",
+            "canonical": "16 cfr 1632 vs 1633 mattress standards"
+          }
+        ],
+        "rejected": [
+          {
+            "keyword": "can you resell or donate a recalled mattress",
+            "reason": "Narrow disposal subsection whose legal remedy varies by recall."
+          },
+          {
+            "keyword": "are mattress toppers covered by federal flammability standards",
+            "reason": "Accessory-specific exclusion is a section, not a durable mattress-shopping page."
+          },
+          {
+            "keyword": "are mattress pads covered by federal flammability standards",
+            "reason": "Accessory-specific regulatory FAQ has weak mattress purchase intent."
+          },
+          {
+            "keyword": "can a mattress contain both certified and uncertified foam",
+            "reason": "Useful verification caveat, but better handled within the CertiPUR-US verification page."
+          },
+          {
+            "keyword": "does certipur-us certify latex foam",
+            "reason": "Single-answer scope question belongs within the CertiPUR-US guide."
+          },
+          {
+            "keyword": "does certipur-us test mattress durability",
+            "reason": "Misframes foam testing as whole-mattress durability and is section-level."
+          },
+          {
+            "keyword": "which oeko-tex product class applies to mattresses",
+            "reason": "Depends on certified component and intended contact; belongs in the verification guide."
+          },
+          {
+            "keyword": "what does non-toxic mattress mean",
+            "reason": "Cannibalizes existing non-toxic and chemical-free mattress pages."
+          },
+          {
+            "keyword": "how to spot misleading mattress certification seals",
+            "reason": "Covered by the independent-certification verification page."
+          }
+        ],
+        "saturationStatement": "Practically saturated for distinct mattress safety and certification page intent under current evidence; reopen only for a new regulation, recall pattern, certification scheme, affected mattress type, SERP, or Search Console query."
       }
     }
   ]

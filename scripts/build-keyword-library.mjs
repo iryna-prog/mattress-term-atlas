@@ -956,16 +956,28 @@ addAll("fiberglass", "Fiberglass detection and alternatives", [
 addAll("safety", "Fire barriers and flammability", [
   "natural mattress fire barrier", "wool mattress fire barrier",
   "rayon mattress fire barrier", "silica mattress fire barrier", "chemical flame retardants in mattresses",
-  "mattress flammability standard", "16 cfr 1632 mattress standard", "16 cfr 1633 mattress standard",
+  "16 cfr 1632 mattress standard", "16 cfr 1633 mattress standard",
 ]);
+add("mattress flammability standard", "safety", "Fire barriers and flammability", "Curated expansion", {
+  aliases: ["how to check if a mattress meets federal flammability standards"],
+  aliasesAreExact: true,
+});
 addAll("safety", "Mattress certifications and chemicals", [
-  "certipur-us certified mattress", "greenguard gold certified mattress", "gots certified mattress",
-  "gols certified latex mattress", "oeko-tex certified mattress", "eco-institut certified mattress",
+  "greenguard gold certified mattress", "gots certified mattress", "gols certified latex mattress",
+  "eco-institut certified mattress",
   "made safe certified mattress", "organic content standard mattress", "mattress certification guide",
   "mattress voc emissions", "low-voc mattress", "mattress off-gassing", "formaldehyde in mattresses",
   "phthalates in mattresses", "pfas in mattress covers", "antimicrobial chemicals in mattresses",
   "is polyurethane foam in mattresses safe", "mattress proposition 65 warning",
 ]);
+add("certipur-us certified mattress", "safety", "Mattress certifications and chemicals", "Curated expansion", {
+  aliases: ["what does certipur-us certification cover in a mattress"],
+  aliasesAreExact: true,
+});
+add("oeko-tex certified mattress", "safety", "Mattress certifications and chemicals", "Curated expansion", {
+  aliases: ["what does oeko-tex standard 100 cover in a mattress"],
+  aliasesAreExact: true,
+});
 
 const comparisons = [
   "latex mattress vs memory foam mattress", "latex mattress vs hybrid mattress",
