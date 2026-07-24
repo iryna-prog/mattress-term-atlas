@@ -1802,7 +1802,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .code-atmosphere > i:nth-child(2) { top: 22%; right: -15%; background: #a23dff; animation-delay: -6s; }
 .code-atmosphere > i:nth-child(3) { bottom: -24%; left: 30%; background: #ff3faf; animation-delay: -10s; }
 .code-rain { position: absolute; top: 0; right: 2%; color: rgba(170,123,255,.07); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 28px; line-height: 2.7; writing-mode: vertical-rl; animation: code-rain 18s linear infinite; }
-.code-shell > *:not(.code-atmosphere) { position: relative; z-index: 1; }
+.code-shell > *:not(.code-atmosphere):not(.updates-scrim) { position: relative; z-index: 1; }
 
 .code-header { border-color: rgba(183, 120, 255, .2); background: rgba(7, 6, 23, .78); }
 .code-cat-mark { display: grid; place-items: center; color: #f8efff; background: linear-gradient(145deg, #8d4cff, #27d9ef); box-shadow: 0 0 22px rgba(159,79,255,.25); }
@@ -1910,7 +1910,7 @@ footer { border-color: var(--line); color: #729cad; background: rgba(2,13,25,.86
 .credit-atmosphere .bird { position: absolute; color: rgba(219,247,184,.22); font-size: 27px; animation: bird-flight 18s linear infinite; }
 .credit-atmosphere .bird-one { top: 18%; left: -5%; }
 .credit-atmosphere .bird-two { top: 27%; left: -12%; animation-delay: -8s; animation-duration: 23s; }
-.credit-shell > *:not(.credit-atmosphere) { position: relative; z-index: 1; }
+.credit-shell > *:not(.credit-atmosphere):not(.updates-scrim) { position: relative; z-index: 1; }
 
 .credit-header { border-color: rgba(142,213,144,.18); background: rgba(5,25,13,.82); }
 .credit-cat-mark { display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(209,243,144,.42); color: transparent; background-image: url('/assets/snowball-credit-hero-wide.png'); background-position: 73% 48%; background-size: 360%; background-repeat: no-repeat; box-shadow: 0 0 22px rgba(102,217,156,.22); font-size: 0; }
